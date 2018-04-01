@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+ <PropertyGroup Label="UserMacros">
+    <SFMLDir>$(SolutionDir)Dependencies\SFML-2.4.2\</SFMLDir>
+    <SFMLLinkablesStaticDebug>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;sfml-system-s-d.lib</SFMLLinkablesStaticDebug>
+    <SFMLLinkablesDynamicDebug>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib</SFMLLinkablesDynamicDebug>
+    <SFMLLinkablesStaticRelease>sfml-graphics-s.lib;sfml-window-s.lib;sfml-audio-s.lib;sfml-network-s.lib;sfml-system-s.lib</SFMLLinkablesStaticRelease>
+    <SFMLLinkablesDynamicRelease>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib</SFMLLinkablesDynamicRelease>
+    <SFMLLinkablesDeps>opengl32.lib;glu32.lib;freetype.lib;jpeg.lib;openal32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;flac.lib;gdi32.lib;winmm.lib</SFMLLinkablesDeps>
+    <EngineDir>$(SolutionDir)Engine\</EngineDir>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="SFMLDir">
+      <Value>$(SFMLDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SFMLLinkablesStaticDebug">
+      <Value>$(SFMLLinkablesStaticDebug)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SFMLLinkablesDynamicDebug">
+      <Value>$(SFMLLinkablesDynamicDebug)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SFMLLinkablesStaticRelease">
+      <Value>$(SFMLLinkablesStaticRelease)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SFMLLinkablesDynamicRelease">
+      <Value>$(SFMLLinkablesDynamicRelease)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SFMLLinkablesDeps">
+      <Value>$(SFMLLinkablesDeps)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="EngineDir">
+      <Value>$(EngineDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
