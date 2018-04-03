@@ -15,6 +15,7 @@ Code is splitted into fragments - *Modules*. Every module is doing its own job, 
 ### Engine
 #### List of modules
 * Visual
+    * Assets 
     * Renderer
         * Objects, that can be drawn
         * Drawing on screen
