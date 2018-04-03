@@ -16,6 +16,7 @@ Code is splitted into fragments - *Modules*. Every module is doing its own job, 
 #### List of modules
 * Debug
     * Logging
+* Serialization
 * Assets
     * Audio
         * Music, Sound
@@ -56,4 +57,13 @@ Tree::seasonChange( Season season_ )
     if (season_ == Season::Winter)
         // Change texture to winter, lock ability to sell fruits or something
 }
+```
+No need to name global object's classes, just do that:
+```cpp
+// .hpp
+struct 
+{
+} extern MyGlobal;
+// .cpp
+inline decltype(MyGlobal) MyGlobal{};
 ```
