@@ -14,8 +14,14 @@ graph LR
 Code is splitted into fragments - *Modules*. Every module is doing its own job, but very often it'll depend on other modules. There are several layers of abstraction - from general concept to more specific components.
 ### Engine
 #### List of modules
+* Debug
+    * Logging
+* Assets
+    * Audio
+        * Music, Sound
+    * Texture
+    * Settings
 * Visual
-    * Assets 
     * Renderer
         * Objects, that can be drawn
         * Drawing on screen
@@ -29,6 +35,7 @@ Code is splitted into fragments - *Modules*. Every module is doing its own job, 
 * Audio 
 * UI
     * Basic widgets, sliders
+* Global communicator  (Messenger?)
 * Game (main class)
 #### Notes
 The *Window* has to handle *Input* updates and *Renderer* drawing - they have to communicate.
