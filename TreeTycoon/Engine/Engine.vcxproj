@@ -84,12 +84,14 @@
     <IntDir>$(SolutionDir)intermediates\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)$(Configuration)$(PlatformTarget)</TargetName>
     <ReferencePath>$(ReferencePath)</ReferencePath>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)binaries\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediates\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)$(Configuration)$(PlatformTarget)</TargetName>
     <ReferencePath>$(ReferencePath)</ReferencePath>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

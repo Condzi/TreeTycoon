@@ -10,7 +10,7 @@ using namespace sf;
 int main()
 {
 	RenderWindow window( { 800,600 }, "" );
-	Event ev;
+	Event ev{};
 
 	while ( window.isOpen() ) {
 		while ( window.pollEvent( ev ) )
