@@ -14,48 +14,52 @@ graph LR
 Code is splitted into fragments - *Modules*. Every module is doing its own job, but very often it'll depend on other modules. There are several layers of abstraction - from general concept to more specific components.
 ### Engine
 #### List of modules
+* Utility
+	* RNG functions
 * Debug
-    * Logging
-* Serialization
+	* Logging
 * Assets
-    * Audio
-        * Music, Sound
-    * Texture
-    * Settings
+	* Audio
+		* Music, Sound
+	* Texture
+	* Settings
 * Visual
-    * Renderer
-        * Objects, that can be drawn
-        * Drawing on screen
-    * Animation
+	* Renderer
+		* Objects, that can be drawn
+		* Drawing on screen
+	* Animation
 * Input
 * Gameplay objects (?) 
-    * Actor
-    * Pawn
-    * Scene
+	* Actor
+	* Pawn
+	* Scene
 * Window
 * Audio 
 * UI
-    * Basic widgets, sliders
+ 	* Basic widgets, sliders
 * Global communicator  (Messenger?)
 * Game (main class)
 #### Notes
 The *Window* has to handle *Input* updates and *Renderer* drawing - they have to communicate.
 Use *Gameplay object* in *UI*.
+The *Utility* also contains everything that will come up during programming, like `convertTo<T>( x )` function.
 ### Game
+* Saving a scene, player stats etc.
 * World
-    * Random events 
-    * Plots
-        * Trees
+	* Random events 
+	* Plots
+		* Trees
 * Economy
-    * Buy / Sell
+	* Buy / Sell
  
 # Misc ideas
+The 'internal' methods starts with underscore, eg. `Input._dispatchEvent( event )`.
 Let trees have a seasonChange method:
 ```cpp
 Tree::seasonChange( Season season_ )
 {
-    if (season_ == Season::Winter)
-        // Change texture to winter, lock ability to sell fruits or something
+	if (season_ == Season::Winter)
+		// Change texture to winter, lock ability to sell fruits or something
 }
 ```
 No need to name global object's classes, just do that:
@@ -67,3 +71,6 @@ struct
 // .cpp
 inline decltype(MyGlobal) MyGlobal{};
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjE0NjE1NjIyNF19
+-->

@@ -14,3 +14,7 @@ Uses `Window` to draw.  Provides:
 *  `render` -  draws everything on screen and displays it
 # Animation
 TODO. Maybe relation with Renderer? Take advantage of its `update` method to switch frames of animation?
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTg5ODU5MDMwMl19
+-->

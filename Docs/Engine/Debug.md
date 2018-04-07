@@ -19,3 +19,7 @@ It also provides `debugLog` - variant of `log`, but it's logging only if debug m
 `const char* loggerName() const`
 It's  the name displayed as `ExampleClass` above.
 
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE0MjI2MTUwMzVdfQ==
+-->

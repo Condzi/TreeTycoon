@@ -8,20 +8,20 @@
 ```cpp
 Game::init()
 {
-    Assets.Settings.load( "settings.ini" );
-    auto windowWidth = convertTo<int32_t>( Assets.Settings.get( "window_width" );
-    window.setSize(windowWidth, ...);
+	Assets.Settings.load( "settings.ini" );
+	auto windowWidth = convertTo<int32_t>( Assets.Settings.get( "window_width" );
+	window.setSize(windowWidth, ...);
 }
 
 Menu::update()
 {
-    if( Assets.Music.isNotPlaying() )
-        Assets.Music.play( "menuTheme" );
-    
-    if( /*button clicked*/ )
-        Assets.Sound.play( "buttonClick" ); 
-    
-    mySprite.setTexture( Asset.Texture.get( "texture ") );
+	if( Assets.Music.isNotPlaying() )
+		Assets.Music.play( "menuTheme" );
+	
+	if( /*button clicked*/ )
+		Assets.Sound.play( "buttonClick" );	
+	
+	mySprite.setTexture( Asset.Texture.get( "texture ") );
 }
 ```
 # Enforcements
@@ -34,3 +34,6 @@ Music is a special asset because it can't be stored. It has to be streamed. One 
 Both can be accesed using `get( name )`, then `cref` is returned. 
 ## Settings
 Settings are loaded from `.ini` file. They can be saved, accessed and changed. 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExMTg2MjE4MzVdfQ==
+-->
