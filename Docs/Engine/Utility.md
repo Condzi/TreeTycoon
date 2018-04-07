@@ -8,6 +8,3 @@ int8_t myRandomInt = Random<int8_t>( min, max )
 ```
 ### Enforcemets
 It's a template function. It has two parameters - `min_` and `max_`, that are casted to given template parameter, so missing float arguments in first example is not an error.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxMjY1OTk5NF19
--->

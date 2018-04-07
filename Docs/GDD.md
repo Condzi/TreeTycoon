@@ -20,11 +20,11 @@ graph TB
 ``` 
 ### Species
 * *Coniferous*:
-	* Pine
+    * Pine
 * *Leafy - Fruit*:
-	* Apple
+    * Apple
 * *Leafy - Rest*:
-	* Oak
+    * Oak
 ### Growing chart
 ```mermaid
 graph TB
@@ -69,6 +69,3 @@ See above (except wood ofc.).
 ## Other...
 # Technicals
 See: `Technicals.md`.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODgzNzk3OTddfQ==
--->

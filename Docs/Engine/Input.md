@@ -10,6 +10,3 @@ if ( Input.isHeld( Keyboard::Key::A ) )
 Theree button or key states - *up*, *down* or *held*. Methods have overload for `Keyboard::Key` and `Mouse::Button` enumerations.
 The `Keyboard::Key` and `Mouse::Button` are aliases for SFML ones.
 Also has `mousePosition` method, that returns position of mouse relative to the window.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0OTExNTNdfQ==
--->

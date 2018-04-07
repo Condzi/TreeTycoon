@@ -1,7 +1,7 @@
 # Visual
 # Drawable
 ### IDrawable enforcements
-To make something drawable you have to inherit from `IDrawable`.  The IDrawable automaticly registers and unregisters itself (RAII) in the Renderer. 
+To make something drawable you have to inherit from `IDrawable`.  The IDrawable automaticly registers and unregisters itself (RAII) in the Renderer. It has additional ability to update its position to the position of the `Entity`, however it's not obligatory.
 ### Basic drawables
 Most of them are same as SFML, but just expanded with `IDrawable`:
 * Rectangle Shape
@@ -9,12 +9,6 @@ Most of them are same as SFML, but just expanded with `IDrawable`:
 * Sprite
 * Text
 # Renderer
-Uses `Window` to draw.  Provides:
-*  `update` - sorts drawables by layer, prepares it to render
-*  `render` -  draws everything on screen and displays it
+Uses `Window` to draw. Should inherit from IUpdatable.  Its only usable method is `update`, that sorts Drawables by layer and draws them after this. 
 # Animation
-TODO. Maybe relation with Renderer? Take advantage of its `update` method to switch frames of animation?
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5ODU5MDMwMl19
--->
+TODO. Maybe relation with Renderer? Take advantage of its `update` method to switch frames of animation? Or just derive from IUpdatable
