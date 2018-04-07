@@ -3,7 +3,7 @@ The gamplay objects are the objects that creates gameplay. That can be player, e
 # Entity
 It's a base for every game object. 
 ## Enforcements
-Derives from IUpdatable. Has `kill` method. Has additional `onSpawn` and `onKill` methods. It's distinguished by *unique id* and *tag*. Has reference to parent *Scene*.
+Derives from IUpdatable. Has `kill` method. Has additional `onSpawn` and `onKill` methods. It's distinguished by *unique id* and *tag*. Has reference to parent *Scene*. It can be temporary disabled, set to *sleep* state
 # System
 Use it to update logic.
 ## Enforcements
