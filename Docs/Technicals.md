@@ -56,6 +56,7 @@ The *Utility* also contains everything that will come up during programming, lik
 # Misc ideas
 * Make priority hiearchy, what children of IUpdatable update first
 * The 'internal' methods starts with underscore, eg. `Input._dispatchEvent( event )`.
+* Use *Filters* in IDE to distinguish modules; don't make folders - make filters. 
  * Let trees have a seasonChange method:
 ```cpp
 Tree::seasonChange( Season season_ )
