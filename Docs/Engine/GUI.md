@@ -3,9 +3,11 @@ Just a *System* that is added by default to the *Scene*. It handles every spawne
 ## Class hiearchy
 ```mermaid
 graph TD
-0[Widget] --> 1[Button]
+-1[Entity] --> 0[Widget]
+0 --> 1[Button]
 0 --> 2[Slider]
 0 --> 3[Input Field]
-4[Label] --> 5[Dialog]
+-1 --> 4[Label] 
+4 --> 5[Dialog]
 4 --> 6[GUIWindow]
 ```
