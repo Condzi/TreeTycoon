@@ -13,6 +13,8 @@ graph LR
 ## Modules
 Code is splitted into fragments - *Modules*. Every module is doing its own job, but very often it'll depend on other modules. There are several layers of abstraction - from general concept to more specific components.
 ### Engine
+#### Namespaces
+Whole engine part is in `con`, however the internal globals and classes are also in `priv`.
 #### List of modules
 * Utility
     * RNG functions
