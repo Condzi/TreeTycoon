@@ -8,15 +8,16 @@
 #include "EnginePCH.hpp"
 #include "Utility.hpp"
 
+namespace con
+{
 #if _DEBUG
 constexpr bool IS_DEBUG = true;
 #else
 constexpr bool IS_DEBUG = false;
 #endif
 
-namespace con
-{
-enum class LogPriority
+// Priority is also console text color.
+enum class LogPriority 
 {
 	Info, Warning, Error
 };
@@ -40,7 +41,7 @@ protected:
 	template <typename ...TArgs>
 	void debugLog( LogPriority priority, TArgs&& ...args )
 	{
-		if constexpr (IS_DEBUG)
+		if constexpr ( IS_DEBUG )
 			log( priority, std::forward<TArgs>( args )... );
 	}
 
