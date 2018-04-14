@@ -25,6 +25,7 @@ enum class LogPriority
 class ILogger
 {
 public:
+	RULE_OF_FIVE( ILogger );
 	~ILogger();
 
 protected:

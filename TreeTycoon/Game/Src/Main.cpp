@@ -12,7 +12,7 @@ int main()
 	class Logger : public ILogger
 	{
 	private:
-		const char* loggerName() const noexcept
+		const char* loggerName() const noexcept override
 		{
 			return "Logger";
 		}

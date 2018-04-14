@@ -7,6 +7,16 @@
 
 #include "EnginePCH.hpp"
 
+#define RULE_OF_FIVE_NO_CTOR( classname )			\
+classname( const classname& ) = default;			\
+classname( classname&& ) = default;					\
+classname& operator=( const classname& ) = default; \
+classname& operator=( classname&& ) = default; 
+
+#define RULE_OF_FIVE( classname )	\
+classname() = default;				\
+RULE_OF_FIVE_NO_CTOR( classname )
+
 namespace con
 {
 
