@@ -27,7 +27,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\Debug.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Inc\EnginePCH.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\Utility.hpp">
       <SubType>
       </SubType>
     </ClInclude>

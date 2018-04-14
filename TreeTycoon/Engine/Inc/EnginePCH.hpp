@@ -5,4 +5,13 @@
 
 #pragma once
 
-// Includes here
+#include <algorithm>
+#include <array>
+#include <cinttypes>
+#include <cctype>
+#include <string>
+#include <sstream>
+#include <vector>
+
+using float32_t = float;
+using float64_t = double;

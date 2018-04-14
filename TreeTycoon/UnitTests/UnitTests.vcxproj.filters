@@ -16,12 +16,6 @@
     <Filter Include="Header Files\Framework">
       <UniqueIdentifier>{a4430bae-aea3-4c8f-ad37-efd0f4a8553b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine Tests">
-      <UniqueIdentifier>{3ba98d84-5946-4315-8442-07b3b39f9e1a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game Tests">
-      <UniqueIdentifier>{bf7f7218-1609-4f1f-8fd3-ac041ada06e5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Framework">
       <UniqueIdentifier>{99f3df32-19b2-4a5b-b63d-4354f12e34ad}</UniqueIdentifier>
     </Filter>
@@ -40,6 +34,9 @@
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
       <Filter>Source Files\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Utility.cpp">
+      <Filter>Source Files\Engine Tests</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
