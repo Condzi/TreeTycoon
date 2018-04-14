@@ -1,22 +1,23 @@
 # Unit Test
 Contains tests submodules from every module.
 ## Example
-The goal is to make whole unit test look like this.
 ```cpp
-SUB_TEST( ModuleA, SubModuleA )
+UNIT_TEST( ModuleA )
+{
+SUB_TEST( SubModuleA )
 {
     Foo boo;
-    if ( boo.failed )
-        return TEST_FAILED( "reason" );
-
+    REQUIRE( boo.somevalue == 1 );
     INFO( "some information" );
-    // ...
-    return TEST_PASSED;
+};
+
+SUB_TEST( ModuleA, SubModuleB ) { /* ... */ };
 }
-SUB_TEST( ModuleA, SubModuleB ) { /* ... */ }
 ```
 Result:
 ```
 ModuleA, SubModuleA: some information
 ModuleA, SubModuleB FAILED: someReason
 ```
+## Enfocements
+One unit test consist of many sub tests. If the `REQUIRE( expr )` macro fails, the sub test failes => if doesn't fail, then sub test pass. `INFO( msg )` - just print information to command prompt.
