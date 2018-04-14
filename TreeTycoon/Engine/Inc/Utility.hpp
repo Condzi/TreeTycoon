@@ -72,10 +72,8 @@ template <typename TTarget, typename TSrc, typename ...TArgs>
 inline TTarget ConvertTo( const TSrc& src, TArgs&& ...args )
 {
 	if constexpr ( std::is_same_v<std::string, TTarget> )
-	{
-		auto str = priv::ConvertToString( src );
-		return ( str +=  ... += priv::ConvertToString( args ) );
-	} else if constexpr ( std::is_same_v<std::string, TSrc> )
+		return ( priv::ConvertToString( src ) +=  ... += priv::ConvertToString( args ) );
+	else if constexpr ( std::is_same_v<std::string, TSrc> )
 		return priv::ConvertFromString<TTarget>( src );
 	else
 		return static_cast<TTarget>( src );
