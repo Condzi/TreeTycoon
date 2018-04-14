@@ -1,22 +1,2 @@
-# Unit Test
-## Example
-```cpp
-UNIT_TEST( ModuleA )
-{
-SUB_TEST( SubModuleA )
-{
-    Foo boo;
-    REQUIRE( boo.somevalue == 1 );
-    INFO( "some information" );
-};
-
-SUB_TEST( SubModuleB ) { /* ... */ };
-}
-```
-Result:
-```
-ModuleA, SubModuleA: some information
-ModuleA, SubModuleB FAILED: someReason
-```
-## Enfocements
-One unit test consist of many sub tests. If the `REQUIRE( expr )` macro fails, the sub test failes => if doesn't fail, then sub test pass. `INFO( msg )` - just print information to command prompt.
+# Unit tests
+Use [Catch2](https://github.com/catchorg/Catch2) framework. 

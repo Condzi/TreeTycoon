@@ -21,6 +21,12 @@
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inc\Catch.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{2f59519e-b143-4d76-83a6-3dfe7358bcbe}</ProjectGuid>
@@ -95,8 +101,9 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SFMLDir)include;$(EngineDir)Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SFMLDir)include;$(EngineDir)Inc;$(ProjDir)Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SFMLLinkablesDynamicDebug);EngineDebugx86.lib;</AdditionalDependencies>
@@ -120,9 +127,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>
-      </PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SFMLDir)include;$(EngineDir)Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SFMLDir)include;$(EngineDir)Inc;$(ProjDir)Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>

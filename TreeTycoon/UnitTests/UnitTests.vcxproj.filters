@@ -13,10 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Framework">
+      <UniqueIdentifier>{a4430bae-aea3-4c8f-ad37-efd0f4a8553b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine Tests">
+      <UniqueIdentifier>{3ba98d84-5946-4315-8442-07b3b39f9e1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Tests">
+      <UniqueIdentifier>{bf7f7218-1609-4f1f-8fd3-ac041ada06e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Framework">
+      <UniqueIdentifier>{99f3df32-19b2-4a5b-b63d-4354f12e34ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Tests">
+      <UniqueIdentifier>{c5567498-cb4a-4524-90a5-85f14c1cce96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Tests">
+      <UniqueIdentifier>{068dae98-e5fa-43f2-b20e-e91a58cea140}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inc\Catch.hpp">
+      <Filter>Header Files\Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Framework</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
