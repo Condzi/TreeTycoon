@@ -1,5 +1,4 @@
 # Unit Test
-Contains tests submodules from every module.
 ## Example
 ```cpp
 UNIT_TEST( ModuleA )
@@ -11,7 +10,7 @@ SUB_TEST( SubModuleA )
     INFO( "some information" );
 };
 
-SUB_TEST( ModuleA, SubModuleB ) { /* ... */ };
+SUB_TEST( SubModuleB ) { /* ... */ };
 }
 ```
 Result:
