@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Inc\Debug.cpp">
+    <ClCompile Include="Src\Debug.cpp">
       <SubType>
       </SubType>
     </ClCompile>

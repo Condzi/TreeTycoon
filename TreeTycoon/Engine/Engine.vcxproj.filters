@@ -16,24 +16,30 @@
     <Filter Include="Header Files\Utility">
       <UniqueIdentifier>{e84be837-363f-4e72-a90c-5a67a6de01a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Debug">
+      <UniqueIdentifier>{075ae26e-6b88-4588-a505-17f7475dce6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Debug">
+      <UniqueIdentifier>{41db3f52-f708-4487-a9a5-27720b61064b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\EnginePCH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Inc\Debug.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Src\Debug.cpp">
+      <Filter>Source Files\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\EnginePCH.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\Debug.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Inc\Utility.hpp">
       <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Debug.hpp">
+      <Filter>Header Files\Debug</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
