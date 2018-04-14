@@ -9,6 +9,9 @@
 #include <array>
 #include <cinttypes>
 #include <cctype>
+#include <fstream>
+#include <filesystem>
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>

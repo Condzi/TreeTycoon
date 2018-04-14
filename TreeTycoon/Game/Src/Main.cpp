@@ -3,21 +3,33 @@
 	https://github.com/condzi
 */
 
-#include <SFML/Graphics.hpp>
+#include <Debug.hpp>
 
-using namespace sf;
+using namespace con;
 
 int main()
 {
-	RenderWindow window( { 800,600 }, "" );
-	Event ev{};
+	class Logger : public ILogger
+	{
+	private:
+		const char* loggerName() const noexcept
+		{
+			return "Logger";
+		}
+	public:
+		void test()
+		{
+			log( LogPriority::Info, "info." );
+			log( LogPriority::Warning, "warning." );
+			log( LogPriority::Error, "error." );
+			debugLog( LogPriority::Info, "debug info." );
+			debugLog( LogPriority::Warning, "debug warning." );
+			debugLog( LogPriority::Error, "debug error." );
+		}
+	};
 
-	while ( window.isOpen() ) {
-		while ( window.pollEvent( ev ) )
-			if ( ev.type == Event::Closed )
-				window.close();
+	Logger l;
+	l.test();
 
-		window.clear();
-		window.display();
-	}
+	std::cin.get();
 }
