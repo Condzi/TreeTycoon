@@ -11,7 +11,7 @@ graph LR
 3 -."depends on".-> 1
 ```
 ## Namespaces
-Whole *Engine* part is in `con`, however the internal globals and classes are also in `priv`. The *Game* has no namespace. The *UnitTests* module uses `cut` - **C**ondzi **U**nit **T**ests`
+Whole *Engine* part is in `con`, however the internal globals and classes are also in `priv`. The *Game* has no namespace.
 ## Modules
 Code is splitted into fragments - *Modules*. Every module is doing its own job, but very often it'll depend on other modules. There are several layers of abstraction - from general concept to more specific components.
 ### Engine
