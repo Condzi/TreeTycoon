@@ -9,24 +9,6 @@
 
 namespace con
 {
-ILogger::~ILogger()
-{
-	constexpr const char* LOG_FILE_PATH = "log.txt";
-
-	if ( static bool firstSave = true; firstSave ) {
-		firstSave = false;
-		std::experimental::filesystem::remove( { LOG_FILE_PATH } );
-	}
-
-	// Flush every time the logger is destroyed and there is some content.
-	// May be a bottleneck.
-	if ( !logData.empty() ) {
-		std::ofstream logFile( LOG_FILE_PATH, std::ios::app );
-		std::move( logData.begin(), logData.end(), std::ostream_iterator<std::string>( logFile, "\n" ) );
-		logData.clear();
-	}
-}
-
 const char* con::ILogger::logPriorityToString( LogPriority priority ) const noexcept
 {
 	switch ( priority ) {
@@ -36,5 +18,20 @@ const char* con::ILogger::logPriorityToString( LogPriority priority ) const noex
 	}
 
 	return "";
+}
+
+ILogger::LogFile::~LogFile()
+{
+	std::experimental::filesystem::remove( { LOG_FILE_PATH } );
+	
+	std::ofstream logFile( LOG_FILE_PATH );
+	std::move( content.begin(), content.end(), std::ostream_iterator<std::string>( logFile, "\n" ) );
+	content.clear();
+}
+
+void ILogger::LogFile::append( const std::string& message )
+{
+	static LogFile file;
+	file.content.emplace_back( message );
 }
 }

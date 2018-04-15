@@ -17,17 +17,13 @@ constexpr bool IS_DEBUG = false;
 #endif
 
 // Priority is also console text color.
-enum class LogPriority 
+enum class LogPriority
 {
 	Info, Warning, Error
 };
 
 class ILogger
 {
-public:
-	RULE_OF_FIVE( ILogger );
-	~ILogger();
-
 protected:
 	virtual const char* loggerName() const = 0;
 
@@ -35,19 +31,29 @@ protected:
 	void log( LogPriority priority, TArgs&& ...args )
 	{
 		auto message = ConvertTo<std::string>( "[", logPriorityToString( priority ), "]: ", std::forward<TArgs>( args )... );
-		logData.emplace_back( message );
+		LogFile::append( message );
 		std::cout << message << '\n';
 	}
 
 	template <typename ...TArgs>
 	void debugLog( LogPriority priority, TArgs&& ...args )
 	{
-		if constexpr ( IS_DEBUG )
+		if constexpr (IS_DEBUG)
 			log( priority, std::forward<TArgs>( args )... );
 	}
 
 private:
-	inline static std::vector<std::string> logData{};
+	class LogFile
+	{
+	private:
+		static constexpr const char* LOG_FILE_PATH = "log.txt";
+		std::vector<std::string> content;
+
+		~LogFile();
+
+	public:
+		static void append( const std::string& message );
+	};
 
 	const char* logPriorityToString( LogPriority priority ) const noexcept;
 };
