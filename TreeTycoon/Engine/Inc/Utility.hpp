@@ -30,11 +30,17 @@ namespace priv
 template <typename TSrc>
 inline std::string ConvertToString( const TSrc& src )
 {
-	if constexpr ( std::is_same_v<bool, TSrc> )
+	if constexpr ( std::is_same_v<std::string, TSrc> )
+		return src;
+	else if constexpr ( std::is_same_v<bool, TSrc> )
 		return src ? "true" : "false";
 	else {
 		std::stringstream ss;
-		ss << +src;
+		// it's typedef for signed / unsigned char, so it has to be converted to number
+		if constexpr ( std::is_same_v<int8_t, TSrc> || std::is_same_v<uint8_t, TSrc> )
+			ss << +src;
+		else
+			ss << src;
 		return ss.str();
 	}
 }
@@ -82,7 +88,7 @@ template <typename TTarget, typename TSrc, typename ...TArgs>
 inline TTarget ConvertTo( const TSrc& src, TArgs&& ...args )
 {
 	if constexpr ( std::is_same_v<std::string, TTarget> )
-		return ( priv::ConvertToString( src ) +=  ... += priv::ConvertToString( args ) );
+		return ( priv::ConvertToString( src ) += ... += priv::ConvertToString( args ) );
 	else if constexpr ( std::is_same_v<std::string, TSrc> )
 		return priv::ConvertFromString<TTarget>( src );
 	else

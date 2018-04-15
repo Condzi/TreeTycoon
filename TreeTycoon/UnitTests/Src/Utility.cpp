@@ -65,6 +65,7 @@ TEST_CASE( "Type Conversions", "[Utility]" )
 
 	SECTION( "Converting multiple arguments to string" )
 	{
-		REQUIRE( con::ConvertTo<std::string>( "Something = ", 123, "." ) == std::string( "Something = 123." ) );
+		std::string str = ". :)";
+		REQUIRE( con::ConvertTo<std::string>( "Something = ", 123, str ) == std::string( "Something = 123. :)" ) );
 	}
 }
