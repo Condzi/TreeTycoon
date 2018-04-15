@@ -11,4 +11,4 @@ Has read/write acces to the Entities of parent *Scene*.  You can set it's update
 # Scene
 A manager for *Entites* and *Systems*.
 ## Enforcements
-Has `spawn` and `kill` methods to create `Entity` of specified type or kill `Entities` with specified tag or id. Uses helper storage classes for *Entities* and *Systems*.
+Has `spawn` and `kill` methods to create `Entity` of specified type or kill `Entities` with specified tag or id. Uses helper storage classes for *Entities* and *Systems*. The *Entities* are not removed immidietly - they are marked as 'to delete' first, then, after few seconds, are finally removed.
