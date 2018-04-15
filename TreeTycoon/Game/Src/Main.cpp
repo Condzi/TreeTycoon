@@ -12,9 +12,9 @@ int main()
 	class Logger : public ILogger
 	{
 	private:
-		const char* loggerName() const noexcept override
+		std::string loggerName() const override
 		{
-			return "Logger";
+			return ConvertTo<std::string>( 123 );
 		}
 	public:
 		void test()

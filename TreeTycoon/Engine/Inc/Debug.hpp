@@ -25,7 +25,7 @@ enum class LogPriority
 class ILogger
 {
 protected:
-	virtual const char* loggerName() const = 0;
+	virtual std::string loggerName() const = 0;
 
 	template <typename ...TArgs>
 	void log( LogPriority priority, TArgs&& ...args )
