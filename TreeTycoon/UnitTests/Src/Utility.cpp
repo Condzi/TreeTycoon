@@ -69,3 +69,24 @@ TEST_CASE( "Type Conversions", "[Utility]" )
 		REQUIRE( con::ConvertTo<std::string>( "Something = ", 123, str ) == std::string( "Something = 123. :)" ) );
 	}
 }
+
+TEST_CASE( "Random Number Generator", "[Utility]" )
+{
+	SECTION( "int, int" )
+	{
+		REQUIRE_NOTHROW( con::Random( 1, 2 ) );
+		REQUIRE_THROWS( con::Random( 2, 1 ) );
+	}
+
+	SECTION( "float, int" )
+	{
+		REQUIRE_NOTHROW( con::Random( 1.0f, 2 ) );
+		REQUIRE_THROWS( con::Random( 2.0f, 1 ) );
+	}
+
+	SECTION( "double, int" )
+	{
+		REQUIRE_NOTHROW( con::Random( 1.0, 2 ) );
+		REQUIRE_THROWS( con::Random( 2.0, 1 ) );
+	}
+}
