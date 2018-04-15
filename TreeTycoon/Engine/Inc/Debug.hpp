@@ -30,7 +30,7 @@ protected:
 	template <typename ...TArgs>
 	void log( LogPriority priority, TArgs&& ...args )
 	{
-		auto message = ConvertTo<std::string>( "[", logPriorityToString( priority ), "]: ", std::forward<TArgs>( args )... );
+		auto message = ConvertTo<std::string>( "[", logPriorityToString( priority ), "] ", loggerName(), ": ", std::forward<TArgs>( args )... );
 		LogFile::append( message );
 		std::cout << message << '\n';
 	}
