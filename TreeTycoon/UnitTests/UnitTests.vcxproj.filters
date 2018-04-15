@@ -38,5 +38,8 @@
     <ClCompile Include="Src\Utility.cpp">
       <Filter>Source Files\Engine Tests</Filter>
     </ClCompile>
+    <ClCompile Include="Src\IUpdatable.cpp">
+      <Filter>Source Files\Engine Tests</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

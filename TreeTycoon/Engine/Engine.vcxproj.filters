@@ -22,6 +22,12 @@
     <Filter Include="Source Files\Debug">
       <UniqueIdentifier>{41db3f52-f708-4487-a9a5-27720b61064b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IUpdatable">
+      <UniqueIdentifier>{6d9d6482-0e3e-4ad4-8792-05e7c12f60d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IUpdatable">
+      <UniqueIdentifier>{2f63733a-995d-44f0-8454-07b9b74d485d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\EnginePCH.cpp">
@@ -29,6 +35,12 @@
     </ClCompile>
     <ClCompile Include="Src\Debug.cpp">
       <Filter>Source Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Updater.cpp">
+      <Filter>Source Files\IUpdatable</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\IUpdatable.cpp">
+      <Filter>Source Files\IUpdatable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +52,12 @@
     </ClInclude>
     <ClInclude Include="Inc\Debug.hpp">
       <Filter>Header Files\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\IUpdatable.hpp">
+      <Filter>Header Files\IUpdatable</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Updater.hpp">
+      <Filter>Header Files\IUpdatable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
