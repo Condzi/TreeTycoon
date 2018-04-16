@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\AudioHolder.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\Debug.cpp">
       <SubType>
       </SubType>
@@ -39,6 +43,18 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\Assets.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\AudioHolder.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\BasicAssetHolder.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Inc\Debug.hpp">
       <SubType>
       </SubType>

@@ -56,7 +56,6 @@ TEST_CASE( "Updater", "[IUpdatable]" )
 	{
 		REQUIRE( value == 0 );
 		{
-
 			UpdatableA a;
 			UpdatableB b;
 			con::priv::Updater.update();
