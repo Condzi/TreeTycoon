@@ -54,6 +54,9 @@
     <ClCompile Include="Src\EnginePCH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Assets.cpp">
+      <Filter>Source Files\Assets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\EnginePCH.hpp">
@@ -81,6 +84,9 @@
       <Filter>Header Files\Assets</Filter>
     </ClInclude>
     <ClInclude Include="Inc\INIFile.hpp">
+      <Filter>Header Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Settings.hpp">
       <Filter>Header Files\Assets</Filter>
     </ClInclude>
   </ItemGroup>

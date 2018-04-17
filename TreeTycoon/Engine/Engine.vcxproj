@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Assets.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\AudioHolder.cpp">
       <SubType>
       </SubType>
@@ -72,6 +76,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\IUpdatable.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\Settings.hpp">
       <SubType>
       </SubType>
     </ClInclude>
