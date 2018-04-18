@@ -4,15 +4,17 @@
 */
 
 #include <filesystem>
+// for sleep
+#include <thread>
 
 #include "Catch.hpp"
 
 #include <Assets.hpp>
 #include <INIFile.hpp>
 
-TEST_CASE( "INI File Reader", "[Assets]" )
+TEST_CASE( "INI File Reader (aka Settings)", "[Assets]" )
 {
-	static constexpr const char* TEST_INI_PATH = "test.ini";
+	static constexpr const char* TEST_INI_PATH = "Data/test.ini";
 
 	{
 		con::INIReader ini;
@@ -45,7 +47,7 @@ TEST_CASE( "INI File Reader", "[Assets]" )
 
 TEST_CASE( "Basic Asset Holder (sf::Texture)", "[Assets]" )
 {
-	static constexpr const char* TEST_IMG_PATH = "test.png";
+	static constexpr const char* TEST_IMG_PATH = "Data/test.png";
 
 	{
 		sf::Image testImg;
@@ -53,12 +55,30 @@ TEST_CASE( "Basic Asset Holder (sf::Texture)", "[Assets]" )
 		testImg.saveToFile( TEST_IMG_PATH );
 	}
 
+	auto& texture = con::Assets.Texture;
+
 	{
-		REQUIRE( con::Assets.Texture.load( TEST_IMG_PATH, "test" ) == true );
+		REQUIRE( texture.load( TEST_IMG_PATH, "test" ) == true );
 		// green vs red
-		REQUIRE( con::Assets.Texture.get( "test" ).copyToImage().getPixel( 0, 0 ) != con::Assets.Texture.getDefault().copyToImage().getPixel( 0, 0 ) );
+		REQUIRE( texture.get( "test" ).copyToImage().getPixel( 0, 0 ) != texture.getDefault().copyToImage().getPixel( 0, 0 ) );
 	}
 
 	std::experimental::filesystem::remove( TEST_IMG_PATH );
 }
 
+TEST_CASE( "IAudioHolder (sf::Sound)", "[Assets]" )
+{
+	static constexpr const char* TEST_SOUND_PATH = "Data/test.wav";
+
+	auto& sound = con::Assets.Sound;
+
+	REQUIRE( sound.load( TEST_SOUND_PATH, "test" ) == true );
+	sound.setVolume( 50 );
+	sound.play( "test" );
+	std::this_thread::sleep_for( std::chrono::milliseconds( 500 ) );
+	sound.setVolume( 10 );
+	sound.play( "test" );
+	std::this_thread::sleep_for( std::chrono::milliseconds( 500 ) );
+	sound.setVolume( 100 );
+	sound.play( "test" );
+}
