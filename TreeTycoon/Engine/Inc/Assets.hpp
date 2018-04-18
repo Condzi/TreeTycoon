@@ -21,6 +21,10 @@ public:
 	SoundHolder Sound;
 	MusicHolder Music;
 	SettingsClass Settings;
+
+private:
+	void setDefaultTexture();
+	void setDefaultFont();
 };
 }
 

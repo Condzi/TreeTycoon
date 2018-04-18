@@ -27,7 +27,7 @@ public:
 		}
 	}
 
-	const TAsset& get( const std::string& name ) const
+	const TAsset& get( const std::string& name )
 	{
 		if ( auto it = assets.find( name ); it != assets.end() )
 			return it->second;
