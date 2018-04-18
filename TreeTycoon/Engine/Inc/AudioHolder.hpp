@@ -25,7 +25,7 @@ public:
 	void setVolume( uint8_t value ) override;
 
 private:
-	uint8_t volume;
+	uint8_t volume = 100;
 	static constexpr size_t PLAYERS_LIMIT = 32;
 	std::array<sf::Sound, PLAYERS_LIMIT> players;
 	std::unordered_map<std::string, sf::SoundBuffer> buffers;
@@ -52,7 +52,7 @@ public:
 	sf::Music& getPlayer();
 
 private:
-	uint8_t volume;
+	uint8_t volume = 100;
 	sf::Music player;
 	// <name, path>
 	std::unordered_map<std::string, std::string> music;

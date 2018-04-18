@@ -52,7 +52,7 @@ sf::Sound* SoundHolder::findFreeSoundPlayer()
 	if ( it != players.end() )
 		return &( *it );
 	else {
-		log( LogPriority::Warning, "no free sound players (max is", PLAYERS_LIMIT, ")." );
+		log( LogPriority::Warning, "no free sound players (max is ", PLAYERS_LIMIT, ")." );
 		return nullptr;
 	}
 }

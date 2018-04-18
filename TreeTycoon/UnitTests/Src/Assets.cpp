@@ -81,4 +81,22 @@ TEST_CASE( "IAudioHolder (sf::Sound)", "[Assets]" )
 	std::this_thread::sleep_for( std::chrono::milliseconds( 500 ) );
 	sound.setVolume( 100 );
 	sound.play( "test" );
+	sound.setVolume( 0 );
+	// to overflow sound palyers in SoundHolder
+	for ( size_t i = 0; i < 33; ++i )
+		sound.play( "test" );
+
+	std::this_thread::sleep_for( std::chrono::milliseconds( 500 ) );
+}
+
+TEST_CASE( "IAudioHolder (sf::Music)", "[Assets]" )
+{
+	static constexpr const char* TEST_MUSIC_PATH = "Data/test.wav";
+
+	auto& music = con::Assets.Music;
+
+	music.add( TEST_MUSIC_PATH, "test" );
+	// doesn't return bool but we can check "isPlaying" to see is it working
+	music.play( "test" );
+	REQUIRE( music.isPlaying() == true );
 }
