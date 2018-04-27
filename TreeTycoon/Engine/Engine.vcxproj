@@ -37,6 +37,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Src\Entity.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\INIFile.cpp">
       <SubType>
       </SubType>
@@ -68,6 +72,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\EnginePCH.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\Entity.hpp">
       <SubType>
       </SubType>
     </ClInclude>

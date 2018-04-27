@@ -6,6 +6,7 @@
 #pragma once
 
 #include "IUpdatable.hpp"
+#include "Debug.hpp"
 
 namespace con
 {
@@ -14,14 +15,14 @@ class Scene;
 // in update() check `if(getState() == State::Disable) return;` to not update disabled entities, if you don't want to. Because 
 // you may want. 
 class Entity :
-	public IUpdatable
+	public IUpdatable,
+	public ILogger
 {
 public:
 	enum class State : int8_t
 	{
 		Enabled,
 		Disabled,
-		ToKill,
 		Dead
 	};
 
@@ -30,22 +31,24 @@ public:
 	bool useAbsolutePositioning = false;
 	std::string tag;
 
-	void kill() const;
+	void kill();
 	void disable();
 	void enable();
 
-	int16_t getPriority() const override final
+	int16_t getUpdatePriority() const override final
 	{
 		return -1;
 	}
 
-	State getSatate() const;
+	State getState() const;
 	Scene& getParentScene();
+	int32_t getUniqueID();
 
 	virtual void onSpawn() {}
 	virtual void onKill() {}
 	virtual void onEnable() {}
 	virtual void onDisable() {}
+	virtual void onUpdate() {}
 
 	void _setParentScene( Scene& scene );
 
@@ -54,5 +57,8 @@ private:
 	Scene* parentScene = nullptr;
 	inline static int32_t UNIQUE_ID_COUNTER = 0;
 	const int32_t uniqueID = UNIQUE_ID_COUNTER++;
+
+	void update() override final;
+	std::string loggerName() const override final;
 };
 }

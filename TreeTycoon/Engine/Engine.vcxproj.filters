@@ -34,6 +34,12 @@
     <Filter Include="Header Files\Assets">
       <UniqueIdentifier>{7c69e935-d73b-4f13-8f62-0132234c2bf5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameplayObjects">
+      <UniqueIdentifier>{51b857f3-a4d4-4838-b316-458e6bba2d75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameplayObjects">
+      <UniqueIdentifier>{72ff5a65-7c28-49ac-af52-f48dd0784eaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Debug.cpp">
@@ -56,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="Src\Assets.cpp">
       <Filter>Source Files\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Entity.cpp">
+      <Filter>Source Files\GameplayObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Inc\Settings.hpp">
       <Filter>Header Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Entity.hpp">
+      <Filter>Header Files\GameplayObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
