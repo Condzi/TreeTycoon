@@ -32,7 +32,7 @@ void UpdaterClass::update()
 void UpdaterClass::sortByPriority()
 {
 	std::sort( updatables.begin(), updatables.end(), []( IUpdatable* a, IUpdatable* b ) {
-		return a->getPriority() < b->getPriority();
+		return a->getUpdatePriority() < b->getUpdatePriority();
 	} );
 }
 }

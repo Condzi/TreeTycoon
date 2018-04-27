@@ -13,7 +13,7 @@ public:
 	IUpdatable();
 	~IUpdatable();
 
-	virtual int16_t getPriority() const = 0;
+	virtual int16_t getUpdatePriority() const = 0;
 	virtual void update() = 0;
 };
 }
