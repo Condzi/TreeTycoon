@@ -12,13 +12,13 @@ namespace con
 {
 class Scene;
 
-// in update() check `if(getState() == State::Disable) return;` to not update disabled entities, if you don't want to. Because 
-// you may want. 
 class Entity :
 	public IUpdatable,
 	public ILogger
 {
 public:
+	RULE_OF_FIVE( Entity );
+
 	enum class State : int8_t
 	{
 		Enabled,

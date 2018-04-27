@@ -44,5 +44,8 @@
     <ClCompile Include="Src\Assets.cpp">
       <Filter>Source Files\Engine Tests</Filter>
     </ClCompile>
+    <ClCompile Include="Src\GameplayObjects.cpp">
+      <Filter>Source Files\Engine Tests</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
