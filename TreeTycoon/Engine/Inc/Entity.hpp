@@ -18,6 +18,7 @@ class Entity :
 {
 public:
 	RULE_OF_FIVE( Entity );
+	virtual ~Entity() = default;
 
 	enum class State : int8_t
 	{

@@ -66,6 +66,9 @@
     <ClCompile Include="Src\Entity.cpp">
       <Filter>Source Files\GameplayObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Src\EntityStorage.cpp">
+      <Filter>Source Files\GameplayObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\EnginePCH.hpp">
@@ -99,6 +102,9 @@
       <Filter>Header Files\Assets</Filter>
     </ClInclude>
     <ClInclude Include="Inc\Entity.hpp">
+      <Filter>Header Files\GameplayObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\EntityStorage.hpp">
       <Filter>Header Files\GameplayObjects</Filter>
     </ClInclude>
   </ItemGroup>

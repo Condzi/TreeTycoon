@@ -41,6 +41,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\EntityStorage.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\INIFile.cpp">
       <SubType>
       </SubType>
@@ -76,6 +80,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\Entity.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\EntityStorage.hpp">
       <SubType>
       </SubType>
     </ClInclude>
