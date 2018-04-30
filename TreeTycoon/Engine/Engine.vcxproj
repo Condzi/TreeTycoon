@@ -53,6 +53,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\System.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\Updater.cpp">
       <SubType>
       </SubType>
@@ -104,6 +108,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\Utility.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\System.hpp">
       <SubType>
       </SubType>
     </ClInclude>

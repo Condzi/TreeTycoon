@@ -29,8 +29,6 @@ public:
 		return -2;
 	}
 
-	void update() override;
-
 	template <typename TEntity>
 	std::vector<TEntity*> getAllEntitiesOfType()
 	{
@@ -60,5 +58,6 @@ private:
 	sf::Clock cleanupClock;
 
 	void cleanup();
+	void update() override;
 };
 }
