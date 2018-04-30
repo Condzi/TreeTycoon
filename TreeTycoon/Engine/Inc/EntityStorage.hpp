@@ -14,6 +14,8 @@ class EntityStorage final :
 	public IUpdatable
 {
 public:
+	std::vector<std::unique_ptr<Entity>> entities;
+
 	template <typename TEntity, typename ...TArgs>
 	TEntity& spawn( TArgs&& ...args )
 	{
@@ -32,8 +34,8 @@ public:
 
 	void update() override;
 
+
 private:
-	std::vector<std::unique_ptr<Entity>> entities;
 	inline static const sf::Time CLEANUP_INTERVAL = sf::seconds( 2 );
 	sf::Clock cleanupClock;
 

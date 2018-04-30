@@ -5,43 +5,45 @@
 
 #include "Catch.hpp"
 
-#include <Entity.hpp>
+#include <EntityStorage.hpp>
 #include <Updater.hpp>
+// for sleep
+#include <thread>
 
 int testEntityVar = 0;
 
+class ExampleEntity final :
+	public con::Entity
+{
+public:
+	void onSpawn() override
+	{
+		testEntityVar++;
+	}
+
+	void onKill() override
+	{
+		testEntityVar++;
+	}
+
+	void onEnable() override
+	{
+		testEntityVar++;
+	}
+
+	void onDisable() override
+	{
+		testEntityVar++;
+	}
+
+	void onUpdate() override
+	{
+		testEntityVar++;
+	}
+};
+
 TEST_CASE( "Entity", "[Gameplay Objects]" )
 {
-	class ExampleEntity final :
-		public con::Entity
-	{
-	public:
-		void onSpawn() override
-		{
-			testEntityVar++;
-		}
-
-		void onKill() override
-		{
-			testEntityVar++;
-		}
-
-		void onEnable() override
-		{
-			testEntityVar++;
-		}
-
-		void onDisable() override
-		{
-			testEntityVar++;
-		}
-
-		void onUpdate() override
-		{
-			testEntityVar++;
-		}
-	};
-	
 	ExampleEntity entity;
 
 	entity.onSpawn();
@@ -66,4 +68,21 @@ TEST_CASE( "Entity", "[Gameplay Objects]" )
 
 	con::priv::Updater.update();
 	REQUIRE( testEntityVar == 6 );
+	testEntityVar = 0;
+}
+
+TEST_CASE( "EntityStorage", "[Gameplay Objects]" )
+{
+	con::priv::EntityStorage es;
+
+	REQUIRE( testEntityVar == 0 );
+	auto& e = es.spawn<ExampleEntity>();
+	REQUIRE( testEntityVar == 1 );
+	e.kill();
+	REQUIRE( testEntityVar == 2 );
+
+	REQUIRE( es.entities.size() == 1 );
+	std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
+	con::priv::Updater.update();
+	REQUIRE( es.entities.empty() );
 }
