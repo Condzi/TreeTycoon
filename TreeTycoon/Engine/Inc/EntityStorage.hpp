@@ -43,6 +43,16 @@ public:
 		return vecToReturn;
 	}
 
+	template <>
+	std::vector<Entity*> getAllEntitiesOfType()
+	{
+		std::vector<Entity*> vecToReturn;
+		for ( auto& uPtr : entities )
+			vecToReturn.emplace_back( uPtr.get() );
+
+		return vecToReturn;
+	}
+
 private:
 	inline static const sf::Time CLEANUP_INTERVAL = sf::seconds( 2 );
 
