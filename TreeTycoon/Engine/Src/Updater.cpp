@@ -25,7 +25,7 @@ void UpdaterClass::remove( IUpdatable* updatable )
 void UpdaterClass::update()
 {
 	sortByPriority();
-	for(size_t i = 0; i < updatables.size(); ++i )
+	for ( size_t i = 0; i < updatables.size(); ++i )
 		updatables[i]->update();
 }
 

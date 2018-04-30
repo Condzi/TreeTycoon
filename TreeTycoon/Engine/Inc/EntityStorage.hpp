@@ -9,13 +9,10 @@
 
 namespace con::priv
 {
-// Update before or after Entities? 
-class EntityStorage final : 
+class EntityStorage final :
 	public IUpdatable
 {
 public:
-	std::vector<std::unique_ptr<Entity>> entities;
-
 	template <typename TEntity, typename ...TArgs>
 	TEntity& spawn( TArgs&& ...args )
 	{
@@ -34,9 +31,22 @@ public:
 
 	void update() override;
 
+	template <typename TEntity>
+	std::vector<TEntity*> getAllEntitiesOfType()
+	{
+		std::vector<TEntity*> vecToReturn;
+
+		for ( auto& uPtr : entities )
+			if ( auto e = dynamic_cast<TEntity*>( uPtr.get() ); e )
+				vecToReturn.emplace_back( e );
+
+		return vecToReturn;
+	}
 
 private:
 	inline static const sf::Time CLEANUP_INTERVAL = sf::seconds( 2 );
+
+	std::vector<std::unique_ptr<Entity>> entities;
 	sf::Clock cleanupClock;
 
 	void cleanup();

@@ -81,8 +81,8 @@ TEST_CASE( "EntityStorage", "[Gameplay Objects]" )
 	e.kill();
 	REQUIRE( testEntityVar == 2 );
 
-	REQUIRE( es.entities.size() == 1 );
+	REQUIRE( es.getAllEntitiesOfType<ExampleEntity>().size() == 1 );
 	std::this_thread::sleep_for( std::chrono::seconds( 2 ) );
 	con::priv::Updater.update();
-	REQUIRE( es.entities.empty() );
+	REQUIRE( es.getAllEntitiesOfType<ExampleEntity>().empty() );
 }
