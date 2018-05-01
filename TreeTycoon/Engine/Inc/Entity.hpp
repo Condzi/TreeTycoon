@@ -20,7 +20,7 @@ public:
 	RULE_OF_FIVE( Entity );
 	virtual ~Entity() = default;
 
-	enum class State : int8_t
+	enum class Status : int8_t
 	{
 		Enabled,
 		Disabled,
@@ -41,7 +41,7 @@ public:
 		return -1;
 	}
 
-	State getState() const;
+	Status getStatus() const;
 	Scene& getParentScene();
 	int32_t getUniqueID();
 
@@ -54,7 +54,7 @@ public:
 	void _setParentScene( Scene& scene );
 
 private:
-	State state = State::Enabled;
+	Status status = Status::Enabled;
 	Scene* parentScene = nullptr;
 	inline static int32_t UNIQUE_ID_COUNTER = 0;
 	const int32_t uniqueID = UNIQUE_ID_COUNTER++;

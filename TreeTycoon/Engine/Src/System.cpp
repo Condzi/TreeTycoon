@@ -25,7 +25,6 @@ int16_t System::getUpdatePriority() const
 
 void System::_setScene( Scene& scene )
 {
-	// TODO: assign entityStorage
 	parentScene = &scene;
 }
 }

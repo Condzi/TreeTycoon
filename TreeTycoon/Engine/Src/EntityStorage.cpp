@@ -30,7 +30,7 @@ void EntityStorage::cleanup()
 
 	entities.erase( std::remove_if( begin, end,
 					[]( EntityPtr& e ) {
-		return e->getState() == Entity::State::Dead;
+		return e->getStatus() == Entity::Status::Dead;
 	} ), end );
 }
 }

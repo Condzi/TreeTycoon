@@ -6,7 +6,6 @@
 #pragma once
 
 #include "Utility.hpp"
-#include "EntityStorage.hpp"
 
 namespace con
 {
@@ -31,7 +30,6 @@ public:
 
 protected:
 	Scene* parentScene = nullptr;
-	con::priv::EntityStorage* entityStorage = nullptr;
 
 private:
 	int16_t updatePriority = 0;

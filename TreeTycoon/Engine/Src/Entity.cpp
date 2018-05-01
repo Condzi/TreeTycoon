@@ -11,8 +11,8 @@ namespace con
 {
 void Entity::kill()
 {
-	if ( state != State::Dead ) {
-		state = State::Dead;
+	if ( status != Status::Dead ) {
+		status = Status::Dead;
 		onKill();
 		return;
 	}
@@ -22,10 +22,10 @@ void Entity::kill()
 
 void Entity::disable()
 {
-	if ( state == State::Dead )
+	if ( status == Status::Dead )
 		debugLog( LogPriority::Warning, "can't be disabled: it's dead." );
-	else if ( state != State::Disabled ) {
-		state = State::Disabled;
+	else if ( status != Status::Disabled ) {
+		status = Status::Disabled;
 		onDisable();
 	} else
 		debugLog( LogPriority::Warning, "already disabled." );
@@ -33,18 +33,18 @@ void Entity::disable()
 
 void Entity::enable()
 {
-	if ( state == State::Dead )
+	if ( status == Status::Dead )
 		debugLog( LogPriority::Warning, "can't be enabled: it's dead." );
-	else if ( state != State::Enabled ) {
-		state = State::Enabled;
+	else if ( status != Status::Enabled ) {
+		status = Status::Enabled;
 		onEnable();
 	} else
 		debugLog( LogPriority::Warning, "already enabled." );
 }
 
-Entity::State Entity::getState() const
+Entity::Status Entity::getStatus() const
 {
-	return state;
+	return status;
 }
 
 Scene& Entity::getParentScene()
@@ -64,20 +64,20 @@ void Entity::_setParentScene( Scene& scene )
 
 void Entity::update()
 {
-	if ( state == State::Enabled )
+	if ( status == Status::Enabled )
 		onUpdate();
 }
 
 std::string Entity::loggerName() const
 {
-	static auto getStateAsString = []( State s ) {
+	static auto getStatusAsString = []( Status s ) {
 		switch ( s ) {
-		case State::Enabled: return "Enabled";
-		case State::Disabled: return "Disabled";
-		case State::Dead: return "Dead";
+		case Status::Enabled: return "Enabled";
+		case Status::Disabled: return "Disabled";
+		case Status::Dead: return "Dead";
 		}
 	};
 
-	return ConvertTo<std::string>( tag, ":", getStateAsString( state ) );
+	return ConvertTo<std::string>( tag, ":", getStatusAsString( status ) );
 }
 }

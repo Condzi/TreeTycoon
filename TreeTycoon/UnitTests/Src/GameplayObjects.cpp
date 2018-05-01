@@ -47,13 +47,13 @@ TEST_CASE( "Entity", "[Gameplay Objects]" )
 	ExampleEntity entity;
 
 	entity.onSpawn();
-	REQUIRE( entity.getState() == con::Entity::State::Enabled );
+	REQUIRE( entity.getStatus() == con::Entity::Status::Enabled );
 	REQUIRE( testEntityVar == 1 );
 	entity.disable();
-	REQUIRE( entity.getState() == con::Entity::State::Disabled );
+	REQUIRE( entity.getStatus() == con::Entity::Status::Disabled );
 	REQUIRE( testEntityVar == 2 );
 	entity.enable();
-	REQUIRE( entity.getState() == con::Entity::State::Enabled );
+	REQUIRE( entity.getStatus() == con::Entity::Status::Enabled );
 	REQUIRE( testEntityVar == 3 );
 
 	con::priv::Updater.update();
@@ -63,7 +63,7 @@ TEST_CASE( "Entity", "[Gameplay Objects]" )
 	REQUIRE( testEntityVar == 5 );
 
 	entity.kill();
-	REQUIRE( entity.getState() == con::Entity::State::Dead );
+	REQUIRE( entity.getStatus() == con::Entity::Status::Dead );
 	REQUIRE( testEntityVar == 6 );
 
 	con::priv::Updater.update();
