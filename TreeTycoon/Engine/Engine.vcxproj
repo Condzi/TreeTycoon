@@ -53,7 +53,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\Scene.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\System.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Src\SystemStorage.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -99,7 +107,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Inc\Scene.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Inc\Settings.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\SystemStorage.hpp">
       <SubType>
       </SubType>
     </ClInclude>
