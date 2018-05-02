@@ -9,12 +9,12 @@
 
 namespace con
 {
-void System::setUpdatePriority( int16_t val )
+void System::_setUpdatePriority( int16_t val )
 {
 	updatePriority = val;
 }
 
-int16_t System::getUpdatePriority() const
+int16_t System::_getUpdatePriority() const
 {
 	return updatePriority;
 }

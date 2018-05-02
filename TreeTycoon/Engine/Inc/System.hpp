@@ -17,13 +17,10 @@ public:
 	RULE_OF_FIVE( System );
 	virtual ~System() = default;
 
-	virtual void onStart() {}
-	virtual void onStop() {}
 	virtual void onUpdate() {}
 
-	void setUpdatePriority( int16_t val );
-	int16_t getUpdatePriority() const;
-
+	void _setUpdatePriority( int16_t val );
+	int16_t _getUpdatePriority() const;
 	void _setScene( Scene& scene );
 
 protected:
