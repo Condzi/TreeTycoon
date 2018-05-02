@@ -22,24 +22,46 @@ void Entity::kill()
 
 void Entity::disable()
 {
-	if ( status == Status::Dead )
-		debugLog( LogPriority::Warning, "can't be disabled: it's dead." );
-	else if ( status != Status::Disabled ) {
+	switch ( status ) {
+	case Status::Enabled:
+	{
 		status = Status::Disabled;
 		onDisable();
-	} else
+		break;
+	}
+	case Status::Disabled:
+	{
 		debugLog( LogPriority::Warning, "already disabled." );
+		break;
+	}
+	case Status::Dead:
+	{
+		debugLog( LogPriority::Warning, "can't be disabled: it's dead." );
+		break;
+	}
+	}
 }
 
 void Entity::enable()
 {
-	if ( status == Status::Dead )
-		debugLog( LogPriority::Warning, "can't be enabled: it's dead." );
-	else if ( status != Status::Enabled ) {
+	switch ( status ) {
+	case Status::Enabled:
+	{
+		debugLog( LogPriority::Warning, "already enabled." );
+		break;
+	}
+	case Status::Disabled:
+	{
 		status = Status::Enabled;
 		onEnable();
-	} else
-		debugLog( LogPriority::Warning, "already enabled." );
+		break;
+	}
+	case Status::Dead:
+	{
+		debugLog( LogPriority::Warning, "can't be enabled: it's dead." );
+		break;
+	}
+	}
 }
 
 Entity::Status Entity::getStatus() const
