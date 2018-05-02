@@ -14,10 +14,8 @@ class Scene;
 class System
 {
 public:
-	RULE_OF_FIVE_NO_CTOR( System );
-
-	// Remember to write using con::System::System in class declaration!
-	System( int16_t updatePriorirty_ );
+	RULE_OF_FIVE( System );
+	virtual ~System() = default;
 
 	virtual void onStart() {}
 	virtual void onStop() {}

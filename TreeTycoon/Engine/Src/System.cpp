@@ -9,10 +9,6 @@
 
 namespace con
 {
-System::System( int16_t updatePriorirty_ ) :
-	updatePriority( updatePriorirty_ )
-{}
-
 void System::setUpdatePriority( int16_t val )
 {
 	updatePriority = val;
