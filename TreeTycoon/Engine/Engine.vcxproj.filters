@@ -76,7 +76,7 @@
       <Filter>Source Files\GameplayObjects</Filter>
     </ClCompile>
     <ClCompile Include="Src\SystemStorage.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameplayObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +123,7 @@
       <Filter>Header Files\GameplayObjects</Filter>
     </ClInclude>
     <ClInclude Include="Inc\SystemStorage.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameplayObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
