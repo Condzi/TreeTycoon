@@ -14,6 +14,9 @@ class Scene :
 	public ILogger
 {
 public:
+	RULE_OF_FIVE( Scene );
+	virtual ~Scene() = default;
+
 	enum class Status : int8_t
 	{
 		Enabled,
@@ -71,7 +74,7 @@ public:
 private:
 	Status status = Status::Enabled;
 	priv::EntityStorage entities;
-	priv::SystemStorage systems;
+	priv::SystemStorage systems{ this };
 
 	std::string loggerName() const override final;
 	void disableEntities();
