@@ -6,7 +6,7 @@
 #pragma once
 
 #include "EntityStorage.hpp"
-#include "System.hpp"
+#include "SystemStorage.hpp"
 
 namespace con
 {
@@ -58,12 +58,20 @@ public:
 		} )
 	}
 
+	template <typename TSystem, typename ...TArgs>
+	TSystem& addSystem( int16_t updatePriority, TArgs&& ...args )
+	{
+		return systems.addSystem<TSystem>( updatePriority, std::forward<TArgs>( args )... );
+	}
+
 	void _enable();
 	void _disable();
+	void _update();
 
 private:
 	Status status = Status::Enabled;
 	priv::EntityStorage entities;
+	priv::SystemStorage systems;
 
 	std::string loggerName() const override final;
 	void disableEntities();

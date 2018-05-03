@@ -17,12 +17,14 @@ public:
 	SystemStorage( Scene* parentScene_ );
 
 	template <typename TSystem, typename ...TArgs>
-	void addSystem( int16_t updatePriority, TArgs&& ...args )
+	TSystem& addSystem( int16_t updatePriority, TArgs&& ...args )
 	{
 		auto& sys = systems.emplace_back( std::make_unique<TSystem>( std::forward<TArgs>( args )... ) );
 		sys->_setUpdatePriority( updatePriority );
 		sys->setScene( parentScene );
 		needsSort = true;
+
+		return dynamic_cast<TSystem>( sys.get() );
 	}
 
 	int16_t getUpdatePriority() const override

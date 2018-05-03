@@ -55,6 +55,14 @@ void Scene::_disable()
 	}
 }
 
+void Scene::_update()
+{
+	if ( status != Status::Enabled )
+		return;
+
+	systems.updateSystems();
+}
+
 std::string Scene::loggerName() const
 {
 	static auto getStatusAsString = []( Status s ) {

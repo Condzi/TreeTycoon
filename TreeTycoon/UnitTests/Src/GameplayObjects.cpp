@@ -87,3 +87,4 @@ TEST_CASE( "EntityStorage", "[Gameplay Objects]" )
 	con::priv::Updater.update();
 	REQUIRE( es.getAllEntitiesOfType<ExampleEntity>().empty() == true );
 }
+
