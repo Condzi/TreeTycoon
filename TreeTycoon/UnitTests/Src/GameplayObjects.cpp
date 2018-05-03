@@ -12,53 +12,93 @@
 // for sleep
 #include <thread>
 
-int testEntityVar = 0;
-int testSceneVar = 0;
-int testSystemVarA = 0;
-int testSystemVarB = 0;
-
-
-class ExampleEntity final :
+class ExampleEntityA final :
 	public con::Entity
 {
 public:
+	inline static int testVar = 0;
+
 	void onSpawn() override
 	{
-		testEntityVar++;
+		testVar++;
 	}
 
 	void onKill() override
 	{
-		testEntityVar++;
+		testVar++;
 	}
 
 	void onEnable() override
 	{
-		testEntityVar++;
+		testVar++;
 	}
 
 	void onDisable() override
 	{
-		testEntityVar++;
+		testVar++;
 	}
 
 	void onUpdate() override
 	{
-		testEntityVar++;
+		testVar++;
 	}
 };
 
-class ExampleScene final :
+class ExampleEntityB final :
+	public con::Entity
+{
+public:
+	inline static int testVar = 0;
+
+	void onSpawn() override
+	{
+		testVar++;
+	}
+
+	void onKill() override
+	{
+		testVar++;
+	}
+
+	void onEnable() override
+	{
+		testVar++;
+	}
+
+	void onDisable() override
+	{
+		testVar++;
+	}
+
+	void onUpdate() override
+	{
+		testVar++;
+	}
+};
+
+class ExampleSceneA final :
 	public con::Scene
-{};
+{
+public:
+	inline static int testVar = 0;
+};
+
+class ExampleSceneB final :
+	public con::Scene
+{
+public:
+	inline static int testVar = 0;
+};
 
 class ExampleSystemA final :
 	public con::System
 {
 public:
+	inline static int testVar = 0;
+
 	void onUpdate() override
 	{
-		testSystemVarA++;
+		testVar++;
 	}
 };
 
@@ -66,63 +106,65 @@ class ExampleSystemB final :
 	public con::System
 {
 public:
+	inline static int testVar = 0;
+
 	void onUpdate() override
 	{
-		if ( testSystemVarA )
-			testSystemVarB++;
+		if ( ExampleSystemA::testVar )
+			testVar++;
 	}
 };
 
 TEST_CASE( "Entity", "[Gameplay Objects]" )
 {
-	ExampleEntity entity;
+	ExampleEntityA::testVar = 0;
+	ExampleEntityA entity;
 
 	entity.onSpawn();
 	REQUIRE( entity.getStatus() == con::Entity::Status::Enabled );
-	REQUIRE( testEntityVar == 1 );
+	REQUIRE( ExampleEntityA::testVar == 1 );
 	entity.disable();
 	REQUIRE( entity.getStatus() == con::Entity::Status::Disabled );
-	REQUIRE( testEntityVar == 2 );
+	REQUIRE( ExampleEntityA::testVar == 2 );
 	entity.enable();
 	REQUIRE( entity.getStatus() == con::Entity::Status::Enabled );
-	REQUIRE( testEntityVar == 3 );
+	REQUIRE( ExampleEntityA::testVar == 3 );
 
 	con::priv::Updater.update();
-	REQUIRE( testEntityVar == 4 );
+	REQUIRE( ExampleEntityA::testVar == 4 );
 	entity.disable();
 	con::priv::Updater.update();
-	REQUIRE( testEntityVar == 5 );
+	REQUIRE( ExampleEntityA::testVar == 5 );
 
 	entity.kill();
 	REQUIRE( entity.getStatus() == con::Entity::Status::Dead );
-	REQUIRE( testEntityVar == 6 );
+	REQUIRE( ExampleEntityA::testVar == 6 );
 
 	con::priv::Updater.update();
-	REQUIRE( testEntityVar == 6 );
-	testEntityVar = 0;
+	REQUIRE( ExampleEntityA::testVar == 6 );
 }
 
 TEST_CASE( "EntityStorage", "[Gameplay Objects]" )
 {
+	ExampleEntityA::testVar = 0;
 	con::priv::EntityStorage es;
 
-	REQUIRE( testEntityVar == 0 );
-	auto& e = es.spawn<ExampleEntity>();
-	REQUIRE( testEntityVar == 1 );
+	auto& e = es.spawn<ExampleEntityA>();
+	REQUIRE( ExampleEntityA::testVar == 1 );
 	e.kill();
-	REQUIRE( testEntityVar == 2 );
+	REQUIRE( ExampleEntityA::testVar== 2 );
 
 	REQUIRE( es.getAllEntitiesOfType<con::Entity>().size() == 1 );
 	// fukup if 2 seconds. (too short for some reason?)
 	std::this_thread::sleep_for( std::chrono::seconds( 3 ) );
 	con::priv::Updater.update();
-	REQUIRE( es.getAllEntitiesOfType<ExampleEntity>().empty() == true );
+	REQUIRE( es.getAllEntitiesOfType<ExampleEntityA>().empty() == true );
 }
 
 TEST_CASE( "SystemStorage", "[Gameplay Objects]" )
 {
-	testSystemVarA = testSystemVarB = 0;
-	ExampleScene scene;
+	ExampleSystemA::testVar = ExampleSystemB::testVar = 0;
+	ExampleSceneA scene;
 	con::priv::SystemStorage ss{ &scene };
 
 	ss.addSystem<ExampleSystemB>( 1 );
@@ -132,5 +174,5 @@ TEST_CASE( "SystemStorage", "[Gameplay Objects]" )
 
 	ss.updateSystems();
 
-	REQUIRE( testSystemVarA == testSystemVarB );
+	REQUIRE( ExampleSystemA::testVar == ExampleSystemB::testVar );
 }
