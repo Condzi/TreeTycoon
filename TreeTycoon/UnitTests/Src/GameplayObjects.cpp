@@ -6,11 +6,17 @@
 #include "Catch.hpp"
 
 #include <EntityStorage.hpp>
+#include <SystemStorage.hpp>
 #include <Updater.hpp>
+#include <Scene.hpp>
 // for sleep
 #include <thread>
 
 int testEntityVar = 0;
+int testSceneVar = 0;
+int testSystemVarA = 0;
+int testSystemVarB = 0;
+
 
 class ExampleEntity final :
 	public con::Entity
@@ -39,6 +45,31 @@ public:
 	void onUpdate() override
 	{
 		testEntityVar++;
+	}
+};
+
+class ExampleScene final :
+	public con::Scene
+{};
+
+class ExampleSystemA final :
+	public con::System
+{
+public:
+	void onUpdate() override
+	{
+		testSystemVarA++;
+	}
+};
+
+class ExampleSystemB final :
+	public con::System
+{
+public:
+	void onUpdate() override
+	{
+		if ( testSystemVarA )
+			testSystemVarB++;
 	}
 };
 
@@ -88,3 +119,18 @@ TEST_CASE( "EntityStorage", "[Gameplay Objects]" )
 	REQUIRE( es.getAllEntitiesOfType<ExampleEntity>().empty() == true );
 }
 
+TEST_CASE( "SystemStorage", "[Gameplay Objects]" )
+{
+	testSystemVarA = testSystemVarB = 0;
+	ExampleScene scene;
+	con::priv::SystemStorage ss{ &scene };
+
+	ss.addSystem<ExampleSystemB>( 1 );
+	ss.addSystem<ExampleSystemA>( 0 );
+
+	con::priv::Updater.update();
+
+	ss.updateSystems();
+
+	REQUIRE( testSystemVarA == testSystemVarB );
+}

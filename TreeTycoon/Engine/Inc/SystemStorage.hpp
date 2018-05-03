@@ -19,12 +19,14 @@ public:
 	template <typename TSystem, typename ...TArgs>
 	TSystem& addSystem( int16_t updatePriority, TArgs&& ...args )
 	{
+		static_assert( std::is_base_of_v<System, TSystem> );
+
 		auto& sys = systems.emplace_back( std::make_unique<TSystem>( std::forward<TArgs>( args )... ) );
 		sys->_setUpdatePriority( updatePriority );
-		sys->setScene( parentScene );
+		sys->_setScene( parentScene );
 		needsSort = true;
 
-		return dynamic_cast<TSystem>( sys.get() );
+		return *dynamic_cast<TSystem*>( sys.get() );
 	}
 
 	int16_t getUpdatePriority() const override
