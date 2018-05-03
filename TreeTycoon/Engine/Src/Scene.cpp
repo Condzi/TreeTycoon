@@ -61,6 +61,7 @@ void Scene::_update()
 		return;
 
 	systems.updateSystems();
+	onUpdate();
 }
 
 std::string Scene::loggerName() const

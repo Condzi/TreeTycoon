@@ -81,6 +81,31 @@ class ExampleSceneA final :
 {
 public:
 	inline static int testVar = 0;
+
+	void onLoad() override
+	{
+		testVar++;
+	}
+
+	void onUnload() override
+	{
+		testVar++;
+	}
+
+	void onEnable() override
+	{
+		testVar++;
+	}
+
+	void onDisable() override
+	{
+		testVar++;
+	}
+
+	void onUpdate() override
+	{
+		testVar++;
+	}
 };
 
 class ExampleSceneB final :
@@ -88,6 +113,31 @@ class ExampleSceneB final :
 {
 public:
 	inline static int testVar = 0;
+
+	void onLoad() override
+	{
+		testVar++;
+	}
+
+	void onUnload() override
+	{
+		testVar++;
+	}
+
+	void onEnable() override
+	{
+		testVar++;
+	}
+
+	void onDisable() override
+	{
+		testVar++;
+	}
+
+	void onUpdate() override
+	{
+		testVar++;
+	}
 };
 
 class ExampleSystemA final :
@@ -175,4 +225,71 @@ TEST_CASE( "SystemStorage", "[Gameplay Objects]" )
 	ss.updateSystems();
 
 	REQUIRE( ExampleSystemA::testVar == ExampleSystemB::testVar );
+}
+
+TEST_CASE( "Scene - spawning", "[Gameplay Objects]" )
+{
+	ExampleEntityA::testVar = ExampleEntityB::testVar = 0;
+	ExampleSceneA scene;
+
+	scene.spawn<ExampleEntityA>();
+	scene.spawn<ExampleEntityB>();
+
+	REQUIRE( ExampleEntityA::testVar == 1 );
+	REQUIRE( ExampleEntityB::testVar == 1 );
+
+	scene._disable();
+	REQUIRE( ExampleSceneA::testVar == 1 );
+
+	REQUIRE( ExampleEntityA::testVar == 2 );
+	REQUIRE( ExampleEntityB::testVar == 2 );
+
+	con::priv::Updater.update();
+	scene._update();
+	REQUIRE( ExampleEntityA::testVar == 2 );
+	REQUIRE( ExampleEntityB::testVar == 2 );
+
+	scene._enable();
+
+	REQUIRE( ExampleSceneA::testVar == 2 );
+
+	REQUIRE( ExampleEntityA::testVar == 3 );
+	REQUIRE( ExampleEntityB::testVar == 3 );
+	con::priv::Updater.update();
+	scene._update();
+	REQUIRE( ExampleSceneA::testVar == 3 );
+
+	REQUIRE( ExampleEntityA::testVar == 4 );
+	REQUIRE( ExampleEntityB::testVar == 4 );
+}
+
+TEST_CASE( "Scene - manipulating Entities", "[Gameplay Objects]" )
+{
+	ExampleSceneA scene;
+
+	scene.spawn<ExampleEntityA>();
+	scene.spawn<ExampleEntityB>();
+
+	ExampleEntityA::testVar = ExampleEntityB::testVar = 0;
+
+	scene.forEachEntity( []( con::Entity& e ) {
+		e.onUpdate();
+	} );
+
+	REQUIRE( ExampleEntityA::testVar == 1 );
+	REQUIRE( ExampleEntityB::testVar == 1 );
+
+	scene.forEachEntityOfType<ExampleEntityA>( []( ExampleEntityA& e ) {
+		e.testVar++;
+	} );
+
+	REQUIRE( ExampleEntityA::testVar == 2 );
+	REQUIRE( ExampleEntityB::testVar == 1 );
+
+	scene.forEachEntityOfType<ExampleEntityB>( []( ExampleEntityB& e ) {
+		e.testVar++;
+	} );
+
+	REQUIRE( ExampleEntityA::testVar == 2 );
+	REQUIRE( ExampleEntityB::testVar == 2 );
 }

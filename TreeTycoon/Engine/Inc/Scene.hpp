@@ -56,9 +56,9 @@ public:
 	void forEachEntityOfType( TLambda&& lambda )
 	{
 		forEachEntity( [&]( Entity& entity ) {
-			if ( auto* casted = dynamic_cast<TEntity*>( entity ); casted )
+			if ( auto* casted = dynamic_cast<TEntity*>( &entity ); casted )
 				lambda( *casted );
-		} )
+		} );
 	}
 
 	template <typename TSystem, typename ...TArgs>
