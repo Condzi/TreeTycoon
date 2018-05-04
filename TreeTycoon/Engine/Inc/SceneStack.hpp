@@ -24,7 +24,7 @@ public:
 private:
 	std::string loggerName() const override
 	{
-		return "SceneFactory";
+		return "Scene Factory";
 	}
 };
 
@@ -79,7 +79,7 @@ private:
 
 	std::string loggerName() const override
 	{
-		return "SceneStack";
+		return "Scene Stack";
 	}
 
 	void requestAction( Action&& action );

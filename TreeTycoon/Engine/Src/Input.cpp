@@ -17,12 +17,12 @@ namespace con::priv
 {
 bool InputClass::isUp( KeyboardKey key ) const
 {
-	return keyboardKeys[ConvertTo<uint8_t>( key )] == KeyState::Up;
+	return keyboardKeys.at( ConvertTo<uint8_t>( key ) ) == KeyState::Up;
 }
 
 bool InputClass::isDown( KeyboardKey key ) const
 {
-	return keyboardKeys[ConvertTo<uint8_t>( key )] == KeyState::Down;
+	return keyboardKeys.at( ConvertTo<uint8_t>( key ) ) == KeyState::Down;
 }
 
 bool InputClass::isHeld( KeyboardKey key ) const
@@ -32,12 +32,12 @@ bool InputClass::isHeld( KeyboardKey key ) const
 
 bool InputClass::isUp( MouseButton button ) const
 {
-	return mouseButtons[ConvertTo<uint8_t>( button )] == KeyState::Up;
+	return mouseButtons.at( ConvertTo<uint8_t>( button ) ) == KeyState::Up;
 }
 
 bool InputClass::isDown( MouseButton button ) const
 {
-	return mouseButtons[ConvertTo<uint8_t>( button )] == KeyState::Down;
+	return mouseButtons.at( ConvertTo<uint8_t>( button ) ) == KeyState::Down;
 }
 
 bool InputClass::isHeld( MouseButton button ) const
@@ -58,13 +58,13 @@ void InputClass::_dispatchEvent( const sf::Event& event )
 	};
 
 	if ( event.type == EventType::KeyReleased )
-		keyboardKeys[keyToInt( event.key.code )] = KeyState::Up;
+		keyboardKeys.at( keyToInt( event.key.code ) ) = KeyState::Up;
 	else if ( event.type == EventType::KeyPressed )
-		keyboardKeys[keyToInt( event.key.code )] = KeyState::Down;
+		keyboardKeys.at( keyToInt( event.key.code ) ) = KeyState::Down;
 	else if ( event.type == EventType::MouseButtonReleased )
-		mouseButtons[keyToInt( event.mouseButton.button )] = KeyState::Up;
+		mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Up;
 	else if ( event.type == EventType::MouseButtonPressed )
-		mouseButtons[keyToInt( event.mouseButton.button )] = KeyState::Down;
+		mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Down;
 }
 
 void InputClass::_clearStates()

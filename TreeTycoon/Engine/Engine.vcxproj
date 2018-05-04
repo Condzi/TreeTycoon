@@ -61,6 +61,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\Renderer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\Scene.cpp">
       <SubType>
       </SubType>
@@ -128,6 +132,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\IUpdatable.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\Renderer.hpp">
       <SubType>
       </SubType>
     </ClInclude>

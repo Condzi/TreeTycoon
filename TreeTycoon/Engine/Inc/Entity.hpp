@@ -36,7 +36,7 @@ public:
 	void disable();
 	void enable();
 
-	int16_t getUpdatePriority() const override final
+	int16_t getUpdatePriority() const final
 	{
 		return -1;
 	}

@@ -11,6 +11,8 @@ class IAudioHolder :
 	public ILogger
 {
 public:
+	virtual ~IAudioHolder() = default;
+
 	virtual void play( const std::string& name ) = 0;
 	// <0,100>
 	virtual void setVolume( uint8_t value ) = 0;

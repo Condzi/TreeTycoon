@@ -15,6 +15,8 @@ class BasicAssetHolder :
 	public ILogger
 {
 public:
+	virtual ~BasicAssetHolder() = default;
+
 	bool load( const std::string& path, const std::string& name )
 	{
 		if ( TAsset asset; asset.loadFromFile( path ) ) {
