@@ -78,6 +78,9 @@
     <ClCompile Include="Src\SystemStorage.cpp">
       <Filter>Source Files\GameplayObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Src\SceneStack.cpp">
+      <Filter>Source Files\GameplayObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\EnginePCH.hpp">
@@ -123,6 +126,9 @@
       <Filter>Header Files\GameplayObjects</Filter>
     </ClInclude>
     <ClInclude Include="Inc\SystemStorage.hpp">
+      <Filter>Header Files\GameplayObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\SceneStack.hpp">
       <Filter>Header Files\GameplayObjects</Filter>
     </ClInclude>
   </ItemGroup>

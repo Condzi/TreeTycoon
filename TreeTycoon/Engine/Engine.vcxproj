@@ -57,6 +57,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\SceneStack.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\System.cpp">
       <SubType>
       </SubType>
@@ -108,6 +112,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\Scene.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\SceneStack.hpp">
       <SubType>
       </SubType>
     </ClInclude>

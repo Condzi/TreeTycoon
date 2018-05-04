@@ -11,6 +11,7 @@
 #include <cctype>
 #include <fstream>
 #include <filesystem>
+#include <functional>
 #include <iostream>
 #include <unordered_map>
 #include <optional>
