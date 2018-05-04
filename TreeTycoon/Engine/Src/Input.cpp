@@ -6,6 +6,7 @@
 #include "EnginePCH.hpp"
 
 #include "Input.hpp"
+#include "Window.hpp"
 
 namespace con
 {
@@ -46,9 +47,7 @@ bool InputClass::isHeld( MouseButton button ) const
 
 Vec2i InputClass::getMousePosition() const
 {
-	// Use Window.getSFMLWindow().
-	throw std::exception{ "not implemented" };
-	return {};
+	return sf::Mouse::getPosition( GameWindow._getSFMLWindow() );
 }
 
 void InputClass::_dispatchEvent( const sf::Event& event )
