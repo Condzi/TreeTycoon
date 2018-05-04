@@ -46,6 +46,12 @@
     <Filter Include="Header Files\Input">
       <UniqueIdentifier>{44447850-622e-4caa-80ec-6504e8a1a868}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Visual">
+      <UniqueIdentifier>{9542857d-29c0-4c98-9fa9-db5c2c7dd2b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Visual">
+      <UniqueIdentifier>{9e1d2497-8299-4112-994e-3e2c35a9f8ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Debug.cpp">
@@ -89,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Src\Input.cpp">
       <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Window.cpp">
+      <Filter>Source Files\Visual</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="Inc\Input.hpp">
       <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Window.hpp">
+      <Filter>Header Files\Visual</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
