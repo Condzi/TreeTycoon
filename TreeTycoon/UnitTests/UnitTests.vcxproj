@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Input.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\GameplayObjects.cpp">
       <SubType>
       </SubType>
