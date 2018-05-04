@@ -24,3 +24,9 @@
 
 using float32_t = float;
 using float64_t = double;
+
+template <typename T>
+using Vec2 = sf::Vector2<T>;
+using Vec2i = Vec2<int32_t>;
+using Vec2u = Vec2<uint32_t>;
+using Vec2f = Vec2<float32_t>;
