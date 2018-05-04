@@ -31,6 +31,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\Drawable.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\EnginePCH.cpp">
       <SubType>
       </SubType>
@@ -96,6 +100,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\Debug.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\Drawable.hpp">
       <SubType>
       </SubType>
     </ClInclude>
