@@ -26,8 +26,8 @@ public:
 
 	std::string tag;
 
-	virtual void onLoad() {}
-	virtual void onUnload() {}
+	virtual void onPush() {}
+	virtual void onPop() {}
 	virtual void onEnable() {}
 	virtual void onDisable() {}
 	virtual void onUpdate() {}

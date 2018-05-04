@@ -82,12 +82,12 @@ class ExampleSceneA final :
 public:
 	inline static int testVar = 0;
 
-	void onLoad() override
+	void onPush() override
 	{
 		testVar++;
 	}
 
-	void onUnload() override
+	void onPop() override
 	{
 		testVar++;
 	}
@@ -114,12 +114,12 @@ class ExampleSceneB final :
 public:
 	inline static int testVar = 0;
 
-	void onLoad() override
+	void onPush() override
 	{
 		testVar++;
 	}
 
-	void onUnload() override
+	void onPop() override
 	{
 		testVar++;
 	}
