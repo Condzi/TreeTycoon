@@ -19,33 +19,33 @@ std::unique_ptr<Scene> SceneFactory::createScene( SceneID id )
 	return nullptr;
 }
 
-void SceneStack::push( SceneID id )
+void SceneStackClass::push( SceneID id )
 {
 	requestAction( { Operation::Push, id } );
 }
 
-void SceneStack::pop()
+void SceneStackClass::pop()
 {
 	requestAction( { Operation::Pop, 0 } );
 }
 
-void SceneStack::enableCurrentScene()
+void SceneStackClass::enableCurrentScene()
 {
 	requestAction( { Operation::Enable, 0 } );
 }
 
-void SceneStack::disableCurrentScene()
+void SceneStackClass::disableCurrentScene()
 {
 	requestAction( { Operation::Disable, 0 } );
 }
 
-std::optional<SceneStack::SceneID> SceneStack::getSceneOnTop()
+std::optional<SceneStackClass::SceneID> SceneStackClass::getSceneOnTop()
 {
 
 	return std::optional<SceneID>();
 }
 
-void SceneStack::requestAction( Action&& action )
+void SceneStackClass::requestAction( Action&& action )
 {
 	static auto getOperationAsString = []( Operation op ) {
 		switch ( op ) {
@@ -64,7 +64,7 @@ void SceneStack::requestAction( Action&& action )
 	pendingActions.emplace_back( std::move( action ) );
 }
 
-void SceneStack::applyPush( SceneID id )
+void SceneStackClass::applyPush( SceneID id )
 {
 	auto scene = factory.createScene( id );
 	if ( scene ) {
@@ -74,7 +74,7 @@ void SceneStack::applyPush( SceneID id )
 		log( LogPriority::Info, "failed to Push, id \"", id, "\"." );
 }
 
-void SceneStack::applyPop()
+void SceneStackClass::applyPop()
 {
 	if ( scenes.empty() )
 		return log( LogPriority::Error, "failed to Pop: empty stack." );
@@ -84,7 +84,7 @@ void SceneStack::applyPop()
 	scenes.pop_back();
 }
 
-void SceneStack::applyEnable()
+void SceneStackClass::applyEnable()
 {
 	if ( scenes.empty() )
 		return log( LogPriority::Error, "failed to Enable current scene: empty stack." );
@@ -92,7 +92,7 @@ void SceneStack::applyEnable()
 	scenes.back()->_enable();
 }
 
-void SceneStack::applyDisable()
+void SceneStackClass::applyDisable()
 {
 	if ( scenes.empty() )
 		return log( LogPriority::Error, "failed to Disable current scene: empty stack." );
@@ -100,7 +100,7 @@ void SceneStack::applyDisable()
 	scenes.back()->_disable();
 }
 
-void SceneStack::applyActions()
+void SceneStackClass::applyActions()
 {
 	// Action is that small it's not worth using reference
 	for ( auto action : pendingActions ) {
@@ -113,15 +113,20 @@ void SceneStack::applyActions()
 	}
 }
 
-void SceneStack::updateScenes()
+void SceneStackClass::updateScenes()
 {
 	for ( auto& scene : scenes )
 		scene->_update();
 }
 
-void SceneStack::update()
+void SceneStackClass::update()
 {
 	applyActions();
 	updateScenes();
 }
+}
+
+namespace con
+{
+inline priv::SceneStackClass SceneStack{};
 }

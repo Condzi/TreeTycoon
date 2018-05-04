@@ -69,5 +69,5 @@ void AssetsClass::setDefaultFont()
 
 namespace con
 {
-inline con::priv::AssetsClass Assets{};
+inline priv::AssetsClass Assets{};
 }

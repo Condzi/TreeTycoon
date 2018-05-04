@@ -28,7 +28,7 @@ private:
 	}
 };
 
-class SceneStack final :
+class SceneStackClass final :
 	public IUpdatable,
 	public ILogger
 {
@@ -94,4 +94,9 @@ private:
 	void updateScenes();
 	void update() override;
 };
+}
+
+namespace con
+{
+extern priv::SceneStackClass SceneStack;
 }
