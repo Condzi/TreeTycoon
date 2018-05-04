@@ -8,7 +8,7 @@
 #include <EntityStorage.hpp>
 #include <SystemStorage.hpp>
 #include <Updater.hpp>
-#include <Scene.hpp>
+#include <SceneStack.hpp>
 // for sleep
 #include <thread>
 
@@ -292,4 +292,37 @@ TEST_CASE( "Scene - manipulating Entities", "[Gameplay Objects]" )
 
 	REQUIRE( ExampleEntityA::testVar == 2 );
 	REQUIRE( ExampleEntityB::testVar == 2 );
+}
+
+TEST_CASE( "SceneStack", "[Gameplay Objects]" )
+{
+	auto& ss = con::SceneStack;
+	ExampleSceneA::testVar = ExampleSceneB::testVar = 0;
+
+	ss.registerScene<ExampleSceneA>( 0 );
+	ss.registerScene<ExampleSceneB>( 1 );
+
+	ss.push( 0 );
+	con::priv::Updater.update();
+	REQUIRE( ExampleSceneA::testVar == 2 );
+	REQUIRE( ExampleSceneB::testVar == 0 );
+	ss.disableCurrentScene();
+	con::priv::Updater.update();
+	REQUIRE( ExampleSceneA::testVar == 3 );
+	REQUIRE( ExampleSceneB::testVar == 0 );
+	ss.push( 1 );
+	con::priv::Updater.update();
+	REQUIRE( ExampleSceneA::testVar == 3 );
+	REQUIRE( ExampleSceneB::testVar == 2 );
+	con::priv::Updater.update();
+	REQUIRE( ExampleSceneA::testVar == 3 );
+	REQUIRE( ExampleSceneB::testVar == 3 );
+	ss.pop();
+	con::priv::Updater.update();
+	REQUIRE( ExampleSceneA::testVar == 3 );
+	REQUIRE( ExampleSceneB::testVar == 4 );
+	ss.enableCurrentScene();
+	con::priv::Updater.update();
+	REQUIRE( ExampleSceneA::testVar == 5 );
+	REQUIRE( ExampleSceneB::testVar == 4 );
 }

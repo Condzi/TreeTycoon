@@ -57,7 +57,7 @@ void SceneStackClass::requestAction( Action&& action )
 	};
 
 	if ( action.operation == Operation::Push )
-		log( LogPriority::Info, "request \"Push\", scene \"", action.scene, "\"." );
+		log( LogPriority::Info, "request \"Push\", id \"", action.scene, "\"." );
 	else
 		log( LogPriority::Info, "request \"", getOperationAsString( action.operation ), "\"." );
 
@@ -111,6 +111,8 @@ void SceneStackClass::applyActions()
 		case Operation::Disable: applyDisable(); break;
 		}
 	}
+
+	pendingActions.clear();
 }
 
 void SceneStackClass::updateScenes()
