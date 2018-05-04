@@ -72,7 +72,6 @@ public:
 		return -4;
 	}
 
-
 private:
 	SceneFactory factory;
 	std::vector<std::unique_ptr<Scene>> scenes;

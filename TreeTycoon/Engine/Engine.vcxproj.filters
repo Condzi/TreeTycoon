@@ -40,6 +40,12 @@
     <Filter Include="Source Files\GameplayObjects">
       <UniqueIdentifier>{72ff5a65-7c28-49ac-af52-f48dd0784eaa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{60be2b42-0710-4428-b90b-0d730b31b5e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{44447850-622e-4caa-80ec-6504e8a1a868}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Debug.cpp">
@@ -80,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="Src\SceneStack.cpp">
       <Filter>Source Files\GameplayObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Input.cpp">
+      <Filter>Source Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="Inc\SceneStack.hpp">
       <Filter>Header Files\GameplayObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Input.hpp">
+      <Filter>Header Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
