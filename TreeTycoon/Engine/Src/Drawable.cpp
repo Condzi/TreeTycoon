@@ -6,16 +6,17 @@
 #include "EnginePCH.hpp"
 
 #include "Drawable.hpp"
+#include "Renderer.hpp"
 
 namespace con
 {
 IDrawable::IDrawable()
 {
-	// priv::Renderer.register( this );
+	priv::Renderer.add( this );
 }
 IDrawable::~IDrawable()
 {
-	// priv::Renderer.unregister( this );
+	priv::Renderer.remove( this );
 }
 
 void IDrawable::setDrawLayer( int16_t layer_ )
