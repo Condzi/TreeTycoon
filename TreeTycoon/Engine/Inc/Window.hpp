@@ -14,6 +14,7 @@ public:
 	sf::RenderWindow& _getSFMLWindow();
 	void _pollEvents();
 	void setTitle( const std::string& title );
+	bool hasFocus() const;
 
 private:
 	sf::RenderWindow window;

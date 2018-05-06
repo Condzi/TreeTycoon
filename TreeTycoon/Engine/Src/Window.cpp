@@ -24,7 +24,7 @@ sf::RenderWindow& Window::_getSFMLWindow()
 
 void Window::_pollEvents()
 {
-	if ( !window.hasFocus() )
+	if ( !hasFocus() )
 		return;
 
 	Global.Input._clearStates();
@@ -40,5 +40,9 @@ void Window::_pollEvents()
 void Window::setTitle( const std::string& title )
 {
 	window.setTitle( title );
+}
+bool Window::hasFocus() const
+{
+	return window.hasFocus();
 }
 }

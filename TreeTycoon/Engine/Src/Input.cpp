@@ -22,7 +22,7 @@ bool InputClass::isDown( KeyboardKey key ) const
 
 bool InputClass::isHeld( KeyboardKey key ) const
 {
-	return sf::Keyboard::isKeyPressed( key ) && Global.GameWindow._getSFMLWindow().hasFocus();
+	return sf::Keyboard::isKeyPressed( key ) && Global.GameWindow.hasFocus();
 }
 
 bool InputClass::isUp( MouseButton button ) const
@@ -37,7 +37,7 @@ bool InputClass::isDown( MouseButton button ) const
 
 bool InputClass::isHeld( MouseButton button ) const
 {
-	return sf::Mouse::isButtonPressed( button ) && Global.GameWindow._getSFMLWindow().hasFocus();
+	return sf::Mouse::isButtonPressed( button ) && Global.GameWindow.hasFocus();
 }
 
 Vec2i InputClass::getMousePosition() const
