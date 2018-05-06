@@ -16,7 +16,6 @@
 
 namespace con::priv
 {
-// Don't care about memory cleanup. They live whole Game lifetime so it doesn't matter.
 GlobalClass::GlobalClass() :
 	_Updater( *( new UpdaterClass{} ) ),
 	Game( *( new GameClass{} ) ),
@@ -26,6 +25,12 @@ GlobalClass::GlobalClass() :
 	SceneStack( *( new SceneStackClass{} ) ),
 	Input( *( new InputClass{} ) )
 {}
+
+// Delete some pts to call their destructors.
+GlobalClass::~GlobalClass()
+{
+	delete &Assets;
+}
 }
 
 namespace con

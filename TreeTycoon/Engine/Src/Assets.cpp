@@ -10,7 +10,6 @@ namespace con::priv
 {
 AssetsClass::AssetsClass()
 {
-	Settings._load( "settings.ini" );
 	setDefaultTexture();
 	setDefaultFont();
 }

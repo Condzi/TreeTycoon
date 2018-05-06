@@ -20,6 +20,7 @@ struct GlobalClass final
 	bool ExitGame = false;
 
 	GlobalClass();
+	~GlobalClass();
 };
 }
 
