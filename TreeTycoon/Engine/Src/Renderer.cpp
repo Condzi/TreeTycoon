@@ -47,5 +47,6 @@ void RendererClass::render()
 void RendererClass::update()
 {
 	sortByLayer();
+	render();
 }
 }
