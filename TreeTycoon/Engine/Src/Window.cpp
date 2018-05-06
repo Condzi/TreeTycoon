@@ -7,6 +7,7 @@
 
 #include "Window.hpp"
 #include "Input.hpp"
+#include "Game.hpp"
 
 namespace con
 {
@@ -15,9 +16,10 @@ inline priv::Window GameWindow{};
 
 namespace con::priv
 {
-void Window::_create( const Vec2u& size )
+void Window::_create( const Vec2u& size, uint32_t fps )
 {
 	window.create( { size.x, size.y }, "", sf::Style::Close );
+	window.setFramerateLimit( fps );
 }
 
 sf::RenderWindow& Window::_getSFMLWindow()
@@ -34,9 +36,9 @@ void Window::_pollEvents()
 	sf::Event ev;
 	while ( window.pollEvent( ev ) ) {
 		if ( ev.type == sf::Event::Closed )
-			return window.close();
-
-		Input._dispatchEvent( ev );
+			ExitGame = true;
+		else
+			Input._dispatchEvent( ev );
 	}
 }
 
