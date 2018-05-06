@@ -20,25 +20,25 @@ TEST_CASE( "Input", "[Input]" )
 	downButton.type = sf::Event::EventType::MouseButtonPressed;
 	downButton.mouseButton.button = con::MouseButton::Right;
 
-	REQUIRE_FALSE( con::Input.isUp( con::KeyboardKey::A ) );
-	REQUIRE_FALSE( con::Input.isUp( con::MouseButton::Left ) );
-	REQUIRE_FALSE( con::Input.isDown( con::KeyboardKey::B ) );
-	REQUIRE_FALSE( con::Input.isDown( con::MouseButton::Right ) );
+	REQUIRE_FALSE( con::Global.Input.isUp( con::KeyboardKey::A ) );
+	REQUIRE_FALSE( con::Global.Input.isUp( con::MouseButton::Left ) );
+	REQUIRE_FALSE( con::Global.Input.isDown( con::KeyboardKey::B ) );
+	REQUIRE_FALSE( con::Global.Input.isDown( con::MouseButton::Right ) );
 
-	con::Input._dispatchEvent( upKey );
-	con::Input._dispatchEvent( downKey );
-	con::Input._dispatchEvent( upButton );
-	con::Input._dispatchEvent( downButton );
+	con::Global.Input._dispatchEvent( upKey );
+	con::Global.Input._dispatchEvent( downKey );
+	con::Global.Input._dispatchEvent( upButton );
+	con::Global.Input._dispatchEvent( downButton );
 
-	REQUIRE( con::Input.isUp( con::KeyboardKey::A ) );
-	REQUIRE( con::Input.isUp( con::MouseButton::Left ) );
-	REQUIRE( con::Input.isDown( con::KeyboardKey::B ) );
-	REQUIRE( con::Input.isDown( con::MouseButton::Right ) );
+	REQUIRE( con::Global.Input.isUp( con::KeyboardKey::A ) );
+	REQUIRE( con::Global.Input.isUp( con::MouseButton::Left ) );
+	REQUIRE( con::Global.Input.isDown( con::KeyboardKey::B ) );
+	REQUIRE( con::Global.Input.isDown( con::MouseButton::Right ) );
 
-	con::Input._clearStates();
+	con::Global.Input._clearStates();
 
-	REQUIRE_FALSE( con::Input.isUp( con::KeyboardKey::A ) );
-	REQUIRE_FALSE( con::Input.isUp( con::MouseButton::Left ) );
-	REQUIRE_FALSE( con::Input.isDown( con::KeyboardKey::B ) );
-	REQUIRE_FALSE( con::Input.isDown( con::MouseButton::Right ) );
+	REQUIRE_FALSE( con::Global.Input.isUp( con::KeyboardKey::A ) );
+	REQUIRE_FALSE( con::Global.Input.isUp( con::MouseButton::Left ) );
+	REQUIRE_FALSE( con::Global.Input.isDown( con::KeyboardKey::B ) );
+	REQUIRE_FALSE( con::Global.Input.isDown( con::MouseButton::Right ) );
 }

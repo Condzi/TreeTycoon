@@ -12,11 +12,11 @@ namespace con
 {
 IDrawable::IDrawable()
 {
-	priv::Renderer.add( this );
+	Global._Renderer.add( this );
 }
 IDrawable::~IDrawable()
 {
-	priv::Renderer.remove( this );
+	Global._Renderer.remove( this );
 }
 
 void IDrawable::setDrawLayer( int16_t layer_ )

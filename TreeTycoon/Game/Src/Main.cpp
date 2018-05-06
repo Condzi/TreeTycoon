@@ -3,5 +3,9 @@
 	https://github.com/condzi
 */
 
+#include "Game.hpp"
+
 int main()
-{}
+{
+	con::Global.Game.run();
+}

@@ -9,11 +9,6 @@
 #include "Input.hpp"
 #include "Game.hpp"
 
-namespace con
-{
-inline priv::Window GameWindow{};
-}
-
 namespace con::priv
 {
 void Window::_create( const Vec2u& size, uint32_t fps )
@@ -32,13 +27,13 @@ void Window::_pollEvents()
 	if ( !window.hasFocus() )
 		return;
 
-	Input._clearStates();
+	Global.Input._clearStates();
 	sf::Event ev;
 	while ( window.pollEvent( ev ) ) {
 		if ( ev.type == sf::Event::Closed )
-			ExitGame = true;
+			Global.ExitGame = true;
 		else
-			Input._dispatchEvent( ev );
+			Global.Input._dispatchEvent( ev );
 	}
 }
 

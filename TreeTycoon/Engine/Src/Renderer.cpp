@@ -29,7 +29,7 @@ void RendererClass::sortByLayer()
 
 void RendererClass::render()
 {
-	auto& win = GameWindow._getSFMLWindow();
+	auto& win = Global.GameWindow._getSFMLWindow();
 
 	win.clear();
 

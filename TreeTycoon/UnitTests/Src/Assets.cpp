@@ -55,7 +55,7 @@ TEST_CASE( "Basic Asset Holder (sf::Texture)", "[Assets]" )
 		testImg.saveToFile( TEST_IMG_PATH );
 	}
 
-	auto& texture = con::Assets.Texture;
+	auto& texture = con::Global.Assets.Texture;
 
 	{
 		REQUIRE( texture.load( TEST_IMG_PATH, "test" ) == true );
@@ -70,7 +70,7 @@ TEST_CASE( "IAudioHolder (sf::Sound)", "[Assets]" )
 {
 	static constexpr const char* TEST_SOUND_PATH = "Data/test.wav";
 
-	auto& sound = con::Assets.Sound;
+	auto& sound = con::Global.Assets.Sound;
 
 	REQUIRE( sound.load( TEST_SOUND_PATH, "test" ) == true );
 	sound.setVolume( 50 );
@@ -93,7 +93,7 @@ TEST_CASE( "IAudioHolder (sf::Music)", "[Assets]" )
 {
 	static constexpr const char* TEST_MUSIC_PATH = "Data/test.wav";
 
-	auto& music = con::Assets.Music;
+	auto& music = con::Global.Assets.Music;
 
 	music.add( TEST_MUSIC_PATH, "test" );
 	// doesn't return bool but we can check "isPlaying" to see is it working

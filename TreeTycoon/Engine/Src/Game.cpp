@@ -20,21 +20,21 @@ void GameClass::run()
 	configureFromSettings();
 
 	sf::Clock fpsClock;
-	while ( !ExitGame ) {
-		GameWindow._pollEvents();
-		Updater.update();
-		FrameTime = fpsClock.restart();
+	while ( !Global.ExitGame ) {
+		Global.GameWindow._pollEvents();
+		Global._Updater.update();
+		Global.FrameTime = fpsClock.restart();
 	}
 }
 
 bool GameClass::loadSettings()
 {
-	return Assets.Settings._load( "settings.ini" );
+	return Global.Assets.Settings._load( "settings.ini" );
 }
 
 bool GameClass::validateSettings()
 {
-	auto& settings = Assets.Settings;
+	auto& settings = Global.Assets.Settings;
 
 	if ( !settings.get( "WINDOW", "WIDTH" ).has_value() )
 		log( LogPriority::Error, "Missing WINDOW WIDTH setting." );
@@ -50,7 +50,7 @@ bool GameClass::validateSettings()
 
 void GameClass::makeDefaultSettings()
 {
-	auto& settings = Assets.Settings;
+	auto& settings = Global.Assets.Settings;
 
 	settings.set( "WINDOW", "WIDTH", "800" );
 	settings.set( "WINDOW", "HEIGHT", "600" );
@@ -59,12 +59,12 @@ void GameClass::makeDefaultSettings()
 
 void GameClass::configureFromSettings()
 {
-	auto& settings = Assets.Settings;
+	auto& settings = Global.Assets.Settings;
 
 	auto winWidth = ConvertTo<uint32_t>( settings.get( "WINDOW", "WIDTH" ).value() );
 	auto winHeight = ConvertTo<uint32_t>( settings.get( "WINDOW", "HEIGHT" ).value() );
 	auto fps = ConvertTo<uint32_t>( settings.get( "WINDOW", "FPS" ).value() );
 
-	GameWindow._create( { winWidth, winHeight }, fps );
+	Global.GameWindow._create( { winWidth, winHeight }, fps );
 }
 }

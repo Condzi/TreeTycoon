@@ -296,7 +296,7 @@ TEST_CASE( "Scene - manipulating Entities", "[Gameplay Objects]" )
 
 TEST_CASE( "SceneStack", "[Gameplay Objects]" )
 {
-	auto& ss = con::SceneStack;
+	auto& ss = con::Global.SceneStack;
 	ExampleSceneA::testVar = ExampleSceneB::testVar = 0;
 
 	ss.registerScene<ExampleSceneA>( 0 );

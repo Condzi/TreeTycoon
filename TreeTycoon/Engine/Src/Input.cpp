@@ -42,7 +42,7 @@ bool InputClass::isHeld( MouseButton button ) const
 
 Vec2i InputClass::getMousePosition() const
 {
-	return sf::Mouse::getPosition( GameWindow._getSFMLWindow() );
+	return sf::Mouse::getPosition( Global.GameWindow._getSFMLWindow() );
 }
 
 void InputClass::_dispatchEvent( const sf::Event& event )
