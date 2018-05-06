@@ -49,6 +49,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\Game.cpp" />
     <ClCompile Include="Src\INIFile.cpp">
       <SubType>
       </SubType>
@@ -123,6 +124,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Inc\Game.hpp" />
     <ClInclude Include="Inc\INIFile.hpp">
       <SubType>
       </SubType>
@@ -244,6 +246,7 @@
       <PrecompiledHeaderFile>EnginePCH.hpp</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(SolutionDir)intermediates\$(ProjectName)\(TargetName).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <ProgramDataBaseFileName>$(OutputPath)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SFMLLinkablesDynamicDebug);</AdditionalDependencies>
@@ -273,6 +276,7 @@
       <PrecompiledHeaderFile>EnginePCH.hpp</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(SolutionDir)intermediates\$(ProjectName)\(TargetName).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <ProgramDataBaseFileName>$(OutputPath)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

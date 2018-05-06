@@ -105,6 +105,9 @@
     <ClCompile Include="Src\Renderer.cpp">
       <Filter>Source Files\Visual</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\EnginePCH.hpp">
@@ -166,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="Inc\Renderer.hpp">
       <Filter>Header Files\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Game.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
