@@ -14,9 +14,9 @@ class RendererClass final :
 	public IUpdatable
 {
 public:
-	int16_t getUpdatePriority() const override
+	int8_t getUpdatePriority() const override
 	{
-		return -6;
+		return ConvertTo<int16_t>( UpdatePriority::Renderer );
 	}
 
 	void add( IDrawable* drawable );

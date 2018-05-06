@@ -21,9 +21,9 @@ public:
 	RULE_OF_FIVE_NO_CTOR( IDrawable );
 	virtual ~IDrawable();
 
-	int16_t getUpdatePriority() const final
+	int8_t getUpdatePriority() const final
 	{
-		return -7;
+		return ConvertTo<int16_t>( UpdatePriority::Drawable );
 	}
 
 	void setDrawLayer( int16_t layer_ );

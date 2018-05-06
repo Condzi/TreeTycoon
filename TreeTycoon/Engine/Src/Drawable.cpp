@@ -98,9 +98,6 @@ void Text::render( sf::RenderWindow& window )
 
 void IAnimation::updateFrameTime()
 {
-	// use global Time.frameDelta or something
-	const sf::Time frameDelta = sf::seconds( 1.f / 60 );
-
 	const auto& ai = animationInfo;
 
 	if ( !isAnimation )
@@ -111,7 +108,7 @@ void IAnimation::updateFrameTime()
 		return;
 	}
 
-	currentFrameTime += frameDelta;
+	currentFrameTime += Global.FrameTime;
 	if ( currentFrameTime > ai.fps ) {
 		currentFrameTime -= ai.fps;
 

@@ -13,7 +13,7 @@ int value = 0;
 class UpdatableA : public con::IUpdatable
 {
 public:
-	int16_t getUpdatePriority() const override
+	int8_t getUpdatePriority() const override
 	{
 		return 1;
 	}
@@ -27,7 +27,7 @@ public:
 class UpdatableB : public con::IUpdatable
 {
 public:
-	int16_t getUpdatePriority() const override
+	int8_t getUpdatePriority() const override
 	{
 		return 2;
 	}

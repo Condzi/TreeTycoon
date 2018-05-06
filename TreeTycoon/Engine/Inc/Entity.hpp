@@ -36,9 +36,9 @@ public:
 	void disable();
 	void enable();
 
-	int16_t getUpdatePriority() const final
+	int8_t getUpdatePriority() const final
 	{
-		return -1;
+		return ConvertTo<int16_t>( UpdatePriority::Entity );
 	}
 
 	Status getStatus() const;

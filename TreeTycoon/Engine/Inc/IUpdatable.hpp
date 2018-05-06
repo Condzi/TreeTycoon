@@ -17,7 +17,7 @@ public:
 	
 	virtual ~IUpdatable();
 
-	virtual int16_t getUpdatePriority() const = 0;
+	virtual int8_t getUpdatePriority() const = 0;
 	virtual void update() = 0;
 };
 }

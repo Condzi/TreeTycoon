@@ -24,9 +24,9 @@ public:
 		return dynamic_cast<TEntity&>( *created.get() );
 	}
 
-	int16_t getUpdatePriority() const override
+	int8_t getUpdatePriority() const override
 	{
-		return -2;
+		return ConvertTo<int16_t>( UpdatePriority::Entity );
 	}
 
 	template <typename TEntity>

@@ -67,9 +67,9 @@ public:
 
 	std::optional<SceneID> getSceneOnTop();
 
-	int16_t getUpdatePriority() const override
+	int8_t getUpdatePriority() const override
 	{
-		return -4;
+		return ConvertTo<int16_t>( UpdatePriority::Renderer );
 	}
 
 private:
@@ -83,7 +83,7 @@ private:
 	}
 
 	void requestAction( Action&& action );
-	
+
 	void applyPush( SceneID id );
 	void applyPop();
 	void applyEnable();

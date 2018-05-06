@@ -10,7 +10,7 @@
 
 namespace con::priv
 {
-class SystemStorage final : 
+class SystemStorage final :
 	public IUpdatable
 {
 public:
@@ -29,9 +29,9 @@ public:
 		return *dynamic_cast<TSystem*>( sys.get() );
 	}
 
-	int16_t getUpdatePriority() const override
-	{	
-		return -3;
+	int8_t getUpdatePriority() const override
+	{
+		return ConvertTo<int16_t>( UpdatePriority::SystemStorage );
 	}
 
 	void updateSystems();
