@@ -180,17 +180,17 @@ TEST_CASE( "Entity", "[Gameplay Objects]" )
 	REQUIRE( entity.getStatus() == con::Entity::Status::Enabled );
 	REQUIRE( ExampleEntityA::testVar == 3 );
 
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleEntityA::testVar == 4 );
 	entity.disable();
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleEntityA::testVar == 5 );
 
 	entity.kill();
 	REQUIRE( entity.getStatus() == con::Entity::Status::Dead );
 	REQUIRE( ExampleEntityA::testVar == 6 );
 
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleEntityA::testVar == 6 );
 }
 
@@ -207,7 +207,7 @@ TEST_CASE( "EntityStorage", "[Gameplay Objects]" )
 	REQUIRE( es.getAllEntitiesOfType<con::Entity>().size() == 1 );
 	// fukup if 2 seconds. (too short for some reason?)
 	std::this_thread::sleep_for( std::chrono::seconds( 3 ) );
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( es.getAllEntitiesOfType<ExampleEntityA>().empty() == true );
 }
 
@@ -220,7 +220,7 @@ TEST_CASE( "SystemStorage", "[Gameplay Objects]" )
 	ss.addSystem<ExampleSystemB>( 1 );
 	ss.addSystem<ExampleSystemA>( 0 );
 
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 
 	ss.updateSystems();
 
@@ -244,7 +244,7 @@ TEST_CASE( "Scene - spawning", "[Gameplay Objects]" )
 	REQUIRE( ExampleEntityA::testVar == 2 );
 	REQUIRE( ExampleEntityB::testVar == 2 );
 
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	scene._update();
 	REQUIRE( ExampleEntityA::testVar == 2 );
 	REQUIRE( ExampleEntityB::testVar == 2 );
@@ -255,7 +255,7 @@ TEST_CASE( "Scene - spawning", "[Gameplay Objects]" )
 
 	REQUIRE( ExampleEntityA::testVar == 3 );
 	REQUIRE( ExampleEntityB::testVar == 3 );
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	scene._update();
 	REQUIRE( ExampleSceneA::testVar == 3 );
 
@@ -303,26 +303,26 @@ TEST_CASE( "SceneStack", "[Gameplay Objects]" )
 	ss.registerScene<ExampleSceneB>( 1 );
 
 	ss.push( 0 );
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleSceneA::testVar == 2 );
 	REQUIRE( ExampleSceneB::testVar == 0 );
 	ss.disableCurrentScene();
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleSceneA::testVar == 3 );
 	REQUIRE( ExampleSceneB::testVar == 0 );
 	ss.push( 1 );
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleSceneA::testVar == 3 );
 	REQUIRE( ExampleSceneB::testVar == 2 );
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleSceneA::testVar == 3 );
 	REQUIRE( ExampleSceneB::testVar == 3 );
 	ss.pop();
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleSceneA::testVar == 3 );
 	REQUIRE( ExampleSceneB::testVar == 4 );
 	ss.enableCurrentScene();
-	con::priv::Updater.update();
+	con::Global._Updater.update();
 	REQUIRE( ExampleSceneA::testVar == 5 );
 	REQUIRE( ExampleSceneB::testVar == 4 );
 }

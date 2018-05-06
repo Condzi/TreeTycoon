@@ -12,11 +12,11 @@ namespace con
 {
 IUpdatable::IUpdatable()
 {
-	priv::Updater.add( this );
+	Global._Updater.add( this );
 }
 
 IUpdatable::~IUpdatable()
 {
-	priv::Updater.remove( this );
+	Global._Updater.remove( this );
 }
 }

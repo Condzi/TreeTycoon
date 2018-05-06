@@ -45,10 +45,10 @@ TEST_CASE( "Updater", "[IUpdatable]" )
 		REQUIRE( value == 0 );
 		{
 			UpdatableA a;
-			con::priv::Updater.update();
+			con::Global._Updater.update();
 		}
 		REQUIRE( value == 1 );
-		con::priv::Updater.update();
+		con::Global._Updater.update();
 		value = 0;
 	}
 
@@ -58,7 +58,7 @@ TEST_CASE( "Updater", "[IUpdatable]" )
 		{
 			UpdatableA a;
 			UpdatableB b;
-			con::priv::Updater.update();
+			con::Global._Updater.update();
 			// If a executes first, then value = 1, and then b does * 2, so in the end value = 2, otherwise - 0.
 			REQUIRE( value == 2 );
 		}

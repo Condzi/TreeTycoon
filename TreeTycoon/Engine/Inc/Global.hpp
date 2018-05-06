@@ -9,12 +9,13 @@ namespace con::priv
 {
 struct GlobalClass final
 {
-	class UpdaterClass& Updater;
+	class UpdaterClass& _Updater;
 	class GameClass& Game;
 	class Window& GameWindow;
-	class RendererClass& Renderer;
+	class RendererClass& _Renderer;
 	class AssetsClass& Assets;
 	class SceneStackClass& SceneStack;
+	class InputClass& Input;
 	sf::Time FrameTime;
 	bool ExitGame = false;
 

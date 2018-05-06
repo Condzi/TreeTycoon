@@ -50,6 +50,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Src\Game.cpp" />
+    <ClCompile Include="Src\Global.cpp" />
     <ClCompile Include="Src\INIFile.cpp">
       <SubType>
       </SubType>
@@ -125,6 +126,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\Game.hpp" />
+    <ClInclude Include="Inc\Global.hpp" />
     <ClInclude Include="Inc\INIFile.hpp">
       <SubType>
       </SubType>
