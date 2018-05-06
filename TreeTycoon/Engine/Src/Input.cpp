@@ -8,11 +8,6 @@
 #include "Input.hpp"
 #include "Window.hpp"
 
-namespace con
-{
-inline priv::InputClass Input{};
-}
-
 namespace con::priv
 {
 bool InputClass::isUp( KeyboardKey key ) const

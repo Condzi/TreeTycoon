@@ -27,8 +27,3 @@ private:
 	void setDefaultFont();
 };
 }
-
-namespace con
-{
-extern con::priv::AssetsClass Assets;
-}

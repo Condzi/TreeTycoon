@@ -16,7 +16,6 @@ constexpr bool IS_DEBUG = true;
 constexpr bool IS_DEBUG = false;
 #endif
 
-// Priority is also console text color.
 enum class LogPriority
 {
 	Info, Warning, Error

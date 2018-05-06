@@ -10,13 +10,6 @@
 #include "Window.hpp"
 #include "Assets.hpp"
 
-namespace con
-{
-inline priv::GameClass Game{};
-inline sf::Time FrameTime{};
-inline bool ExitGame = false;
-}
-
 namespace con::priv
 {
 void GameClass::run()

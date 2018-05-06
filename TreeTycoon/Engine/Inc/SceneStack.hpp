@@ -94,8 +94,3 @@ private:
 	void update() override;
 };
 }
-
-namespace con
-{
-extern priv::SceneStackClass SceneStack;
-}

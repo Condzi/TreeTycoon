@@ -19,8 +19,3 @@ private:
 	sf::RenderWindow window;
 };
 }
-
-namespace con
-{
-extern priv::Window GameWindow;
-}

@@ -24,5 +24,5 @@ private:
 	std::vector<IUpdatable*> updatables;
 
 	void sortByPriority();
-} extern Updater;
+};
 }

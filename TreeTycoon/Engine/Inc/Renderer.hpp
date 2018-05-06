@@ -28,5 +28,5 @@ private:
 	void sortByLayer();
 	void render();
 	void update() override;
-} extern Renderer;
+};
 }

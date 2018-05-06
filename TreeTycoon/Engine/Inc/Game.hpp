@@ -27,10 +27,3 @@ private:
 	}
 };
 }
-
-namespace con
-{
-extern priv::GameClass Game;
-extern sf::Time FrameTime;
-extern bool ExitGame;
-}

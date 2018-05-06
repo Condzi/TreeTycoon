@@ -43,8 +43,3 @@ private:
 	std::array<KeyState, MouseButton::ButtonCount> mouseButtons{ KeyState::None };
 };
 }
-
-namespace con
-{
-extern priv::InputClass Input;
-}

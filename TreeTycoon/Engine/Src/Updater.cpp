@@ -10,8 +10,6 @@
 
 namespace con::priv
 {
-inline UpdaterClass Updater{};
-
 void UpdaterClass::add( IUpdatable* updatable )
 {
 	updatables.emplace_back( updatable );

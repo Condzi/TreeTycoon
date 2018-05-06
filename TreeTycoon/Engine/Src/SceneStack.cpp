@@ -127,8 +127,3 @@ void SceneStackClass::update()
 	updateScenes();
 }
 }
-
-namespace con
-{
-inline priv::SceneStackClass SceneStack{};
-}

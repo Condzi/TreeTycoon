@@ -66,8 +66,3 @@ void AssetsClass::setDefaultFont()
 	Font._setDefault( std::move( font ) );
 }
 }
-
-namespace con
-{
-inline priv::AssetsClass Assets{};
-}

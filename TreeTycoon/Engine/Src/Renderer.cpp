@@ -10,8 +10,6 @@
 
 namespace con::priv
 {
-inline RendererClass Renderer{};
-
 void RendererClass::add( IDrawable* drawable )
 {
 	drawables.emplace_back( drawable );
