@@ -8,6 +8,7 @@
 #include "Scene.hpp"
 #include "SceneStack.hpp"
 #include "Input.hpp"
+#include "Window.hpp"
 
 using namespace con;
 
@@ -20,18 +21,15 @@ public:
 	{
 		rect.setFillColor( sf::Color{ 155,155,155 } );
 		rect.setSize( { 400,300 } );
-		rect.setOrigin( 200, 150 );
-		rect.boundWithEntity( this );
 		rect.useEntityPosition = true;
-
-		position = { 0.5f, 0.5f };
-		useAbsolutePositioning = true;
+		rect.boundWithEntity( this );
 	}
 
 	void onUpdate() override
 	{
+		auto& window = Global.GameWindow;
 		const float delta = Global.FrameTime.asSeconds();
-		const Vec2f maxForce{ delta, delta };
+		const Vec2f maxForce{ 150 * delta, 150 * delta };
 		Vec2f force{};
 
 		if ( Global.Input.isHeld( KeyboardKey::W ) )
@@ -47,6 +45,8 @@ public:
 			log( LogPriority::Info, "{", rect.getPosition().x, ", ", rect.getPosition().y, "}" );
 
 		position += force;
+		// Make sure that pos is never outsite window
+		position = window.convertAbsoluteToPixel( window.convertPixelToAbsolute( position ) );
 
 		if ( Global.Input.isDown( KeyboardKey::Escape ) )
 			Global.ExitGame = true;

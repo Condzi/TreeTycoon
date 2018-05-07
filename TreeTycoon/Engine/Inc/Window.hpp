@@ -18,7 +18,7 @@ public:
 	void _pollEvents();
 	void setTitle( const std::string& title );
 	bool hasFocus() const;
-	Vec2f convertAbsoluteToPixels( const Vec2f& absolute );
+	Vec2f convertAbsoluteToPixel( const Vec2f& absolute );
 	Vec2f convertPixelToAbsolute( const Vec2f& pixels );
 
 private:

@@ -47,29 +47,40 @@ bool Window::hasFocus() const
 	return window.hasFocus();
 }
 
-Vec2f Window::convertAbsoluteToPixels( const Vec2f& absolute )
+Vec2f Window::convertAbsoluteToPixel( const Vec2f& absolute )
 {
-	if ( absolute.x > 1.0f || absolute.x < 0 ||
-		 absolute.y > 1.0f || absolute.y < 0 ) {
-		log( LogPriority::Error, "wrong args - invalid absolute position: {", absolute.x, ", ", absolute.y, "}." );
-		return {};
-	}
+	const auto winSize = ConvertTo<Vec2f>( window.getSize() );
+	Vec2f pixel{};
 
-	auto winSize = ConvertTo<Vec2f>( window.getSize() );
+	if ( absolute.x > 1.0f || absolute.x < 0 )
+		log( LogPriority::Error, "wrong args - invalid absolute position X: ", absolute.x, "." );
+	else
+		pixel.x = winSize.x * absolute.x;
 
-	return { winSize.x * absolute.x, winSize.y * absolute.y };
+	if ( absolute.y > 1.0f || absolute.y < 0 )
+		log( LogPriority::Error, "wrong args - invalid absolute position Y: ", absolute.y, "." );
+	else
+		pixel.y = winSize.y * absolute.y;
+
+
+	return pixel;
 }
 
-Vec2f Window::convertPixelToAbsolute( const Vec2f& pixel ) 
+Vec2f Window::convertPixelToAbsolute( const Vec2f& pixel )
 {
 	auto winSize = ConvertTo<Vec2f>( window.getSize() );
+	Vec2f abs{};
 
-	if ( pixel.x > winSize.x || pixel.x < 0 ||
-		 pixel.y > winSize.y || pixel.y < 0 ) {
-		log( LogPriority::Error, "wrong args - invalid pixel position: {", pixel.x, "/", winSize.x, ", ", pixel.y, "/", winSize.y, "}." );
-		return {};
-	}
+	if ( pixel.x > winSize.x || pixel.x < 0 )
+		log( LogPriority::Error, "wrong args - invalid pixel X position: ", pixel.x, "/", winSize.x, "." );
+	else
+		abs.x = pixel.x / winSize.x;
 
-	return { pixel.x / winSize.x, pixel.y / winSize.y };
+	if ( pixel.y > winSize.x || pixel.y < 0 )
+		log( LogPriority::Error, "wrong args - invalid pixel Y position: ", pixel.x, "/", winSize.x, "." );
+	else
+		abs.y = pixel.y / winSize.y;
+
+	return abs;
 }
 }

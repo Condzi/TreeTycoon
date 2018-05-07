@@ -53,7 +53,7 @@ void IDrawable::updatePositionToEntity( sf::Transformable& object ) const
 		if ( boundedEntity->useAbsolutePositioning ) {
 			auto entityPos = boundedEntity->position;
 
-			object.setPosition( win.convertAbsoluteToPixels( entityPos ) );
+			object.setPosition( win.convertAbsoluteToPixel( entityPos ) );
 		} else
 			object.setPosition( boundedEntity->position );
 	}
