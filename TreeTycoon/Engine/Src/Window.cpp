@@ -76,8 +76,8 @@ Vec2f Window::convertPixelToAbsolute( const Vec2f& pixel )
 	else
 		abs.x = pixel.x / winSize.x;
 
-	if ( pixel.y > winSize.x || pixel.y < 0 )
-		log( LogPriority::Error, "wrong args - invalid pixel Y position: ", pixel.x, "/", winSize.x, "." );
+	if ( pixel.y > winSize.y || pixel.y < 0 )
+		log( LogPriority::Error, "wrong args - invalid pixel Y position: ", pixel.y, "/", winSize.y, "." );
 	else
 		abs.y = pixel.y / winSize.y;
 
