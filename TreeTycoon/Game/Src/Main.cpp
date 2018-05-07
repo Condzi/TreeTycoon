@@ -15,7 +15,7 @@ class ExampleEntity final :
 	public Entity
 {
 public:
-	con::RectangleShape rect;
+	RectangleShape rect;
 	ExampleEntity()
 	{
 		rect.setFillColor( sf::Color{ 155,155,155 } );
