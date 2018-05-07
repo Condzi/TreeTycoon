@@ -26,7 +26,7 @@ public:
 
 	int8_t getUpdatePriority() const override
 	{
-		return ConvertTo<int16_t>( UpdatePriority::Entity );
+		return ConvertTo<int8_t>( UpdatePriority::Entity );
 	}
 
 	template <typename TEntity>
