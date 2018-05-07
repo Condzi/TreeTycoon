@@ -30,6 +30,7 @@ public:
 	int16_t getDrawLayer() const;
 	void boundWithEntity( Entity* boundedEntity_ );
 	Entity* getBoundedEntity() const;
+	bool isBoundedWithEntity() const;
 
 	virtual void render( sf::RenderWindow& window ) {}
 

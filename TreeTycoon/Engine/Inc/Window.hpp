@@ -5,9 +5,12 @@
 
 #pragma once
 
+#include "Debug.hpp"
+
 namespace con::priv
 {
-class Window final
+class Window final :
+	public ILogger
 {
 public:
 	void _create( const Vec2u& size, uint32_t fps );
@@ -15,8 +18,15 @@ public:
 	void _pollEvents();
 	void setTitle( const std::string& title );
 	bool hasFocus() const;
+	Vec2f convertAbsoluteToPixels( const Vec2f& absolute );
+	Vec2f convertPixelToAbsolute( const Vec2f& pixels );
 
 private:
 	sf::RenderWindow window;
+
+	std::string loggerName() const override
+	{
+		return "Window";
+	}
 };
 }

@@ -21,13 +21,17 @@ public:
 		rect.setFillColor( sf::Color{ 155,155,155 } );
 		rect.setSize( { 400,300 } );
 		rect.setOrigin( 200, 150 );
-		rect.setPosition( 400, 300 );
+		rect.boundWithEntity( this );
+		rect.useEntityPosition = true;
+
+		position = { 0.5f, 0.5f };
+		useAbsolutePositioning = true;
 	}
 
 	void onUpdate() override
 	{
 		const float delta = Global.FrameTime.asSeconds();
-		const Vec2f maxForce{ 150 * delta,150 * delta };
+		const Vec2f maxForce{ delta, delta };
 		Vec2f force{};
 
 		if ( Global.Input.isHeld( KeyboardKey::W ) )
@@ -39,7 +43,10 @@ public:
 		if ( Global.Input.isHeld( KeyboardKey::D ) )
 			force.x = maxForce.x;
 
-		rect.move( force );
+		if ( force.x != 0 || force.y !=0 )
+			log( LogPriority::Info, "{", rect.getPosition().x, ", ", rect.getPosition().y, "}" );
+
+		position += force;
 
 		if ( Global.Input.isDown( KeyboardKey::Escape ) )
 			Global.ExitGame = true;
