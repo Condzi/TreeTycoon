@@ -50,5 +50,8 @@
     <ClCompile Include="Src\Input.cpp">
       <Filter>Source Files\Engine Tests</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Visual.cpp">
+      <Filter>Source Files\Engine Tests</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
