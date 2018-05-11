@@ -9,7 +9,7 @@
 
 namespace con::priv
 {
-class Window final :
+class GameWindowClass final :
 	public ILogger
 {
 public:
@@ -26,7 +26,7 @@ private:
 
 	std::string loggerName() const override
 	{
-		return "Window";
+		return "GameWindow";
 	}
 };
 }

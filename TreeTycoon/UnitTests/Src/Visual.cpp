@@ -9,16 +9,16 @@
 
 using namespace con;
 
-TEST_CASE( "Window", "[Visual]" )
+TEST_CASE( "GameWindowClass", "[Visual]" )
 {
-	priv::Window window;
+	priv::GameWindowClass window;
 	window._create( { 200,200 }, 0 );
 
 	REQUIRE( window._getSFMLWindow().getSize().x == 200 );
 	REQUIRE( window._getSFMLWindow().getSize().y == 200 );
 
 
-	SECTION( "Pixel to absolute" );
+	SECTION( "Pixel to absolute" )
 	{
 		auto a = window.convertPixelToAbsolute( { 200,200 } );
 		auto b = window.convertPixelToAbsolute( { 0,0 } );
@@ -31,7 +31,7 @@ TEST_CASE( "Window", "[Visual]" )
 
 	}
 
-	SECTION( "Absolute to pixel" );
+	SECTION( "Absolute to pixel" )
 	{
 		auto a = window.convertAbsoluteToPixel( { 1,1 } );
 		auto b = window.convertAbsoluteToPixel( { 0,0 } );

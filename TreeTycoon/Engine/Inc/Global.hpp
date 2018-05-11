@@ -11,7 +11,7 @@ struct GlobalClass final
 {
 	class UpdaterClass& _Updater;
 	class GameClass& Game;
-	class Window& GameWindow;
+	class GameWindowClass& GameWindow;
 	class RendererClass& _Renderer;
 	class AssetsClass& Assets;
 	class SceneStackClass& SceneStack;
