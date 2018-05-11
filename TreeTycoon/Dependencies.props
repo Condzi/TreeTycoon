@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
  <PropertyGroup Label="UserMacros">
-    <SFMLDir>$(SolutionDir)Dependencies\SFML-2.4.2\</SFMLDir>
+    <SFMLDir>$(SolutionDir)Dependencies\SFML\</SFMLDir>
     <SFMLLinkablesStaticDebug>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;sfml-system-s-d.lib</SFMLLinkablesStaticDebug>
     <SFMLLinkablesDynamicDebug>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib</SFMLLinkablesDynamicDebug>
     <SFMLLinkablesStaticRelease>sfml-graphics-s.lib;sfml-window-s.lib;sfml-audio-s.lib;sfml-network-s.lib;sfml-system-s.lib</SFMLLinkablesStaticRelease>

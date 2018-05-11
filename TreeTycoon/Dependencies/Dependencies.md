@@ -1,3 +1,3 @@
 # The dependencies
 Here are:
-* SFML-2.4.2/
+* SFML/ _(version 2.5.0)_
