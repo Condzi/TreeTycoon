@@ -36,5 +36,6 @@
 /TreeTycoon/intermediates/
 /TreeTycoon/binaries/
 /TreeTycoon/Dependencies/SFML/
+/TreeTycoon/Dependencies/TGUI/
 log.txt
 settings.ini

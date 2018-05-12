@@ -9,6 +9,9 @@
     <SFMLLinkablesDynamicRelease>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib</SFMLLinkablesDynamicRelease>
     <SFMLLinkablesDeps>opengl32.lib;glu32.lib;freetype.lib;jpeg.lib;openal32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;flac.lib;gdi32.lib;winmm.lib</SFMLLinkablesDeps>
     <EngineDir>$(SolutionDir)Engine\</EngineDir>
+    <TGUIDir>$(SolutionDir)Dependencies\TGUI\</TGUIDir>
+    <TGUILinkablesDynamicDebug>tgui-d.lib</TGUILinkablesDynamicDebug>
+    <TGUILinkablesDynamicRelease>tgui.lib</TGUILinkablesDynamicRelease>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -39,6 +42,18 @@
     </BuildMacro>
     <BuildMacro Include="EngineDir">
       <Value>$(EngineDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+        <BuildMacro Include="TGUIDir">
+      <Value>$(TGUIDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="TGUILinkablesDynamicDebug">
+      <Value>$(TGUILinkablesDynamicDebug)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="TGUILinkablesDynamicRelease">
+      <Value>$(TGUILinkablesDynamicRelease)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>
