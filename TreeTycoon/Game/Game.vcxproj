@@ -98,12 +98,12 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SFMLDir)include;$(EngineDir)Inc;$(ProjDir)Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SFMLDir)include;$(EngineDir)Inc;$(ProjDir)Inc;$(TGUIDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(SFMLLinkablesDynamicDebug);EngineDebugx86.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SFMLDir)lib;$(SolutionDir)binaries\Engine</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(SFMLLinkablesDynamicDebug);EngineDebugx86.lib;$(TGUILinkablesDynamicDebug)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SFMLDir)lib;$(SolutionDir)binaries\Engine;$(TGUIDir)lib</AdditionalLibraryDirectories>
     </Link>
     <BuildLog>
       <Path>$(SolutionDir)intermediates\$(ProjectName).log</Path>
@@ -125,14 +125,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SFMLDir)include;$(EngineDir)Inc;$(ProjDir)Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SFMLDir)include;$(EngineDir)Inc;$(ProjDir)Inc;$(TGUIDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>$(SFMLLinkablesDynamicRelease);EngineReleasex86.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SFMLDir)lib;$(SolutionDir)binaries\Engine</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(SFMLLinkablesDynamicRelease);EngineReleasex86.lib;$(TGUILinkablesDynamicRelease)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SFMLDir)lib;$(SolutionDir)binaries\Engine;$(TGUIDir)lib</AdditionalLibraryDirectories>
     </Link>
     <BuildLog>
       <Path>$(SolutionDir)intermediates\$(ProjectName).log</Path>

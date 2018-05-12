@@ -30,7 +30,7 @@ public:
 	Vec2f position;
 	// position will be treated in range <0,1> if true
 	bool useAbsolutePositioning = false;
-	std::string tag;
+	std::string tag = "UnnamedEntity";
 
 	void kill();
 	void disable();
@@ -38,7 +38,7 @@ public:
 
 	int8_t getUpdatePriority() const final
 	{
-		return ConvertTo<int16_t>( UpdatePriority::Entity );
+		return ConvertTo<int8_t>( UpdatePriority::Entity );
 	}
 
 	Status getStatus() const;

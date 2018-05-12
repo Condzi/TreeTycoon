@@ -11,18 +11,18 @@
 
 namespace con::priv
 {
-void Window::_create( const Vec2u& size, uint32_t fps )
+void GameWindowClass::_create( const Vec2u& size, uint32_t fps )
 {
 	window.create( { size.x, size.y }, "", sf::Style::Close );
 	window.setFramerateLimit( fps );
 }
 
-sf::RenderWindow& Window::_getSFMLWindow()
+sf::RenderWindow& GameWindowClass::_getSFMLWindow()
 {
 	return window;
 }
 
-void Window::_pollEvents()
+void GameWindowClass::_pollEvents()
 {
 	if ( !hasFocus() )
 		return;
@@ -37,12 +37,27 @@ void Window::_pollEvents()
 	}
 }
 
-void Window::setTitle( const std::string& title )
+void GameWindowClass::setTitle( const std::string& title )
 {
 	window.setTitle( title );
 }
-bool Window::hasFocus() const
+
+bool GameWindowClass::hasFocus() const
 {
 	return window.hasFocus();
+}
+
+Vec2f GameWindowClass::convertAbsoluteToPixel( const Vec2f& absolute )
+{
+	const auto winSize = ConvertTo<Vec2f>( window.getSize() );
+
+	return { winSize.x * absolute.x, winSize.y * absolute.y };
+}
+
+Vec2f GameWindowClass::convertPixelToAbsolute( const Vec2f& pixel )
+{
+	auto winSize = ConvertTo<Vec2f>( window.getSize() );
+
+	return { pixel.x / winSize.x, pixel.y / winSize.y };
 }
 }

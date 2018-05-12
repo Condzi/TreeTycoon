@@ -23,13 +23,14 @@ public:
 
 	int8_t getUpdatePriority() const final
 	{
-		return ConvertTo<int16_t>( UpdatePriority::Drawable );
+		return ConvertTo<int8_t>( UpdatePriority::Drawable );
 	}
 
 	void setDrawLayer( int16_t layer_ );
 	int16_t getDrawLayer() const;
 	void boundWithEntity( Entity* boundedEntity_ );
 	Entity* getBoundedEntity() const;
+	bool isBoundedWithEntity() const;
 
 	virtual void render( sf::RenderWindow& window ) {}
 

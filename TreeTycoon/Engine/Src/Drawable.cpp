@@ -7,6 +7,7 @@
 
 #include "Drawable.hpp"
 #include "Renderer.hpp"
+#include "Window.hpp"
 
 namespace con
 {
@@ -39,10 +40,23 @@ Entity* IDrawable::getBoundedEntity() const
 	return boundedEntity;
 }
 
+bool IDrawable::isBoundedWithEntity() const
+{
+	return boundedEntity != nullptr;
+}
+
 void IDrawable::updatePositionToEntity( sf::Transformable& object ) const
 {
-	if ( useEntityPosition && boundedEntity )
-		object.setPosition( boundedEntity->position );
+	auto& win = Global.GameWindow;
+
+	if ( useEntityPosition && boundedEntity ) {
+		if ( boundedEntity->useAbsolutePositioning ) {
+			auto entityPos = boundedEntity->position;
+
+			object.setPosition( win.convertAbsoluteToPixel( entityPos ) );
+		} else
+			object.setPosition( boundedEntity->position );
+	}
 }
 
 void RectangleShape::render( sf::RenderWindow& window )

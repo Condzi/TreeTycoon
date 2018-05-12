@@ -34,11 +34,11 @@ void RendererClass::render()
 	win.clear();
 
 	for ( auto drawable : drawables ) {
-		if ( auto e = drawable->getBoundedEntity(); e ) {
+		if ( auto e = drawable->getBoundedEntity(); e )
 			if ( e->getStatus() != Entity::Status::Enabled )
 				continue;
-		} else
-			drawable->render( win );
+
+		drawable->render( win );
 	}
 
 	win.display();

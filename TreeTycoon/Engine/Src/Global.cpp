@@ -19,7 +19,7 @@ namespace con::priv
 GlobalClass::GlobalClass() :
 	_Updater( *( new UpdaterClass{} ) ),
 	Game( *( new GameClass{} ) ),
-	GameWindow( *( new Window{} ) ),
+	GameWindow( *( new GameWindowClass{} ) ),
 	_Renderer( *( new RendererClass{} ) ),
 	Assets( *( new AssetsClass{} ) ),
 	SceneStack( *( new SceneStackClass{} ) ),

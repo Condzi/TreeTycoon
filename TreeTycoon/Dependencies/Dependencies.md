@@ -1,3 +1,4 @@
 # The dependencies
 Here are:
-* SFML-2.4.2/
+* SFML/ _(version 2.5.0)_
+* TGUI/ _(version 0.8 alpha)_
