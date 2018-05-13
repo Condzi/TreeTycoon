@@ -62,10 +62,15 @@ See above (except wood ofc.).
 * Plague
 * Flood
 * Too many chemicals used for fertilization (*Easter Egg: use chemical fert. 8 times, enter Konami Code. Ent will appear, small chance that will rebel other trees and destroy whole plot.*)
-# Interface
-## Menu
-## Pause
-## Playing scene
-## Other...
+# MVP
+The most important features that make game playable. Goals for the first version, prototype.
+* Apple tree
+* buy seeds
+* sell apples and trees
+* simplified growing: seed, small tree, tree.
+* plague
+* watering
+* one plot
+* ui: display Sollars, tree stats and simple buy / sell menu.
 # Technicals
 See: `Technicals.md`.
