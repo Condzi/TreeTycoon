@@ -51,6 +51,17 @@ void INIReader::clear()
 	sections.clear();
 }
 
+std::vector<std::string> INIReader::getAllSectionsNames() const
+{
+	std::vector<std::string> vec;
+	vec.reserve( sections.size() );
+
+	for ( auto& section : sections )
+		vec.emplace_back( section.first );
+
+	return vec;
+}
+
 std::optional<std::string> INIReader::getValue( const std::string& section, const std::string& name )
 {
 	if ( auto sectionsIt = sections.find( section ); sectionsIt != sections.cend() ) {

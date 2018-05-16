@@ -18,6 +18,7 @@ public:
 	void save( const std::string& path = "" );
 	void clear();
 
+	std::vector<std::string> getAllSectionsNames() const;
 	std::optional<std::string> getValue( const std::string& section, const std::string& name );
 	void setValue( const std::string& section, const std::string& name, const std::string& value );
 

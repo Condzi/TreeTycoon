@@ -39,6 +39,11 @@ TEST_CASE( "INI File Reader (aka Settings)", "[Assets]" )
 		REQUIRE( ini.getValue( "SECTION_B", "name1" ).value_or( "(err)" ) == "val1" );
 		REQUIRE( ini.getValue( "SECTION_B", "name2" ).has_value() );
 		REQUIRE( ini.getValue( "SECTION_B", "name2" ).value_or( "(err)" ) == "val2" );
+		auto sections = ini.getAllSectionsNames();
+
+		REQUIRE( sections.size() == 2 );
+		REQUIRE( sections.at( 0 ) == "SECTION_A" );
+		REQUIRE( sections.at( 1 ) == "SECTION_B" );
 	}
 
 	std::experimental::filesystem::remove( TEST_INI_PATH );
