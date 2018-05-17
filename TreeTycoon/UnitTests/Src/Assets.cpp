@@ -17,7 +17,7 @@ TEST_CASE( "INI File Reader (aka Settings)", "[Assets]" )
 	static constexpr const char* TEST_INI_PATH = "Data/test.ini";
 
 	{
-		con::INIReader ini;
+		con::INIFile ini;
 		ini.setValue( "SECTION_A", "name1", "val1" );
 		ini.setValue( "SECTION_A", "name2", "val2" );
 
@@ -28,7 +28,7 @@ TEST_CASE( "INI File Reader (aka Settings)", "[Assets]" )
 	}
 
 	{
-		con::INIReader ini;
+		con::INIFile ini;
 		REQUIRE( ini.load( TEST_INI_PATH ) == true );
 		REQUIRE( ini.getValue( "SECTION_A", "name1" ).has_value() );
 		REQUIRE( ini.getValue( "SECTION_A", "name1" ).value_or( "(err)" ) == "val1" );

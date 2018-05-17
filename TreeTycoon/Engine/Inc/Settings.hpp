@@ -32,6 +32,6 @@ public:
 	}
 
 private:
-	INIReader iniFile;
+	INIFile iniFile;
 };
 }

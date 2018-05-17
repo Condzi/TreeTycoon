@@ -9,7 +9,7 @@
 
 namespace con
 {
-class INIReader final :
+class INIFile final :
 	public ILogger
 {
 public:

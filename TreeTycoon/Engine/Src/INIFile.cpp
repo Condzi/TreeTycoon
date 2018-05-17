@@ -9,7 +9,7 @@
 
 namespace con
 {
-bool INIReader::load( const std::string& path )
+bool INIFile::load( const std::string& path )
 {
 	pathToFile = path;
 	std::ifstream file( pathToFile );
@@ -34,7 +34,7 @@ bool INIReader::load( const std::string& path )
 	return true;
 }
 
-void INIReader::save( const std::string& path )
+void INIFile::save( const std::string& path )
 {
 	std::vector<std::string> serializeData;
 	serialize( serializeData );
@@ -46,12 +46,12 @@ void INIReader::save( const std::string& path )
 	std::copy( serializeData.begin(), serializeData.end(), std::ostream_iterator<std::string>( file, "\n" ) );
 }
 
-void INIReader::clear()
+void INIFile::clear()
 {
 	sections.clear();
 }
 
-std::vector<std::string> INIReader::getAllSectionsNames() const
+std::vector<std::string> INIFile::getAllSectionsNames() const
 {
 	std::vector<std::string> vec;
 	vec.reserve( sections.size() );
@@ -62,7 +62,7 @@ std::vector<std::string> INIReader::getAllSectionsNames() const
 	return vec;
 }
 
-std::optional<std::string> INIReader::getValue( const std::string& section, const std::string& name )
+std::optional<std::string> INIFile::getValue( const std::string& section, const std::string& name )
 {
 	if ( auto sectionsIt = sections.find( section ); sectionsIt != sections.cend() ) {
 		auto vec = sectionsIt->second;
@@ -80,12 +80,12 @@ std::optional<std::string> INIReader::getValue( const std::string& section, cons
 	return {};
 }
 
-void INIReader::setValue( const std::string& section, const std::string& name, const std::string& value )
+void INIFile::setValue( const std::string& section, const std::string& name, const std::string& value )
 {
 	sections[section].emplace_back( NameValuePair{ name, value } );
 }
 
-void INIReader::parse( const std::vector<std::string>& data )
+void INIFile::parse( const std::vector<std::string>& data )
 {
 	clear();
 	std::string section{};
@@ -105,34 +105,34 @@ void INIReader::parse( const std::vector<std::string>& data )
 	}
 }
 
-bool INIReader::isComment( std::string& line )
+bool INIFile::isComment( std::string& line )
 {
 	return line.front() == ';';
 }
 
-void INIReader::removeEmptyFrontSpace( std::string& str )
+void INIFile::removeEmptyFrontSpace( std::string& str )
 {
 	while ( isSpaceOrTab( str.front() ) )
 		str.erase( str.begin() );
 }
 
-void INIReader::removeEmptyBackSpace( std::string& str )
+void INIFile::removeEmptyBackSpace( std::string& str )
 {
 	while ( isSpaceOrTab( str.back() ) )
 		str.pop_back();
 }
 
-bool INIReader::isSpaceOrTab( char c ) const
+bool INIFile::isSpaceOrTab( char c ) const
 {
 	return c == ' ' || c == '\t';
 }
 
-bool INIReader::isSection( std::string& line )
+bool INIFile::isSection( std::string& line )
 {
 	return line.find_first_of( '=' ) == std::string::npos;
 }
 
-std::optional<std::string> INIReader::parseSection( std::string& line )
+std::optional<std::string> INIFile::parseSection( std::string& line )
 {
 	if ( !( line.front() == '[' && line.back() == ']' ) ) {
 		log( LogPriority::Error, "missing bracket." );
@@ -142,7 +142,7 @@ std::optional<std::string> INIReader::parseSection( std::string& line )
 	return line.substr( 1, line.size() - 2 );
 }
 
-INIReader::NameValuePair INIReader::parseAsNameValuePair( std::string& line )
+INIFile::NameValuePair INIFile::parseAsNameValuePair( std::string& line )
 {
 	NameValuePair pair;
 	auto& name = pair.name;
@@ -156,7 +156,7 @@ INIReader::NameValuePair INIReader::parseAsNameValuePair( std::string& line )
 	return pair;
 }
 
-void INIReader::serialize( std::vector<std::string>& target )
+void INIFile::serialize( std::vector<std::string>& target )
 {
 	target.clear();
 
