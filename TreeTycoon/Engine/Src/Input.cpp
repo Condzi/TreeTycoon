@@ -45,7 +45,17 @@ Vec2i InputClass::getMousePosition() const
 	return sf::Mouse::getPosition( Global.GameWindow._getSFMLWindow() );
 }
 
-void InputClass::_dispatchEvent( const sf::Event& event )
+void InputClass::setAdditionalEventDispatcher( const std::function<void( sf::Event )>& aed )
+{
+	additionalEventDispatcher = aed;
+}
+
+void InputClass::resetAdditionalEventDispatcher()
+{
+	additionalEventDispatcher = decltype( additionalEventDispatcher ){};
+}
+
+void InputClass::_dispatchEvent( sf::Event event )
 {
 	using EventType = sf::Event::EventType;
 	static auto keyToInt = []( auto key ) {
@@ -60,6 +70,8 @@ void InputClass::_dispatchEvent( const sf::Event& event )
 		mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Up;
 	else if ( event.type == EventType::MouseButtonPressed )
 		mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Down;
+
+	additionalEventDispatcher( event );
 }
 
 void InputClass::_clearStates()

@@ -15,5 +15,6 @@
 #include <Entity.hpp>
 #include <Input.hpp>
 #include <Utility.hpp>
+#include <Drawable.hpp>
 
 #include <TGUI/TGUI.hpp>

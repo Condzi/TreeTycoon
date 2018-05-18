@@ -76,7 +76,7 @@ private:
 	priv::EntityStorage entities;
 	priv::SystemStorage systems{ this };
 
-	std::string loggerName() const override final;
+	std::string loggerName() const final;
 	void disableEntities();
 	void enableEntities();
 };
