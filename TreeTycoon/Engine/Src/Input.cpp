@@ -71,7 +71,8 @@ void InputClass::_dispatchEvent( sf::Event event )
 	else if ( event.type == EventType::MouseButtonPressed )
 		mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Down;
 
-	additionalEventDispatcher( event );
+	if ( additionalEventDispatcher )
+		additionalEventDispatcher( event );
 }
 
 void InputClass::_clearStates()

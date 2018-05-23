@@ -25,10 +25,6 @@ public:
 		} );
 	}
 
-	void onPop() override
-	{
-	}
-
 private:
 	GUI gui;
 };

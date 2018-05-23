@@ -16,9 +16,9 @@ public:
 
 	~GUI();
 
-	void update() override;
-	void render( sf::RenderWindow& window ) override;
-
 private:
 	bool isInitialised = false;
+
+	void update() override;
+	void render( sf::RenderWindow& window ) override;
 };
