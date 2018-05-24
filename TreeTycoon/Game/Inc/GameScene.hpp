@@ -27,10 +27,12 @@ public:
 		} );
 
 		treeInfoStorage.load();
-		log( con::LogPriority::Info, "Apple tree type: ", treeInfoStorage.findTree( "Apple" ).value_or( TreeInfo{} ).type );
+		sprite.setTexture( Global.Assets.Texture.get( treeInfoStorage.findTree( "Apple" ).value().textureName ) );
+		sprite.setScale( 3, 3 );
 	}
 
 private:
 	GUI gui;
 	TreeInfoStorage treeInfoStorage;
+	Sprite sprite;
 };
