@@ -41,6 +41,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\TreeInfoStorage.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\GamePCH.hpp">
@@ -52,6 +56,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\GUI.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\TreeInfoStorage.hpp">
       <SubType>
       </SubType>
     </ClInclude>

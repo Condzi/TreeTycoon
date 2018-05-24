@@ -25,7 +25,7 @@ void GUI::update()
 	}
 }
 
-void GUI::render( sf::RenderWindow & window )
+void GUI::render( sf::RenderWindow& window )
 {
 	draw();
 }
