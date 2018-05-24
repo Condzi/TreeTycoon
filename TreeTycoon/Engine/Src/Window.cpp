@@ -24,15 +24,12 @@ sf::RenderWindow& GameWindowClass::_getSFMLWindow()
 
 void GameWindowClass::_pollEvents()
 {
-	if ( !hasFocus() )
-		return;
-
 	Global.Input._clearStates();
 	sf::Event ev;
 	while ( window.pollEvent( ev ) ) {
 		if ( ev.type == sf::Event::Closed )
 			Global.ExitGame = true;
-		else
+		else if ( hasFocus() )
 			Global.Input._dispatchEvent( ev );
 	}
 }
