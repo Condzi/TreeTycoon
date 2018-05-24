@@ -26,7 +26,7 @@ private:
 
 	std::string loggerName() const override
 	{
-		return "GameWindow";
+		return "Game Window";
 	}
 };
 }

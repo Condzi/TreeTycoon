@@ -28,8 +28,6 @@ public:
 	};
 
 	Vec2f position;
-	// position will be treated in range <0,1> if true
-	bool useAbsolutePositioning = false;
 	std::string tag = "UnnamedEntity";
 
 	void kill();

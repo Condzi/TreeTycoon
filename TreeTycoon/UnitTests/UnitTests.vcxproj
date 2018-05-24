@@ -40,10 +40,6 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Src\Visual.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\Catch.hpp">
