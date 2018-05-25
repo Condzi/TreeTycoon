@@ -27,7 +27,7 @@ public:
 		} );
 
 		treeInfoStorage.load();
-		sprite.setTexture( Global.Assets.Texture.get( treeInfoStorage.findTree( "Apple" ).value().textureName ) );
+		sprite.setTexture( Global.Assets.Texture.get( treeInfoStorage.findTree( "Apple" ).value()->textureName ) );
 		sprite.setScale( 3, 3 );
 	}
 
