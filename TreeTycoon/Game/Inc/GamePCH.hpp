@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include <bitset>
+
 #include <EnginePCH.hpp>
 
 #include <Global.hpp>
