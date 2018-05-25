@@ -7,6 +7,7 @@
 
 #include "GUI.hpp"
 #include "TreeInfoStorage.hpp"
+#include "Tree.hpp"
 
 using namespace con;
 
@@ -27,12 +28,19 @@ public:
 		} );
 
 		treeInfoStorage.load();
-		sprite.setTexture( Global.Assets.Texture.get( treeInfoStorage.findTree( "Apple" ).value()->textureName ) );
-		sprite.setScale( 3, 3 );
+		t = std::make_unique<Tree>( treeInfoStorage.findTree( "Apple" ).value(), gui );
+		t->setPosition( { 100,100 } );
+		t->clickableButton->connect( "pressed", [this]() {
+			t->statistics.growingState++;
+			if ( t->statistics.growingState == 3 )
+				t->statistics.growingState = 0;
+
+			t->updateVisualRepresentation();
+		} );
 	}
 
 private:
 	GUI gui;
 	TreeInfoStorage treeInfoStorage;
-	Sprite sprite;
+	std::unique_ptr<Tree> t;
 };

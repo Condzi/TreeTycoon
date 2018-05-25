@@ -41,12 +41,28 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\Tree.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Src\TreeInfo.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\TreeInfoStorage.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Src\TreeStats.cpp">
       <SubType>
       </SubType>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\Constants.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Inc\GamePCH.hpp">
       <SubType>
       </SubType>
@@ -59,7 +75,19 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Inc\Tree.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\TreeInfo.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Inc\TreeInfoStorage.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\TreeStats.hpp">
       <SubType>
       </SubType>
     </ClInclude>

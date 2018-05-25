@@ -43,7 +43,7 @@ bool TreeInfoStorage::loadConfig()
 	infos.clear();
 
 	con::INIFile ini;
-	if ( !ini.load( TREE_CONFIG_PATH ) )
+	if ( !ini.load( constants::TREE_CONFIG_PATH ) )
 		return false;
 
 	auto treeNames = ini.getAllSectionsNames();

@@ -11,8 +11,6 @@ class TreeInfoStorage final :
 	public con::ILogger
 {
 public:
-	static constexpr const char* TREE_CONFIG_PATH = "Data/Trees/tree_config.ini";
-
 	void load();
 
 	std::optional<const TreeInfo const*> findTree( const std::string& name );
