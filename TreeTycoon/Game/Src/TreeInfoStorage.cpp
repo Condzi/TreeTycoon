@@ -26,11 +26,20 @@ std::optional<const TreeInfo const*> TreeInfoStorage::findTree( const std::strin
 		return {};
 	}
 
-	return &(*result);
+	return &( *result );
 }
 
 bool TreeInfoStorage::loadConfig()
 {
+	if constexpr ( con::IS_DEBUG )
+	{
+		static bool alreadyCalled = false;
+		if ( alreadyCalled )
+			log( con::LogPriority::Error, "Calling loadConfig() more than once. Dangling pointers may occur." );
+
+		alreadyCalled = true;
+	}
+
 	infos.clear();
 
 	con::INIFile ini;
