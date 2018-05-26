@@ -52,8 +52,8 @@ void GameClass::makeDefaultSettings()
 {
 	auto& settings = Global.Assets.Settings;
 
-	settings.set( "WINDOW", "WIDTH", "800" );
-	settings.set( "WINDOW", "HEIGHT", "600" );
+	settings.set( "WINDOW", "WIDTH", "1280" );
+	settings.set( "WINDOW", "HEIGHT", "720" );
 	settings.set( "WINDOW", "FPS", "60" );
 }
 
