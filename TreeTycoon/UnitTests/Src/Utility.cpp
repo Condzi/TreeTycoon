@@ -6,6 +6,7 @@
 #include "Catch.hpp"
 
 #include <Utility.hpp>
+#include <FixedArray2D.hpp>
 
 TEST_CASE( "Type Conversions", "[Utility]" )
 {
@@ -88,5 +89,25 @@ TEST_CASE( "Random Number Generator", "[Utility]" )
 	{
 		REQUIRE_NOTHROW( con::Random( 1.0, 2 ) );
 		REQUIRE_THROWS( con::Random( 2.0, 1 ) );
+	}
+}
+
+TEST_CASE( "FixedArray2D", "[Utility]" )
+{
+	con::FixedArray2D<int> arr;
+
+	REQUIRE_THROWS( arr.at( { 0,0 } ) );
+
+	arr.reset( { 10,10 } );
+	REQUIRE_NOTHROW( arr.at( { 5,5 } ) = 10 );
+	REQUIRE( arr.at( { 0,0 } ) == 0 );
+	REQUIRE( arr.at( { 5,5 } ) == 10 );
+
+	for ( auto& i : arr ) {
+		i = 1;
+	}
+
+	for ( auto& i : arr ) {
+		REQUIRE( i == 1 );
 	}
 }

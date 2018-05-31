@@ -21,7 +21,7 @@ public:
 	RULE_OF_FIVE_NO_CTOR( IDrawable );
 	virtual ~IDrawable();
 
-	int8_t getUpdatePriority() const final
+	int8_t getUpdatePriority() const
 	{
 		return ConvertTo<int8_t>( UpdatePriority::Drawable );
 	}

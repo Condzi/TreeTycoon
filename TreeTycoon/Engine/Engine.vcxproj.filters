@@ -52,6 +52,9 @@
     <Filter Include="Source Files\Visual">
       <UniqueIdentifier>{9e1d2497-8299-4112-994e-3e2c35a9f8ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{6da3b6c5-fb37-4d10-a9ae-cfc84195ff61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Debug.cpp">
@@ -110,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="Src\Global.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\FixedArray2D.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Inc\Global.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\FixedArray2D.hpp">
+      <Filter>Header Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

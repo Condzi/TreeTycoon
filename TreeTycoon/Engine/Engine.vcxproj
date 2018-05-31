@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\FixedArray2D.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\Assets.cpp">
       <SubType>
       </SubType>
@@ -93,6 +97,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\FixedArray2D.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Inc\Assets.hpp">
       <SubType>
       </SubType>
