@@ -8,18 +8,19 @@
 #include "Global.hpp"
 #include "Updater.hpp"
 #include "Game.hpp"
-#include "Window.hpp"
 #include "Renderer.hpp"
 #include "Assets.hpp"
 #include "SceneStack.hpp"
 #include "Input.hpp"
+
+#include <SFML/Graphics/RenderWindow.hpp>
 
 namespace con::priv
 {
 GlobalClass::GlobalClass() :
 	_Updater( *( new UpdaterClass{} ) ),
 	Game( *( new GameClass{} ) ),
-	GameWindow( *( new GameWindowClass{} ) ),
+	GameWindow( *( new sf::RenderWindow{} ) ),
 	_Renderer( *( new RendererClass{} ) ),
 	Assets( *( new AssetsClass{} ) ),
 	SceneStack( *( new SceneStackClass{} ) ),

@@ -7,7 +7,6 @@
 
 #include "Drawable.hpp"
 #include "Renderer.hpp"
-#include "Window.hpp"
 
 namespace con
 {

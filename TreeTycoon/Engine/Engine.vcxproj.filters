@@ -99,9 +99,6 @@
     <ClCompile Include="Src\Input.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Window.cpp">
-      <Filter>Source Files\Visual</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Drawable.cpp">
       <Filter>Source Files\Visual</Filter>
     </ClCompile>
@@ -169,9 +166,6 @@
     </ClInclude>
     <ClInclude Include="Inc\Input.hpp">
       <Filter>Header Files\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\Window.hpp">
-      <Filter>Header Files\Visual</Filter>
     </ClInclude>
     <ClInclude Include="Inc\Drawable.hpp">
       <Filter>Header Files\Visual</Filter>

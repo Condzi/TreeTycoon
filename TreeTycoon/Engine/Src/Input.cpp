@@ -6,7 +6,6 @@
 #include "EnginePCH.hpp"
 
 #include "Input.hpp"
-#include "Window.hpp"
 
 namespace con::priv
 {
@@ -42,7 +41,7 @@ bool InputClass::isHeld( MouseButton button ) const
 
 Vec2i InputClass::getMousePosition() const
 {
-	return sf::Mouse::getPosition( Global.GameWindow._getSFMLWindow() );
+	return sf::Mouse::getPosition( Global.GameWindow );
 }
 
 void InputClass::setAdditionalEventDispatcher( const std::function<void( sf::Event )>& aed )
@@ -55,27 +54,34 @@ void InputClass::resetAdditionalEventDispatcher()
 	additionalEventDispatcher = decltype( additionalEventDispatcher ){};
 }
 
-void InputClass::_dispatchEvent( sf::Event event )
+void InputClass::_dispatchEvents()
 {
 	using EventType = sf::Event::EventType;
 	static auto keyToInt = []( auto key ) {
 		return ConvertTo<uint8_t>( key );
 	};
 
-	if ( event.type == EventType::KeyReleased )
-		keyboardKeys.at( keyToInt( event.key.code ) ) = KeyState::Up;
-	else if ( event.type == EventType::KeyPressed )
-		keyboardKeys.at( keyToInt( event.key.code ) ) = KeyState::Down;
-	else if ( event.type == EventType::MouseButtonReleased )
-		mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Up;
-	else if ( event.type == EventType::MouseButtonPressed )
-		mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Down;
+	clearStates();
 
-	if ( additionalEventDispatcher )
-		additionalEventDispatcher( event );
+	sf::Event event;
+	while ( Global.GameWindow.pollEvent( event ) ) {
+		if ( event.type == EventType::KeyReleased )
+			keyboardKeys.at( keyToInt( event.key.code ) ) = KeyState::Up;
+		else if ( event.type == EventType::KeyPressed )
+			keyboardKeys.at( keyToInt( event.key.code ) ) = KeyState::Down;
+		else if ( event.type == EventType::MouseButtonReleased )
+			mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Up;
+		else if ( event.type == EventType::MouseButtonPressed )
+			mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Down;
+
+		if ( additionalEventDispatcher )
+			additionalEventDispatcher( event );
+	}
+
+
 }
 
-void InputClass::_clearStates()
+void InputClass::clearStates()
 {
 	keyboardKeys.fill( KeyState::None );
 	mouseButtons.fill( KeyState::None );

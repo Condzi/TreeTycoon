@@ -91,10 +91,6 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Src\Window.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\FixedArray2D.hpp">
@@ -176,10 +172,6 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\System.hpp">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="Inc\Window.hpp">
       <SubType>
       </SubType>
     </ClInclude>

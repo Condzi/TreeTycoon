@@ -16,7 +16,7 @@ GUI::~GUI()
 void GUI::update()
 {
 	if ( !isInitialised ) {
-		setTarget( Global.GameWindow._getSFMLWindow() );
+		setTarget( Global.GameWindow );
 		auto boilerplate = [this]( sf::Event event ) {
 			this->handleEvent( event );
 		};

@@ -7,7 +7,7 @@
 
 #include "Game.hpp"
 #include "Updater.hpp"
-#include "Window.hpp"
+#include "Input.hpp"
 #include "Assets.hpp"
 
 namespace con::priv
@@ -21,8 +21,9 @@ void GameClass::run()
 
 	sf::Clock fpsClock;
 	while ( !Global.ExitGame ) {
-		Global.GameWindow._pollEvents();
+		Global.Input._dispatchEvents();
 		Global._Updater.update();
+
 		Global.FrameTime = fpsClock.restart();
 	}
 }
@@ -65,6 +66,7 @@ void GameClass::configureFromSettings()
 	auto winHeight = ConvertTo<uint32_t>( settings.get( "WINDOW", "HEIGHT" ).value() );
 	auto fps = ConvertTo<uint32_t>( settings.get( "WINDOW", "FPS" ).value() );
 
-	Global.GameWindow._create( { winWidth, winHeight }, fps );
+	Global.GameWindow.create( { winWidth, winHeight }, "game" );
+	Global.GameWindow.setFramerateLimit( fps );
 }
 }

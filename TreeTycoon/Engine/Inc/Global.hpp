@@ -5,13 +5,18 @@
 
 #pragma once
 
+namespace sf
+{
+class RenderWindow;
+}
+
 namespace con::priv
 {
 struct GlobalClass final
 {
 	class UpdaterClass& _Updater;
 	class GameClass& Game;
-	class GameWindowClass& GameWindow;
+	sf::RenderWindow& GameWindow;
 	class RendererClass& _Renderer;
 	class AssetsClass& Assets;
 	class SceneStackClass& SceneStack;

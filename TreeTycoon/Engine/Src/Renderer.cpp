@@ -6,7 +6,6 @@
 #include "EnginePCH.hpp"
 
 #include "Renderer.hpp"
-#include "Window.hpp"
 
 namespace con::priv
 {
@@ -29,7 +28,7 @@ void RendererClass::sortByLayer()
 
 void RendererClass::render()
 {
-	auto& win = Global.GameWindow._getSFMLWindow();
+	auto& win = Global.GameWindow;
 
 	win.clear();
 
