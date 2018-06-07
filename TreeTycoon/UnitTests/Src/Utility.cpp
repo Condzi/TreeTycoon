@@ -100,8 +100,10 @@ TEST_CASE( "FixedArray2D", "[Utility]" )
 
 	arr.reset( { 10,10 } );
 	REQUIRE_NOTHROW( arr.at( { 5,5 } ) = 10 );
+	REQUIRE_NOTHROW( arr[6][6] = 123 );
 	REQUIRE( arr.at( { 0,0 } ) == 0 );
 	REQUIRE( arr.at( { 5,5 } ) == 10 );
+	REQUIRE( arr.at( { 6,6 } ) == 123 );
 
 	for ( auto& i : arr ) {
 		i = 1;
