@@ -7,7 +7,7 @@
 
 namespace con
 {
-
+// 2 Dimensional array. Data can be accesed like that: array[x][y].
 template <typename T>
 class FixedArray2D final
 {
@@ -19,6 +19,22 @@ public:
 		size( size_ ),
 		data( size.x * size.y )
 	{}
+
+	auto operator[]( size_t x )
+	{
+		struct Helper final
+		{
+			T& operator[]( size_t y )
+			{
+				return arr->at( { xCoord,y } );
+			}
+
+			FixedArray2D<T>* arr;
+			size_t xCoord;
+		};
+
+		return Helper{ this, x };
+	}
 
 	Vec2u size2D() const
 	{

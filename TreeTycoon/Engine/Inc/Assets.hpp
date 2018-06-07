@@ -24,6 +24,7 @@ public:
 
 private:
 	void setDefaultTexture();
+	// Probably won't be used because TGUI already has it default font.
 	void setDefaultFont();
 };
 }
