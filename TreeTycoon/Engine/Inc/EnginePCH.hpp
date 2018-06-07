@@ -33,6 +33,12 @@ using Vec2i = Vec2<int32_t>;
 using Vec2u = Vec2<uint32_t>;
 using Vec2f = Vec2<float32_t>;
 
+template <typename T>
+using Rect = sf::Rect<T>;
+using RectI = Rect<int32_t>;
+using RectU = Rect<uint32_t>;
+using RectF = Rect<float32_t>;
+
 namespace con
 {
 enum class UpdatePriority : int8_t
