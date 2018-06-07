@@ -106,7 +106,7 @@ private:
 
 	size_t coordToIndex( const Vec2u& coord )
 	{
-		return size.x * coord.x + coord.y;
+		return size.x * coord.y + coord.x;
 	}
 };
 }

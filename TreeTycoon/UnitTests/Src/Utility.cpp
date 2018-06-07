@@ -98,12 +98,12 @@ TEST_CASE( "FixedArray2D", "[Utility]" )
 
 	REQUIRE_THROWS( arr.at( { 0,0 } ) );
 
-	arr.reset( { 10,10 } );
-	REQUIRE_NOTHROW( arr.at( { 5,5 } ) = 10 );
-	REQUIRE_NOTHROW( arr[6][6] = 123 );
+	arr.reset( { 10,11 } );
+	REQUIRE_NOTHROW( arr.at( { 1,5 } ) = 10 );
+	REQUIRE_NOTHROW( arr[6][1] = 123 );
 	REQUIRE( arr.at( { 0,0 } ) == 0 );
-	REQUIRE( arr.at( { 5,5 } ) == 10 );
-	REQUIRE( arr.at( { 6,6 } ) == 123 );
+	REQUIRE( arr.at( { 1,5 } ) == 10 );
+	REQUIRE( arr.at( { 6,1 } ) == 123 );
 
 	for ( auto& i : arr ) {
 		i = 1;
