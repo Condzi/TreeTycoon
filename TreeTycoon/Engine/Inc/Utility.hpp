@@ -52,7 +52,7 @@ inline std::string ConvertToString( const TSrc& src )
 inline std::string ToLower( std::string str )
 {
 	std::transform( str.begin(), str.end(), str.begin(), []( auto c ) {
-		return ConvertTo<char>( std::tolower( c ) );
+		return ConvertTo<decltype( c )>( std::tolower( c ) );
 	} );
 	return str;
 }

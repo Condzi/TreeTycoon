@@ -9,29 +9,13 @@
 
 namespace con::priv
 {
-class SettingsClass final
+class SettingsClass final :
+	public INIFile
 {
 public:
 	~SettingsClass()
 	{
-		iniFile.save();
+		save();
 	}
-	
-	bool _load( const std::string& path )
-	{
-		return iniFile.load( path );
-	}
-
-	std::optional<std::string> get( const std::string& section, const std::string& name )
-	{
-		return iniFile.getValue( section, name );
-	}
-	void set( const std::string& section, const std::string& name, const std::string& value )
-	{
-		iniFile.setValue( section, name, value );
-	}
-
-private:
-	INIFile iniFile;
 };
 }

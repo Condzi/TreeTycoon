@@ -9,7 +9,7 @@
 
 namespace con
 {
-class INIFile final :
+class INIFile :
 	public ILogger
 {
 public:
@@ -23,7 +23,7 @@ public:
 	void setValue( const std::string& section, const std::string& name, const std::string& value );
 
 private:
-	struct NameValuePair
+	struct NameValuePair final
 	{
 		std::string name{}, value{};
 	};

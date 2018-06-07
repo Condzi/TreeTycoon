@@ -30,18 +30,18 @@ void GameClass::run()
 
 bool GameClass::loadSettings()
 {
-	return Global.Assets.Settings._load( "settings.ini" );
+	return Global.Assets.Settings.load( "settings.ini" );
 }
 
 bool GameClass::validateSettings()
 {
 	auto& settings = Global.Assets.Settings;
 
-	if ( !settings.get( "WINDOW", "WIDTH" ).has_value() )
+	if ( !settings.getValue( "WINDOW", "WIDTH" ).has_value() )
 		log( LogPriority::Error, "Missing WINDOW WIDTH setting." );
-	else if ( !settings.get( "WINDOW", "HEIGHT" ).has_value() )
+	else if ( !settings.getValue( "WINDOW", "HEIGHT" ).has_value() )
 		log( LogPriority::Error, "Missing WINDOW HEIGHT setting." );
-	else if ( !settings.get( "WINDOW", "FPS" ).has_value() )
+	else if ( !settings.getValue( "WINDOW", "FPS" ).has_value() )
 		log( LogPriority::Error, "Missing WINDOW FPS setting." );
 	else
 		return true;
@@ -53,18 +53,18 @@ void GameClass::makeDefaultSettings()
 {
 	auto& settings = Global.Assets.Settings;
 
-	settings.set( "WINDOW", "WIDTH", "1280" );
-	settings.set( "WINDOW", "HEIGHT", "720" );
-	settings.set( "WINDOW", "FPS", "60" );
+	settings.setValue( "WINDOW", "WIDTH", "1280" );
+	settings.setValue( "WINDOW", "HEIGHT", "720" );
+	settings.setValue( "WINDOW", "FPS", "60" );
 }
 
 void GameClass::configureFromSettings()
 {
 	auto& settings = Global.Assets.Settings;
 
-	auto winWidth = ConvertTo<uint32_t>( settings.get( "WINDOW", "WIDTH" ).value() );
-	auto winHeight = ConvertTo<uint32_t>( settings.get( "WINDOW", "HEIGHT" ).value() );
-	auto fps = ConvertTo<uint32_t>( settings.get( "WINDOW", "FPS" ).value() );
+	auto winWidth = ConvertTo<uint32_t>( settings.getValue( "WINDOW", "WIDTH" ).value() );
+	auto winHeight = ConvertTo<uint32_t>( settings.getValue( "WINDOW", "HEIGHT" ).value() );
+	auto fps = ConvertTo<uint32_t>( settings.getValue( "WINDOW", "FPS" ).value() );
 
 	Global.GameWindow.create( { winWidth, winHeight }, "game" );
 	Global.GameWindow.setFramerateLimit( fps );
