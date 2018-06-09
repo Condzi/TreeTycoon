@@ -258,10 +258,10 @@
       <Path>$(SolutionDir)intermediates\$(ProjectName).log</Path>
     </BuildLog>
     <Lib>
-      <AdditionalDependencies>$(SFMLLinkablesDynamicDebug);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SFMLLinkablesDynamicDebug);$(TGUILinkablesDynamicDebug);%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SFMLDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SFMLDir)lib;$(TGUIDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -296,8 +296,8 @@
       <Path>$(SolutionDir)intermediates\$(ProjectName).log</Path>
     </BuildLog>
     <Lib>
-      <AdditionalLibraryDirectories>$(SFMLDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(SFMLLinkablesDynamicRelease);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SFMLDir)lib;$(TGUIDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(SFMLLinkablesDynamicRelease);$(TGUILinkablesDynamicRelease);%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

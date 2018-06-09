@@ -81,7 +81,7 @@ void Sprite::update()
 {
 	updateFrameTime();
 	if ( auto opt = getFrameRect(); opt.has_value() ) {
-		// Incosistency - rest of drawables needs pointer, Sprite needs reference. 
+		// Incosistency - rest of drawables need pointer, Sprite needs a reference. 
 		setTexture( *animationInfo.sheet );
 		setTextureRect( opt.value() );
 	}
