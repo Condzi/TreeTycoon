@@ -11,20 +11,12 @@
 
 namespace con
 {
-class IDrawable :
-	public IUpdatable
+class IDrawable
 {
 public:
-	bool useEntityPosition = false;
-
 	IDrawable();
 	RULE_OF_FIVE_NO_CTOR( IDrawable );
 	virtual ~IDrawable();
-
-	int8_t getUpdatePriority() const
-	{
-		return ConvertTo<int8_t>( UpdatePriority::Drawable );
-	}
 
 	void setDrawLayer( int16_t layer_ );
 	int16_t getDrawLayer() const;
@@ -37,8 +29,6 @@ public:
 protected:
 	Entity* boundedEntity = nullptr;
 	int16_t layer = 0;
-
-	void updatePositionToEntity( sf::Transformable& object ) const;
 };
 
 struct AnimationInfo final
@@ -51,11 +41,17 @@ struct AnimationInfo final
 
 class IAnimation :
 	public IDrawable,
+	public IUpdatable,
 	public ILogger
 {
 public:
 	bool isAnimation = false;
 	AnimationInfo animationInfo;
+
+	int8_t getUpdatePriority() const
+	{
+		return ConvertTo<int8_t>( UpdatePriority::Drawable );
+	}
 
 protected:
 	void updateFrameTime();

@@ -44,15 +44,6 @@ bool IDrawable::isBoundedWithEntity() const
 	return boundedEntity != nullptr;
 }
 
-void IDrawable::updatePositionToEntity( sf::Transformable& object ) const
-{
-	auto& win = Global.GameWindow;
-
-	if ( useEntityPosition && boundedEntity ) {
-		object.setPosition( boundedEntity->position );
-	}
-}
-
 void RectangleShape::render( sf::RenderWindow& window )
 {
 	window.draw( *this );
@@ -60,7 +51,6 @@ void RectangleShape::render( sf::RenderWindow& window )
 
 void RectangleShape::update()
 {
-	updatePositionToEntity( *this );
 	updateFrameTime();
 	if ( auto opt = getFrameRect(); opt.has_value() ) {
 		setTexture( animationInfo.sheet );
@@ -75,7 +65,6 @@ void CircleShape::render( sf::RenderWindow& window )
 
 void CircleShape::update()
 {
-	updatePositionToEntity( *this );
 	updateFrameTime();
 	if ( auto opt = getFrameRect(); opt.has_value() ) {
 		setTexture( animationInfo.sheet );
@@ -90,7 +79,6 @@ void Sprite::render( sf::RenderWindow& window )
 
 void Sprite::update()
 {
-	updatePositionToEntity( *this );
 	updateFrameTime();
 	if ( auto opt = getFrameRect(); opt.has_value() ) {
 		// Incosistency - rest of drawables needs pointer, Sprite needs reference. 
