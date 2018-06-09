@@ -1,0 +1,133 @@
+Renderer.1 {
+    backgroundcolor = #F5F5F5;
+    backgroundcolordisabled = #E6E6E6;
+    backgroundcolordown = #EBEBEB;
+    backgroundcolorhover = white;
+    bordercolor = #3C3C3C;
+    bordercolordisabled = #7D7D7D;
+    bordercolordown = black;
+    bordercolorfocused = #1E1EB4;
+    bordercolorhover = black;
+    borders = (1, 1, 1, 1);
+    textcolor = #3C3C3C;
+    textcolordisabled = #7D7D7D;
+    textcolordown = black;
+    textcolorhover = black;
+    texture = None;
+    texturedisabled = None;
+    texturedown = None;
+    texturefocused = None;
+    texturehover = None;
+}
+
+Renderer.2 {
+    backgroundcolor = transparent;
+    bordercolor = #3C3C3C;
+    borders = (0, 0, 0, 0);
+    textcolor = #3C3C3C;
+}
+
+Renderer.3 {
+    backgroundcolor = #0f990a;
+    padding = (0, 0, 0, 0);
+}
+
+Panel."panel_left" {
+    Size = (0.25 * &.size, &.size);
+    renderer = &3;
+
+    Button."Widget6" {
+        Size = (90, 33);
+        Text = "Exit";
+        renderer = &1;
+    }
+
+    Button."Widget7" {
+        Position = (90, 0);
+        Size = (140, 33);
+        Text = "Options";
+        renderer = &1;
+    }
+
+    Button."Widget8" {
+        Position = (230, 0);
+        Size = (90, 33);
+        Text = "Help";
+        renderer = &1;
+    }
+
+    Button."Widget12" {
+        Position = (0, 110);
+        Size = (0.5 * &.size, 157.667);
+        Text = "Plots";
+        renderer = &1;
+    }
+
+    Button."Widget13" {
+        Position = (160, 110);
+        Size = (0.5 * &.size, 157.667);
+        Text = "Shop";
+        renderer = &1;
+    }
+
+    Picture."Widget17" {
+        Position = (0, 400);
+        Size = (320, 320);
+    
+        Renderer {
+            texture = "resources/DefaultPicture.png";
+            transparenttexture = false;
+        }
+    }
+
+    Picture."Widget18" {
+        Position = (230, 630);
+        Size = (64, 64);
+    
+        Renderer {
+            texture = "resources/DefaultPicture.png";
+            transparenttexture = false;
+        }
+    }
+
+    Label."Widget19" {
+        AutoSize = true;
+        Position = (0, 280);
+        Size = (182.8, 43);
+        Text = "tree_name";
+        TextSize = 32;
+        renderer = &2;
+    }
+
+    Label."Widget20" {
+        AutoSize = true;
+        Position = (0, 330);
+        Size = (176.8, 43);
+        Text = "tree_fruits";
+        TextSize = 32;
+        renderer = &2;
+    }
+}
+
+Panel."panel_right" {
+    Position = (1040, 0);
+    Size = ((320 / 4) * 3, &.size);
+    renderer = &3;
+}
+
+Label."label_currency" {
+    Position = (-8, 30);
+    Size = (44.0978, 72.1936);
+    Text = "$";
+    TextSize = 60;
+    renderer = &2;
+}
+
+Label."label_money" {
+    MaximumTextWidth = 27.2;
+    Position = (26, 40);
+    Size = (300.2, 50);
+    Text = "999'999'999";
+    TextSize = 46;
+    renderer = &2;
+}
