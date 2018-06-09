@@ -7,22 +7,19 @@
 
 #include "GUI.hpp"
 
-GUI::~GUI()
+GUI::GUI()
 {
-	if ( isInitialised )
-		Global.Input.resetAdditionalEventDispatcher();
+	setTarget( Global.GameWindow );
+	auto boilerplate = [this]( sf::Event event ) {
+		this->handleEvent( event );
+	};
+
+	Global.Input.setAdditionalEventDispatcher( boilerplate );
 }
 
-void GUI::update()
+GUI::~GUI()
 {
-	if ( !isInitialised ) {
-		setTarget( Global.GameWindow );
-		auto boilerplate = [this]( sf::Event event ) {
-			this->handleEvent( event );
-		};
-
-		Global.Input.setAdditionalEventDispatcher( boilerplate );
-	}
+	Global.Input.resetAdditionalEventDispatcher();
 }
 
 void GUI::render( sf::RenderWindow& window )
