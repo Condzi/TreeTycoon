@@ -55,6 +55,12 @@
     <Filter Include="Source Files\Utility">
       <UniqueIdentifier>{6da3b6c5-fb37-4d10-a9ae-cfc84195ff61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Aliases">
+      <UniqueIdentifier>{6922b61f-9ad5-4a42-bc34-2869dd7747db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Aliases">
+      <UniqueIdentifier>{45b4d27e-1cf1-4cec-91fc-d880423b4965}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Debug.cpp">
@@ -113,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="Src\FixedArray2D.cpp">
       <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GUI.cpp">
+      <Filter>Source Files\Aliases</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="Inc\FixedArray2D.hpp">
       <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GUI.hpp">
+      <Filter>Header Files\Aliases</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

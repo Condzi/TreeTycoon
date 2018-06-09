@@ -9,6 +9,7 @@
 #include "Updater.hpp"
 #include "Input.hpp"
 #include "Assets.hpp"
+#include "GUI.hpp"
 
 namespace con::priv
 {
@@ -67,6 +68,7 @@ void GameClass::configureFromSettings()
 	auto fps = ConvertTo<uint32_t>( settings.getValue( "WINDOW", "FPS" ).value() );
 
 	Global.GameWindow.create( { winWidth, winHeight }, "game" );
+	Global.GUI.setView( Global.GameWindow.getView() );
 	Global.GameWindow.setFramerateLimit( fps );
 }
 }

@@ -11,14 +11,12 @@
 
 #include <Global.hpp>
 #include <Game.hpp>
-#include <Window.hpp>
 #include <Assets.hpp>
 #include <SceneStack.hpp>
 #include <Entity.hpp>
 #include <Input.hpp>
 #include <Utility.hpp>
+#include <FixedArray2D.hpp>
 #include <Drawable.hpp>
-
-#include <TGUI/TGUI.hpp>
 
 #include "Constants.hpp"

@@ -22,6 +22,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+#include <TGUI/TGUI.hpp>
+
 #include "Global.hpp"
 
 using float32_t = float;

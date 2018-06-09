@@ -12,6 +12,7 @@
 #include "Assets.hpp"
 #include "SceneStack.hpp"
 #include "Input.hpp"
+#include "GUI.hpp"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
@@ -24,7 +25,8 @@ GlobalClass::GlobalClass() :
 	_Renderer( *( new RendererClass{} ) ),
 	Assets( *( new AssetsClass{} ) ),
 	SceneStack( *( new SceneStackClass{} ) ),
-	Input( *( new InputClass{} ) )
+	Input( *( new InputClass{} ) ),
+	GUI( *( new GUIClass{} ) )
 {}
 
 // Delete some pts to call their destructors.

@@ -7,6 +7,8 @@
 
 #include "Input.hpp"
 
+#include "GUI.hpp"
+
 namespace con::priv
 {
 bool InputClass::isUp( KeyboardKey key ) const
@@ -44,16 +46,6 @@ Vec2i InputClass::getMousePosition() const
 	return sf::Mouse::getPosition( Global.GameWindow );
 }
 
-void InputClass::setAdditionalEventDispatcher( const std::function<void( sf::Event )>& aed )
-{
-	additionalEventDispatcher = aed;
-}
-
-void InputClass::resetAdditionalEventDispatcher()
-{
-	additionalEventDispatcher = decltype( additionalEventDispatcher ){};
-}
-
 void InputClass::_dispatchEvents()
 {
 	using EventType = sf::Event::EventType;
@@ -73,12 +65,17 @@ void InputClass::_dispatchEvents()
 			mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Up;
 		else if ( event.type == EventType::MouseButtonPressed )
 			mouseButtons.at( keyToInt( event.mouseButton.button ) ) = KeyState::Down;
+		else if ( event.type == EventType::Resized ) {
+			auto width = ConvertTo<float32_t>( event.size.width );
+			auto height = ConvertTo<float32_t>( event.size.height );
 
-		if ( additionalEventDispatcher )
-			additionalEventDispatcher( event );
+			sf::View updatedView( RectF( 0, 0, width, height ) );
+			Global.GameWindow.setView( updatedView );
+			Global.GUI.setView( updatedView );
+		}
+
+		Global.GUI.handleEvent( event );
 	}
-
-
 }
 
 void InputClass::clearStates()

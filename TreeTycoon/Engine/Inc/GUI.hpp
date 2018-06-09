@@ -5,18 +5,21 @@
 
 #pragma once
 
-using namespace con;
+#include <TGUI/Gui.hpp>
+#include "Drawable.hpp"
 
-class GUI final :
+namespace con::priv
+{
+class GUIClass final :
 	public tgui::Gui,
 	public IDrawable
 {
 public:
 	using tgui::Gui::Gui;
 
-	GUI();
-	~GUI();
+	GUIClass();
 
 private:
 	void render( sf::RenderWindow& window ) override;
 };
+}

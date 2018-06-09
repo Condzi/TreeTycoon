@@ -21,6 +21,7 @@ struct GlobalClass final
 	class AssetsClass& Assets;
 	class SceneStackClass& SceneStack;
 	class InputClass& Input;
+	class GUIClass& GUI;
 	sf::Time FrameTime;
 	bool ExitGame = false;
 

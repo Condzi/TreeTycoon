@@ -22,25 +22,13 @@ public:
 		exitButton->setSize( "20%", "10%" );
 		exitButton->setPosition( "40%", "45%" );
 		exitButton->setTextSize( 0 );
-		gui.add( exitButton );
+		Global.GUI.add( exitButton );
 		exitButton->connect( "pressed", []() {
 			Global.ExitGame = true;
-		} );
-
-		treeInfoStorage.load();
-		t = std::make_unique<Tree>( treeInfoStorage.findTree( "Apple" ).value(), gui );
-		t->setPosition( { 100,100 } );
-		t->clickableButton->connect( "pressed", [this]() {
-			t->statistics.growingState++;
-			if ( t->statistics.growingState == 3 )
-				t->statistics.growingState = 0;
-
-			t->updateVisualRepresentation();
 		} );
 	}
 
 private:
-	GUI gui;
 	TreeInfoStorage treeInfoStorage;
 	std::unique_ptr<Tree> t;
 };

@@ -35,15 +35,11 @@ public:
 
 	Vec2i getMousePosition() const;
 
-	void setAdditionalEventDispatcher( const std::function<void( sf::Event )>& aed );
-	void resetAdditionalEventDispatcher();
-
 	void _dispatchEvents();
 
 private:
 	std::array<KeyState, KeyboardKey::KeyCount> keyboardKeys{ KeyState::None };
 	std::array<KeyState, MouseButton::ButtonCount> mouseButtons{ KeyState::None };
-	std::function<void( sf::Event )> additionalEventDispatcher;
 
 	void clearStates();
 };
