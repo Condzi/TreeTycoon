@@ -24,9 +24,6 @@
     <ClCompile Include="Src\GameScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Src\TreeInfoStorage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -39,15 +36,15 @@
     <ClCompile Include="Src\Tree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Plot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\GamePCH.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Inc\GameScene.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\GUI.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Inc\TreeInfoStorage.hpp">
@@ -63,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Inc\Constants.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Plot.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

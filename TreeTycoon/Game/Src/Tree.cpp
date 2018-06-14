@@ -7,32 +7,19 @@
 
 #include "Tree.hpp"
 
-Tree::Tree( const TreeInfo const* info, GUI& gui ) :
-	INFO( *info )
-{
-	updateVisualRepresentation();
-	clickableButton = tgui::Button::create();
-	clickableButton->setSize( constants::TREE_TEXTURE_WIDTH, constants::TREE_TEXTURE_HEIGHT );
-	clickableButton->setInheritedOpacity( 0.1f );
-	gui.add( clickableButton );
-}
+Tree::Tree( const TreeInfo* const info_, const std::string& parentPlotName_ ) :
+	info( info_ ),	
+	parentPlotName( parentPlotName_ )
+{}
 
-void Tree::setPosition( const Vec2f& position )
+RectI Tree::getTextureRect() const
 {
-	clickableButton->setPosition( position );
-	visualRepresentation.setPosition( position.x, position.y - constants::TREE_TEXTURE_HEIGHT_DIFF );
-}
-
-void Tree::updateVisualRepresentation()
-{
-	visualRepresentation.setTexture( con::Global.Assets.Texture.get( INFO.textureName ) );
-	sf::IntRect rect
+	return
 	{
-		statistics.growingState * constants::TREE_TEXTURE_WIDTH,
+		stats.growingState * constants::TREE_TEXTURE_WIDTH,
 		0,
 		constants::TREE_TEXTURE_WIDTH,
 		constants::TREE_TEXTURE_REAL_HEIGHT
 	};
-
-	visualRepresentation.setTextureRect( rect );
 }
+

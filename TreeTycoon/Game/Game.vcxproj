@@ -33,11 +33,11 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Src\GUI.cpp">
+    <ClCompile Include="Src\Main.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Src\Main.cpp">
+    <ClCompile Include="Src\Plot.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -71,7 +71,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Inc\GUI.hpp">
+    <ClInclude Include="Inc\Plot.hpp">
       <SubType>
       </SubType>
     </ClInclude>

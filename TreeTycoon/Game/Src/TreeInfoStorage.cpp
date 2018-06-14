@@ -15,7 +15,7 @@ void TreeInfoStorage::load()
 	loadTextures();
 }
 
-std::optional<const TreeInfo const*> TreeInfoStorage::findTree( const std::string& name )
+std::optional<const TreeInfo* const> TreeInfoStorage::findTree( const std::string& name )
 {
 	auto result = std::find_if( infos.begin(), infos.end(), [&]( TreeInfo& info ) {
 		return info.name == name;

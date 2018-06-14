@@ -7,18 +7,17 @@
 
 #include "TreeStats.hpp"
 #include "TreeInfo.hpp"
-#include "GUI.hpp"
 
-class Tree final
+class Tree final :
+	public con::Entity
 {
 public:
-	TreeStats statistics;
-	const TreeInfo& INFO;
-	con::Sprite visualRepresentation;
-	tgui::Button::Ptr clickableButton;
+	TreeStats stats;
+	const TreeInfo* info = nullptr;
+	std::string parentPlotName;
 
-	Tree( const TreeInfo const* info, GUI& gui );
+	Tree() = default;
+	Tree( const TreeInfo* const info_, const std::string& parentPlotName_ );
 
-	void setPosition( const Vec2f& position );
-	void updateVisualRepresentation();
+	RectI getTextureRect() const;
 };
