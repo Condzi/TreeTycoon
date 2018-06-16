@@ -5,8 +5,11 @@
 
 #pragma once
 
+#include <intrin.h>
+
 #include "EnginePCH.hpp"
 #include "Utility.hpp"
+
 
 namespace con
 {
@@ -15,6 +18,8 @@ constexpr bool IS_DEBUG = true;
 #else
 constexpr bool IS_DEBUG = false;
 #endif
+
+#define DebugBreak() __debugbreak()
 
 enum class LogPriority
 {
