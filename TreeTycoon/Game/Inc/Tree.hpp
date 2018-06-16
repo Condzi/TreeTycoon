@@ -14,10 +14,11 @@ class Tree final :
 public:
 	TreeStats stats;
 	const TreeInfo* info = nullptr;
-	std::string parentPlotName;
+	size_t parentPlotHash = 0;
 
 	Tree() = default;
-	Tree( const TreeInfo* const info_, const std::string& parentPlotName_ );
+	Tree( const TreeInfo* const info_, const std::string& parentPlotName );
+	Tree( const TreeInfo* const info_, size_t parentPlotHash_ );
 
 	RectI getTextureRect() const;
 };

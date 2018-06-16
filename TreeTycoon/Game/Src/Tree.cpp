@@ -7,9 +7,14 @@
 
 #include "Tree.hpp"
 
-Tree::Tree( const TreeInfo* const info_, const std::string& parentPlotName_ ) :
-	info( info_ ),	
-	parentPlotName( parentPlotName_ )
+Tree::Tree( const TreeInfo* const info_, const std::string& parentPlotName ) :
+	info( info_ ),
+	parentPlotHash( std::hash<std::string>{}( parentPlotName ) )
+{}
+
+Tree::Tree( const TreeInfo* const info_, size_t parentPlotHash_ ) :
+	info( info_ ),
+	parentPlotHash( parentPlotHash_ )
 {}
 
 RectI Tree::getTextureRect() const
