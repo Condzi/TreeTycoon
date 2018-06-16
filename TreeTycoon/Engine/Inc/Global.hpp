@@ -22,6 +22,7 @@ struct GlobalClass final
 	class SceneStackClass& SceneStack;
 	class InputClass& Input;
 	class GUIClass& GUI;
+	std::unordered_map<std::string, std::string> PlayerStats;
 	sf::Time FrameTime;
 	bool ExitGame = false;
 
