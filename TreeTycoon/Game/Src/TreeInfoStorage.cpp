@@ -15,18 +15,34 @@ void TreeInfoStorage::load()
 	loadTextures();
 }
 
-std::optional<const TreeInfo* const> TreeInfoStorage::findTree( const std::string& name )
+std::optional<const TreeInfo* const> TreeInfoStorage::findTreeInfo( const std::string& name )
+{
+	return findTreeInfo( std::hash<std::string>{}( name ) );
+}
+
+std::optional<const TreeInfo* const> TreeInfoStorage::findTreeInfo( size_t hash )
 {
 	auto result = std::find_if( infos.begin(), infos.end(), [&]( TreeInfo& info ) {
-		return info.name == name;
+		return info.nameHash == hash;
 	} );
 
 	if ( result == infos.end() ) {
-		log( con::LogPriority::Error, "Couldn't find \"", name, "\"." );
+		log( con::LogPriority::Error, "Missing TreeInfo." );
+		DebugBreak();
 		return {};
 	}
 
 	return &( *result );
+}
+
+std::vector<const TreeInfo* const> TreeInfoStorage::getAllTreeInfos()
+{
+	std::vector<const TreeInfo* const> vec;
+
+	for ( auto& info : infos )
+		vec.emplace_back( &info );
+
+	return vec;
 }
 
 bool TreeInfoStorage::loadConfig()
@@ -50,6 +66,8 @@ bool TreeInfoStorage::loadConfig()
 
 	log( con::LogPriority::Info, "Begin loading tree data..." );
 
+	std::hash<std::string> hashingFunction;
+
 	for ( auto& treeName : treeNames ) {
 		auto& info = infos.emplace_back();
 
@@ -58,6 +76,7 @@ bool TreeInfoStorage::loadConfig()
 		};
 
 		info.name = getValue( "NAME" ).value_or( "missing" );
+		info.nameHash = hashingFunction( info.name );
 		info.texturePath = getValue( "TEXTURE_PATH" ).value_or( "missing" );
 		info.type = getValue( "TYPE" ).value_or( "missing" );
 		info.fruitType = getValue( "FRUIT_TYPE" ).value_or( "missing" );

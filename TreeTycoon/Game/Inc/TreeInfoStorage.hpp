@@ -13,7 +13,9 @@ class TreeInfoStorage final :
 public:
 	void load();
 
-	std::optional<const TreeInfo* const> findTree( const std::string& name );
+	std::optional<const TreeInfo* const> findTreeInfo( const std::string& name );
+	std::optional<const TreeInfo* const> findTreeInfo( size_t hash );
+	std::vector<const TreeInfo* const> getAllTreeInfos();
 
 private:
 	std::vector<TreeInfo> infos;

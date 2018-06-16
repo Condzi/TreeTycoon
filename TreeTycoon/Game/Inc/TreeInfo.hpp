@@ -9,6 +9,7 @@ struct TreeInfo final
 {
 	std::string texturePath;
 	std::string name;
+	size_t nameHash = 0;
 	std::string type;
 	std::string fruitType;
 	int16_t seedPrice = 0;
