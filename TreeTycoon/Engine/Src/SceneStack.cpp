@@ -39,10 +39,12 @@ void SceneStackClass::disableCurrentScene()
 	requestAction( { Operation::Disable, 0 } );
 }
 
-std::optional<SceneStackClass::SceneID> SceneStackClass::getSceneOnTop()
+std::optional<Scene*> SceneStackClass::getSceneOnTop()
 {
+	if ( scenes.empty() )
+		return {};
 
-	return std::optional<SceneID>();
+	return scenes.back().get();
 }
 
 void SceneStackClass::requestAction( Action&& action )

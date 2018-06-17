@@ -65,7 +65,7 @@ public:
 	void enableCurrentScene();
 	void disableCurrentScene();
 
-	std::optional<SceneID> getSceneOnTop();
+	std::optional<Scene*> getSceneOnTop();
 
 	int8_t getUpdatePriority() const override
 	{
