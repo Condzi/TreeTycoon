@@ -15,7 +15,7 @@ public:
 
 	std::optional<const TreeInfo* const> findTreeInfo( const std::string& name );
 	std::optional<const TreeInfo* const> findTreeInfo( size_t hash );
-	std::vector<const TreeInfo* const> getAllTreeInfos();
+	std::vector<const TreeInfo*> getAllTreeInfos();
 
 private:
 	std::vector<TreeInfo> infos;

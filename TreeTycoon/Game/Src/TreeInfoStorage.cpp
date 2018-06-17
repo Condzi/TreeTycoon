@@ -35,9 +35,9 @@ std::optional<const TreeInfo* const> TreeInfoStorage::findTreeInfo( size_t hash 
 	return &( *result );
 }
 
-std::vector<const TreeInfo* const> TreeInfoStorage::getAllTreeInfos()
+std::vector<const TreeInfo*> TreeInfoStorage::getAllTreeInfos()
 {
-	std::vector<const TreeInfo* const> vec;
+	std::vector<const TreeInfo*> vec;
 
 	for ( auto& info : infos )
 		vec.emplace_back( &info );
