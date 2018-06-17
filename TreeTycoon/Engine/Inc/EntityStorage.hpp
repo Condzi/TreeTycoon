@@ -10,15 +10,20 @@
 namespace con::priv
 {
 class EntityStorage final :
-	public IUpdatable
+	public IUpdatable,
+	public ILogger
 {
 public:
+	inline static const sf::Time CLEANUP_INTERVAL = sf::seconds( 2 );
+	static constexpr size_t ENTITIES_COUNT = 512;
+
 	template <typename TEntity, typename ...TArgs>
 	TEntity& spawn( TArgs&& ...args )
 	{
 		static_assert( std::is_base_of_v<Entity, TEntity> );
 
-		auto& created = entities.emplace_back( std::make_unique<TEntity>( std::forward<TArgs>( args )... ) );
+		auto& created = getFreeSlot();
+		created = std::make_unique<TEntity>( std::forward<TArgs>( args )... );
 		created->onSpawn();
 
 		return dynamic_cast<TEntity&>( *created.get() );
@@ -46,18 +51,23 @@ public:
 	{
 		std::vector<Entity*> vecToReturn;
 		for ( auto& uPtr : entities )
-			vecToReturn.emplace_back( uPtr.get() );
+			if ( uPtr )
+				vecToReturn.emplace_back( uPtr.get() );
 
 		return vecToReturn;
 	}
 
 private:
-	inline static const sf::Time CLEANUP_INTERVAL = sf::seconds( 2 );
-
-	std::vector<std::unique_ptr<Entity>> entities;
+	std::vector<std::unique_ptr<Entity>> entities{ ENTITIES_COUNT };
 	sf::Clock cleanupClock;
+
+	std::string loggerName() const override
+	{
+		return "Entity Storage";
+	}
 
 	void cleanup();
 	void update() override;
+	std::unique_ptr<Entity>& getFreeSlot();
 };
 }

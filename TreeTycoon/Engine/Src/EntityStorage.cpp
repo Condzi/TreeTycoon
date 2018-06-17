@@ -20,17 +20,20 @@ void EntityStorage::update()
 	}
 }
 
+std::unique_ptr<Entity>& EntityStorage::getFreeSlot()
+{
+	for ( auto& e : entities )
+		if ( !e )
+			return e;
+
+	log( LogPriority::Warning, "No free slots: has to realloc. (", entities.size(), " items)" );
+	return entities.emplace_back();
+}
+
 void EntityStorage::cleanup()
 {
-	// To have IDE autocomplete (if auto& then doesn't work)
-	using EntityPtr = std::unique_ptr<Entity>;
-
-	auto begin = entities.begin();
-	auto end = entities.end();
-
-	entities.erase( std::remove_if( begin, end,
-					[]( EntityPtr& e ) {
-		return e->getStatus() == Entity::Status::Dead;
-	} ), end );
+	for ( auto& e : entities )
+		if ( e && e->getStatus() == Entity::Status::Dead )
+			e.reset();
 }
 }
