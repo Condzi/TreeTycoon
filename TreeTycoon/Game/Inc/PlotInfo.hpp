@@ -9,7 +9,7 @@ struct PlotInfo final
 {
 	std::string name;
 	size_t nameHash = 0;
-	int16_t empty_price = 0;
+	int16_t emptyPrice = 0;
 	int16_t sizeX = 0;
 	int16_t sizeY = 0;
 };
