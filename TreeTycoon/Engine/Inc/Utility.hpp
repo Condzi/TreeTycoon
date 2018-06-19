@@ -123,4 +123,14 @@ T Random( const T& min, const Y& max )
 		return dist( priv::rng );
 	}
 }
+
+template <typename TIteratorA, typename TIteratorB, typename TLambda>
+void iteratePararell( TIteratorA beginA, TIteratorA endA, TIteratorB beginB, TIteratorB endB, TLambda&& lambda )
+{
+	if ( std::distance( beginA, endA ) != std::distance( beginB, endB ) )
+		throw std::range_error( "wrong ranges (first range size is not equal to the second range)" );
+
+	while ( beginA != endA )
+		lambda( *(beginA++), *(beginB++) );
+}
 }
