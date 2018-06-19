@@ -6,7 +6,7 @@
 #pragma once
 
 #include "GUI.hpp"
-#include "TreeInfoStorage.hpp"
+#include "TreeInfosStorage.hpp"
 #include "Tree.hpp"
 
 using namespace con;
@@ -29,6 +29,6 @@ public:
 	}
 
 private:
-	TreeInfoStorage treeInfoStorage;
+	TreeInfosStorage treeInfoStorage;
 	std::unique_ptr<Tree> t;
 };

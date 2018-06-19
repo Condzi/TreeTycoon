@@ -5,9 +5,9 @@
 
 #include "GamePCH.hpp"
 
-#include "TreeInfoStorage.hpp"
+#include "TreeInfosStorage.hpp"
 
-void TreeInfoStorage::load()
+void TreeInfosStorage::load()
 {
 	if ( !loadConfig() )
 		return;
@@ -15,12 +15,12 @@ void TreeInfoStorage::load()
 	loadTextures();
 }
 
-std::optional<const TreeInfo* const> TreeInfoStorage::findTreeInfo( const std::string& name )
+std::optional<const TreeInfo* const> TreeInfosStorage::findTreeInfo( const std::string& name )
 {
 	return findTreeInfo( std::hash<std::string>{}( name ) );
 }
 
-std::optional<const TreeInfo* const> TreeInfoStorage::findTreeInfo( size_t hash )
+std::optional<const TreeInfo* const> TreeInfosStorage::findTreeInfo( size_t hash )
 {
 	auto result = std::find_if( infos.begin(), infos.end(), [&]( TreeInfo& info ) {
 		return info.nameHash == hash;
@@ -35,7 +35,7 @@ std::optional<const TreeInfo* const> TreeInfoStorage::findTreeInfo( size_t hash 
 	return &( *result );
 }
 
-std::vector<const TreeInfo*> TreeInfoStorage::getAllTreeInfos()
+std::vector<const TreeInfo*> TreeInfosStorage::getAllTreeInfos()
 {
 	std::vector<const TreeInfo*> vec;
 
@@ -45,7 +45,7 @@ std::vector<const TreeInfo*> TreeInfoStorage::getAllTreeInfos()
 	return vec;
 }
 
-bool TreeInfoStorage::loadConfig()
+bool TreeInfosStorage::loadConfig()
 {
 	if constexpr ( con::IS_DEBUG )
 	{
@@ -102,7 +102,7 @@ bool TreeInfoStorage::loadConfig()
 	return true;
 }
 
-void TreeInfoStorage::loadTextures()
+void TreeInfosStorage::loadTextures()
 {
 	for ( auto& info : infos )
 		con::Global.Assets.Texture.load( info.texturePath, info.textureName );

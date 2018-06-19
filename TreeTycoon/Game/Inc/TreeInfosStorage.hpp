@@ -7,7 +7,7 @@
 
 #include "TreeInfo.hpp"
 
-class TreeInfoStorage final :
+class TreeInfosStorage final :
 	public con::ILogger
 {
 public:
