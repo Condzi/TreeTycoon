@@ -13,6 +13,7 @@ class World;
 class Plot final
 {
 public:
+	Plot() = default;
 	Plot( World& world_, const PlotInfo& info_ );
 
 	std::optional<Tree*> spawnTree( size_t nameHash, const Vec2u& position );
@@ -20,6 +21,6 @@ public:
 
 private:
 	con::FixedArray2D<Tree*> assignedTrees;
-	World& world;
+	World* world = nullptr;
 	PlotInfo info;
 };

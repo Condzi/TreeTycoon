@@ -8,13 +8,15 @@
 #include "Plot.hpp"
 
 Plot::Plot( World& world_, const PlotInfo& info_ ) :
-	world( world_ ),
+	world( &world_ ),
 	info( info_ ),
 	assignedTrees( { con::ConvertTo<uint32_t>( info.sizeX ), con::ConvertTo<uint32_t>( info.sizeY ) } )
 {}
 
 std::optional<Tree*> Plot::spawnTree( size_t nameHash, const Vec2u& position )
 {
+	if ( !world )
+		return;
 	// TODO: Implement me.
 
 	// auto* tree = world.spawn<Tree>(nameHash, info.nameHash);
