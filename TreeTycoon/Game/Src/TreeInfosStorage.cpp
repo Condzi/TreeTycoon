@@ -9,10 +9,8 @@
 
 void TreeInfosStorage::load()
 {
-	if ( !loadConfig() )
-		return;
-
-	loadTextures();
+	if ( loadConfig() )
+		loadTextures();
 }
 
 std::optional<const TreeInfo* const> TreeInfosStorage::findTreeInfo( const std::string& name )
@@ -59,12 +57,13 @@ bool TreeInfosStorage::loadConfig()
 	infos.clear();
 
 	con::INIFile ini;
-	if ( !ini.load( constants::TREE_CONFIG_PATH ) )
+	if ( !ini.load( constants::TREES_CONFIG_PATH ) )
 		return false;
 
 	auto treeNames = ini.getAllSectionsNames();
+	infos.reserve( treeNames.size() );
 
-	log( con::LogPriority::Info, "Begin loading tree data..." );
+	log( con::LogPriority::Info, "Begin loading trees data..." );
 
 	std::hash<std::string> hashingFunction;
 
@@ -97,7 +96,7 @@ bool TreeInfosStorage::loadConfig()
 		log( con::LogPriority::Info, "textureName = ", info.textureName );
 	}
 
-	log( con::LogPriority::Info, "Loading tree data ended. (", infos.size(), " trees loaded)" );
+	log( con::LogPriority::Info, "Loading trees data ended. (", infos.size(), " trees loaded)" );
 
 	return true;
 }

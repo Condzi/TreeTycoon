@@ -25,6 +25,6 @@ private:
 
 	std::string loggerName() const override
 	{
-		return "Tree Info Storage";
+		return "Trees Infos Storage";
 	}
 };
