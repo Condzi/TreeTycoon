@@ -11,6 +11,7 @@
 
 #include <Global.hpp>
 #include <Game.hpp>
+#include <GUI.hpp>
 #include <Assets.hpp>
 #include <SceneStack.hpp>
 #include <Entity.hpp>

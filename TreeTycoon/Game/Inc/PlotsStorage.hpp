@@ -7,13 +7,13 @@
 
 #include "Plot.hpp"
 
-class World;
+class WorldScene;
 
 class PlotsStorage final :
 	public con::ILogger
 {
 public:
-	PlotsStorage( World& world_ );
+	PlotsStorage( WorldScene& world_ );
 
 	void load();
 
@@ -22,7 +22,7 @@ public:
 	std::vector<Plot*> getAllPlots();
 
 private:
-	World& world;
+	WorldScene& world;
 	std::vector<Plot> plots;
 
 	std::string loggerName() const override

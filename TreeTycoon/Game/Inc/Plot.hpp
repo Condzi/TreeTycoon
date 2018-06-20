@@ -8,19 +8,20 @@
 #include "PlotInfo.hpp"
 #include "Tree.hpp"
 
-class World;
+class WorldScene;
 
 class Plot final
 {
 public:
 	Plot() = default;
-	Plot( World& world_, const PlotInfo& info_ );
+	Plot( WorldScene& world_, const PlotInfo& info_ );
 
 	std::optional<Tree*> spawnTree( size_t nameHash, const Vec2u& position );
 	std::optional<Tree*> getTree( const Vec2u& position );
+	const PlotInfo& getInfo();
 
 private:
 	con::FixedArray2D<Tree*> assignedTrees;
-	World* world = nullptr;
+	WorldScene* world = nullptr;
 	PlotInfo info;
 };

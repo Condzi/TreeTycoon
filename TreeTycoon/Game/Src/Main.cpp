@@ -1,11 +1,16 @@
 #include "GamePCH.hpp"
 
-#include "GameScene.hpp"
+#include "WorldScene.hpp"
 
 int main()
 {
-	Global.SceneStack.registerScene<GameScene>( 0 );
-	Global.SceneStack.push( 0 );
+	try {
+		con::Global.SceneStack.registerScene<WorldScene>( 0 );
+		con::Global.SceneStack.push( 0 );
 
-	Global.Game.run();
+		con::Global.Game.run();
+	} catch ( const std::exception& exception ) {
+		std::cout << std::endl << exception.what();
+		std::cin.get();
+	}
 }

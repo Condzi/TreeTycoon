@@ -1,0 +1,56 @@
+Panel."panel" {
+    Position = (128, 72);
+    Size = (1280 - 256, 720 - 144);
+
+    Renderer {
+        backgroundcolor = #0f990a;
+        bordercolor = black;
+    }
+
+    Label."label_title" {
+        AutoSize = true;
+        Position = (291.3, 0);
+        Size = (441.4, 96);
+        Text = "Tree Tycoon";
+        TextSize = 72;
+    
+        Renderer {
+            backgroundcolor = transparent;
+            bordercolor = #3C3C3C;
+            borders = (0, 0, 0, 0);
+            textcolor = #3C3C3C;
+        }
+    }
+
+    ListBox."list_plots" {
+        AutoScroll = false;
+        ItemHeight = 36;
+        Items = ["placeholder"];
+        MaximumItems = 0;
+        Position = (312, 128);
+        Size = (400, 200);
+        TextSize = 36;
+    
+        Renderer {
+            backgroundcolor = #F5F5F5;
+            backgroundcolorhover = white;
+            bordercolor = black;
+            borders = (1, 1, 1, 1);
+            padding = (0, 0, 0, 0);
+            selectedbackgroundcolor = #006EFF;
+            selectedbackgroundcolorhover = #1E96FF;
+            selectedtextcolor = white;
+            textcolor = #3C3C3C;
+            textcolorhover = black;
+            texturebackground = None;
+        }
+    }
+
+    Button."button_exit" {
+        AutoSize = true;
+        Position = (437, 400);
+        Size = (150, 50);
+        TextSize = 36;
+        Text = "Exit";
+    }
+}

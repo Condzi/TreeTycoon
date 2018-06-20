@@ -7,7 +7,7 @@
 
 #include "PlotsStorage.hpp"
 
-PlotsStorage::PlotsStorage( World& world_ ) :
+PlotsStorage::PlotsStorage( WorldScene& world_ ) :
 	world( world_ )
 {}
 
@@ -25,8 +25,8 @@ std::optional<Plot* const> PlotsStorage::findPlot( const std::string& name )
 
 std::optional<Plot* const> PlotsStorage::findPlot( size_t hash )
 {
-	auto result = std::find_if( plots.begin(), plots.begin(), [&]( TreeInfo& info ) {
-		return info.nameHash == hash;
+	auto result = std::find_if( plots.begin(), plots.begin(), [&]( Plot& plot ) {
+		return plot.getInfo().nameHash == hash;
 	} );
 
 	if ( result == plots.end() ) {

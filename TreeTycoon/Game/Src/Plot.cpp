@@ -6,8 +6,9 @@
 #include "GamePCH.hpp"
 
 #include "Plot.hpp"
+#include "WorldScene.hpp"
 
-Plot::Plot( World& world_, const PlotInfo& info_ ) :
+Plot::Plot( WorldScene& world_, const PlotInfo& info_ ) :
 	world( &world_ ),
 	info( info_ ),
 	assignedTrees( { con::ConvertTo<uint32_t>( info.sizeX ), con::ConvertTo<uint32_t>( info.sizeY ) } )
@@ -16,13 +17,16 @@ Plot::Plot( World& world_, const PlotInfo& info_ ) :
 std::optional<Tree*> Plot::spawnTree( size_t nameHash, const Vec2u& position )
 {
 	if ( !world )
-		return;
-	// TODO: Implement me.
+		return {};
 
-	// auto* tree = world.spawn<Tree>(nameHash, info.nameHash);
-	// assignedTrees.emplace_back(tree);
+	const TreeInfo* treeInfo = world->treeInfos.findTreeInfo( nameHash ).value_or( nullptr );
+	if ( treeInfo == nullptr )
+		return {};
 
-	return {};
+	Tree* tree = &world->spawn<Tree>( treeInfo, info.nameHash );
+	assignedTrees.at( position ) = tree;
+
+	return tree;
 }
 
 std::optional<Tree*> Plot::getTree( const Vec2u& position )
@@ -31,4 +35,9 @@ std::optional<Tree*> Plot::getTree( const Vec2u& position )
 		return tree;
 
 	return {};
+}
+
+const PlotInfo& Plot::getInfo()
+{
+	return info;
 }

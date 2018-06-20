@@ -36,41 +36,41 @@ Panel."panel_left" {
     Size = (0.25 * &.size, &.size);
     renderer = &3;
 
-    Button."Widget6" {
+    Button."button_exit" {
         Size = (90, 33);
         Text = "Exit";
         renderer = &1;
     }
 
-    Button."Widget7" {
+    Button."button_options" {
         Position = (90, 0);
         Size = (140, 33);
         Text = "Options";
         renderer = &1;
     }
 
-    Button."Widget8" {
+    Button."button_help" {
         Position = (230, 0);
         Size = (90, 33);
         Text = "Help";
         renderer = &1;
     }
 
-    Button."Widget12" {
+    Button."button_world" {
         Position = (0, 110);
         Size = (0.5 * &.size, 157.667);
-        Text = "Plots";
+        Text = "World";
         renderer = &1;
     }
 
-    Button."Widget13" {
+    Button."button_shop" {
         Position = (160, 110);
         Size = (0.5 * &.size, 157.667);
         Text = "Shop";
         renderer = &1;
     }
 
-    Picture."Widget17" {
+    Picture."picture_tree" {
         Position = (0, 400);
         Size = (320, 320);
     
@@ -80,7 +80,7 @@ Panel."panel_left" {
         }
     }
 
-    Picture."Widget18" {
+    Picture."picture_treetype" {
         Position = (230, 630);
         Size = (64, 64);
     
@@ -90,7 +90,7 @@ Panel."panel_left" {
         }
     }
 
-    Label."Widget19" {
+    Label."label_treename" {
         AutoSize = true;
         Position = (0, 280);
         Size = (182.8, 43);
@@ -99,7 +99,7 @@ Panel."panel_left" {
         renderer = &2;
     }
 
-    Label."Widget20" {
+    Label."label_treefruits" {
         AutoSize = true;
         Position = (0, 330);
         Size = (176.8, 43);

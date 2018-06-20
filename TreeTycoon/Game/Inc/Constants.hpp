@@ -16,4 +16,5 @@ constexpr int32_t TREE_TEXTURE_HEIGHT_DIFF = TREE_TEXTURE_REAL_HEIGHT - TREE_TEX
 
 constexpr const char* TREES_CONFIG_PATH = "Data/Trees/tree_config.ini";
 constexpr const char* PLOTS_CONFIG_PATH = "Data/Plots/plot_config.ini";
+constexpr const char* WORLD_GUI_PATH = "Data/Gui/world.gui";
 }
