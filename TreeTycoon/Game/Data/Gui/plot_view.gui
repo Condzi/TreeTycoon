@@ -75,7 +75,7 @@ Panel."panel_left" {
         Size = (320, 320);
     
         Renderer {
-            texture = "resources/DefaultPicture.png";
+            texture = "Data/Trees/Apple.png";
             transparenttexture = false;
         }
     }
@@ -85,7 +85,7 @@ Panel."panel_left" {
         Size = (64, 64);
     
         Renderer {
-            texture = "resources/DefaultPicture.png";
+            texture = "Data/Trees/Apple.png";
             transparenttexture = false;
         }
     }
@@ -111,7 +111,7 @@ Panel."panel_left" {
 
 Panel."panel_right" {
     Position = (1040, 0);
-    Size = ((320 / 4) * 3, &.size);
+    Size = (0.25 * &.size, &.size);
     renderer = &3;
 }
 
