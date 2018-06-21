@@ -45,6 +45,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\PlotViewScene.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\Tree.cpp">
       <SubType>
       </SubType>
@@ -84,6 +88,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\PlotsStorage.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\PlotViewScene.hpp">
       <SubType>
       </SubType>
     </ClInclude>
