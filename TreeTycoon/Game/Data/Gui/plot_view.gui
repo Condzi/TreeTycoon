@@ -71,6 +71,7 @@ Panel."panel_left" {
     }
 
     Picture."picture_tree" {
+        Visible = false;
         Position = (0, 400);
         Size = (320, 320);
     
@@ -81,6 +82,7 @@ Panel."panel_left" {
     }
 
     Picture."picture_treetype" {
+        Visible = false;
         Position = (230, 630);
         Size = (64, 64);
     
@@ -91,6 +93,7 @@ Panel."panel_left" {
     }
 
     Label."label_treename" {
+        Visible = false;
         AutoSize = true;
         Position = (0, 280);
         Size = (182.8, 43);
@@ -100,6 +103,7 @@ Panel."panel_left" {
     }
 
     Label."label_treefruits" {
+        Visible = false;
         AutoSize = true;
         Position = (0, 330);
         Size = (176.8, 43);

@@ -35,11 +35,6 @@ private:
 			sceneStack.pop();
 			sceneStack.enableCurrentScene();
 		} );
-
-		gui.get( "picture_tree" )->setVisible( false );
-		gui.get( "picture_treetype" )->setVisible( false );
-		gui.get( "label_treename" )->setVisible( false );
-		gui.get( "label_treefruits" )->setVisible( false );
 	}
 
 	void setPlot();
