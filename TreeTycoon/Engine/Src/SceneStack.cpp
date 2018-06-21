@@ -47,6 +47,18 @@ std::optional<Scene*> SceneStackClass::getSceneOnTop()
 	return scenes.back().get();
 }
 
+std::optional<Scene*> SceneStackClass::getSceneOfTag( const std::string& tag )
+{
+	auto result = std::find_if( scenes.begin(), scenes.end(), [&]( auto& scene ) {
+		return scene->tag == tag;
+	} );
+
+	if ( result == scenes.end() )
+		return {};
+
+	return ( *result ).get();
+}
+
 void SceneStackClass::requestAction( Action&& action )
 {
 	static auto getOperationAsString = []( Operation op ) {
