@@ -7,15 +7,11 @@
 
 #include "PlotsStorage.hpp"
 
-PlotsStorage::PlotsStorage( WorldScene& world_ ) :
-	world( world_ )
-{}
-
-void PlotsStorage::load()
+void PlotsStorage::load( WorldScene& world )
 {
 	std::vector<PlotInfo> infos;
 	if ( loadConfig( infos ) )
-		initializePlots( infos );
+		initializePlots( infos, world );
 }
 
 std::optional<Plot* const> PlotsStorage::findPlot( const std::string& name )
@@ -96,7 +92,7 @@ bool PlotsStorage::loadConfig( std::vector<PlotInfo>& infos )
 	return true;
 }
 
-void PlotsStorage::initializePlots( const std::vector<PlotInfo>& infos )
+void PlotsStorage::initializePlots( const std::vector<PlotInfo>& infos, WorldScene& world )
 {
 	plots.resize( infos.size() );
 

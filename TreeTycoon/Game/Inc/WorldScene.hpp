@@ -13,14 +13,14 @@ class WorldScene final :
 {
 public:
 	TreeInfosStorage treeInfos;
-	PlotsStorage plots{*this};
+	PlotsStorage plots;
 	Plot* selectedPlot = nullptr;
 
 	void onPush() override
 	{
 		tag = "World";
 		treeInfos.load();
-		plots.load();
+		plots.load( *this );
 		loadGui();
 	}
 
@@ -49,7 +49,7 @@ private:
 
 		plotsList.connect( "itemSelected", [&]( const sf::String& itemId ) {
 			con::Global.SceneStack.disableCurrentScene();
-			con::Global.SceneStack.push(1);
+			con::Global.SceneStack.push( 1 );
 			selectedPlot = plots.findPlot( itemId ).value_or( nullptr );
 		} );
 	}

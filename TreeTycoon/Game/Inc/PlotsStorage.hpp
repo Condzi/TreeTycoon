@@ -13,16 +13,13 @@ class PlotsStorage final :
 	public con::ILogger
 {
 public:
-	PlotsStorage( WorldScene& world_ );
-
-	void load();
+	void load( WorldScene& world );
 
 	std::optional<Plot* const> findPlot( const std::string& name );
 	std::optional<Plot* const> findPlot( size_t hash );
 	std::vector<Plot*> getAllPlots();
 
 private:
-	WorldScene& world;
 	std::vector<Plot> plots;
 
 	std::string loggerName() const override
@@ -31,5 +28,5 @@ private:
 	}
 
 	bool loadConfig( std::vector<PlotInfo>& infos );
-	void initializePlots( const std::vector<PlotInfo>& infos );
+	void initializePlots( const std::vector<PlotInfo>& infos, WorldScene& world );
 };

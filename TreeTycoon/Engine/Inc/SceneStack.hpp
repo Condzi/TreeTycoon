@@ -66,7 +66,7 @@ public:
 	void disableCurrentScene();
 
 	std::optional<Scene*> getSceneOnTop();
-	std::optional<Scene*> getSceneOfTag(const std::string& tag);
+	std::optional<Scene*> getSceneOfTag( const std::string& tag );
 
 	int8_t getUpdatePriority() const override
 	{
