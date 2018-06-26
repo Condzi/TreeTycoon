@@ -60,6 +60,7 @@ Panel."panel_left" {
         Position = (0, 110);
         Size = (0.5 * &.size, 157.667);
         Text = "World";
+		TextSize = 32;
         renderer = &1;
     }
 
@@ -67,6 +68,7 @@ Panel."panel_left" {
         Position = (160, 110);
         Size = (0.5 * &.size, 157.667);
         Text = "Shop";
+		TextSize = 32;
         renderer = &1;
     }
 

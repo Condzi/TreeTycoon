@@ -26,17 +26,17 @@ void SceneStackClass::push( SceneID id )
 
 void SceneStackClass::pop()
 {
-	requestAction( { Operation::Pop, 0 } );
+	requestAction( { Operation::Pop } );
 }
 
 void SceneStackClass::enableCurrentScene()
 {
-	requestAction( { Operation::Enable, 0 } );
+	requestAction( { Operation::Enable } );
 }
 
 void SceneStackClass::disableCurrentScene()
 {
-	requestAction( { Operation::Disable, 0 } );
+	requestAction( { Operation::Disable } );
 }
 
 std::optional<Scene*> SceneStackClass::getSceneOnTop()

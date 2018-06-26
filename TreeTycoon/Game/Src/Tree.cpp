@@ -15,7 +15,9 @@ Tree::Tree( const TreeInfo* const info_, const std::string& parentPlotName ) :
 Tree::Tree( const TreeInfo* const info_, size_t parentPlotHash_ ) :
 	info( info_ ),
 	parentPlotHash( parentPlotHash_ )
-{}
+{
+	texture = &con::Global.Assets.Texture.get( info->textureName );
+}
 
 RectI Tree::getTextureRect() const
 {

@@ -16,7 +16,7 @@ public:
 	void onPush() override
 	{
 		loadGui();
-		setPlot();
+		plot = GlobalGameData.CurrentPlot;
 		tag = con::ConvertTo<std::string>( "PlotView(", plot->getInfo().name, ")" );
 	}
 
@@ -36,6 +36,4 @@ private:
 			sceneStack.enableCurrentScene();
 		} );
 	}
-
-	void setPlot();
 };

@@ -15,6 +15,7 @@ public:
 	TreeStats stats;
 	const TreeInfo* info = nullptr;
 	size_t parentPlotHash = 0;
+	const sf::Texture* texture = nullptr;
 
 	Tree() = default;
 	Tree( const TreeInfo* const info_, const std::string& parentPlotName );
