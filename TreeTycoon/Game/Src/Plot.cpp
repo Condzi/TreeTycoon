@@ -19,7 +19,7 @@ std::optional<Tree*> Plot::spawnTree( size_t nameHash, const Vec2u& position )
 	if ( !world )
 		return {};
 
-	const TreeInfo* treeInfo = world->treeInfos.findTreeInfo( nameHash ).value_or( nullptr );
+	const TreeInfo* treeInfo = GlobalGameData.TreeInfos.findTreeInfo( nameHash ).value_or( nullptr );
 	if ( treeInfo == nullptr )
 		return {};
 

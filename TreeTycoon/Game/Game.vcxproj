@@ -29,6 +29,10 @@
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)intermediates\$(ProjectName)\(TargetName).pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)intermediates\$(ProjectName)\(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
+    <ClCompile Include="Src\GlobalGameData.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\Main.cpp">
       <SubType>
       </SubType>
@@ -76,6 +80,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\GamePCH.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\GlobalGameData.hpp">
       <SubType>
       </SubType>
     </ClInclude>

@@ -10,5 +10,5 @@
 
 void PlotViewScene::setPlot()
 {
-	plot = dynamic_cast<WorldScene*>( con::Global.SceneStack.getSceneOfTag( "World" ).value() )->selectedPlot;
+	plot = GlobalGameData.CurrentPlot;
 }

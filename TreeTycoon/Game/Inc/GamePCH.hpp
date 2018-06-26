@@ -21,3 +21,4 @@
 #include <Drawable.hpp>
 
 #include "Constants.hpp"
+#include "GlobalGameData.hpp"

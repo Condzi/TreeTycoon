@@ -12,15 +12,11 @@ class WorldScene final :
 	public con::Scene
 {
 public:
-	TreeInfosStorage treeInfos;
-	PlotsStorage plots;
-	Plot* selectedPlot = nullptr;
-
 	void onPush() override
 	{
 		tag = "World";
-		treeInfos.load();
-		plots.load( *this );
+		GlobalGameData.TreeInfos.load();
+		GlobalGameData.Plots.load( *this );
 		loadGui();
 	}
 
@@ -42,7 +38,7 @@ private:
 		auto& plotsList = *gui.get( "list_plots" )->cast<tgui::ListBox>();
 		plotsList.removeAllItems(); // removing "placeholder"
 
-		for ( auto* plot : plots.getAllPlots() ) {
+		for ( auto* plot : GlobalGameData.Plots.getAllPlots() ) {
 			auto plotName = plot->getInfo().name;
 			plotsList.addItem( plotName, plotName );
 		}
@@ -50,7 +46,7 @@ private:
 		plotsList.connect( "itemSelected", [&]( const sf::String& itemId ) {
 			con::Global.SceneStack.disableCurrentScene();
 			con::Global.SceneStack.push( 1 );
-			selectedPlot = plots.findPlot( itemId ).value_or( nullptr );
+			GlobalGameData.CurrentPlot = GlobalGameData.Plots.findPlot( itemId ).value_or( nullptr );
 		} );
 	}
 
