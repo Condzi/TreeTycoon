@@ -45,6 +45,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Src\PlotRenderingSystem.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Src\PlotsStorage.cpp">
       <SubType>
       </SubType>
@@ -92,6 +96,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Inc\PlotInfo.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Inc\PlotRenderingSystem.hpp">
       <SubType>
       </SubType>
     </ClInclude>

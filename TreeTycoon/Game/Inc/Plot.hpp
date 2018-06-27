@@ -18,6 +18,7 @@ public:
 
 	std::optional<Tree*> spawnTree( size_t nameHash, const Vec2u& position );
 	std::optional<Tree*> getTree( const Vec2u& position );
+	const con::FixedArray2D<Tree*>& getTreesArray();
 	const PlotInfo& getInfo();
 
 private:

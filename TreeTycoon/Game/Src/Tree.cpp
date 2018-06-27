@@ -26,7 +26,7 @@ RectI Tree::getTextureRect() const
 		stats.growingState * constants::TREE_TEXTURE_WIDTH,
 		0,
 		constants::TREE_TEXTURE_WIDTH,
-		constants::TREE_TEXTURE_REAL_HEIGHT
+		constants::TREE_TEXTURE_HEIGHT
 	};
 }
 

@@ -51,6 +51,9 @@
     <ClCompile Include="Src\GlobalGameData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\PlotRenderingSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\GamePCH.hpp">
@@ -87,6 +90,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Inc\GlobalGameData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\PlotRenderingSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
