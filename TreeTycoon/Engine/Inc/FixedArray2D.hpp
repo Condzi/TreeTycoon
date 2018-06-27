@@ -73,11 +73,20 @@ public:
 		return data.end();
 	}
 
-	auto cbegin()
+	auto begin() const
+	{
+		return data.begin();
+	}
+	auto end() const
+	{
+		return data.end();
+	}
+
+	auto cbegin() const
 	{
 		return data.cbegin();
 	}
-	auto cend()
+	auto cend() const
 	{
 		return data.cend();
 	}
@@ -91,11 +100,11 @@ public:
 		return data.rend();
 	}
 
-	auto crbegin()
+	auto crbegin() const
 	{
 		return data.crbegin();
 	}
-	auto crend()
+	auto crend() const
 	{
 		return data.crend();
 	}
