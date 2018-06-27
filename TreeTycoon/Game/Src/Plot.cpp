@@ -11,7 +11,7 @@
 Plot::Plot( WorldScene& world_, const PlotInfo& info_ ) :
 	world( &world_ ),
 	info( info_ ),
-	assignedTrees( { con::ConvertTo<uint32_t>( info.sizeX ), con::ConvertTo<uint32_t>( info.sizeY ) } )
+	assignedTrees( { con::ConvertTo<uint32_t>( info_.sizeX ), con::ConvertTo<uint32_t>( info_.sizeY ) } )
 {}
 
 std::optional<Tree*> Plot::spawnTree( size_t nameHash, const Vec2u& position )
@@ -24,6 +24,7 @@ std::optional<Tree*> Plot::spawnTree( size_t nameHash, const Vec2u& position )
 		return {};
 
 	Tree* tree = &world->spawn<Tree>( treeInfo, info.nameHash );
+	tree->position = con::ConvertTo<Vec2f>( position );
 	assignedTrees.at( position ) = tree;
 
 	return tree;
@@ -35,6 +36,11 @@ std::optional<Tree*> Plot::getTree( const Vec2u& position )
 		return tree;
 
 	return {};
+}
+
+const con::FixedArray2D<Tree*>& Plot::getTreesArray()
+{
+	return assignedTrees;
 }
 
 const PlotInfo& Plot::getInfo()
