@@ -3,7 +3,7 @@ Panel."panel" {
     Size = (1280 - 256, 720 - 144);
 
     Renderer {
-        backgroundcolor = #0f990a;
+        backgroundcolor = rgb(30, 105, 60);
         bordercolor = black;
     }
 

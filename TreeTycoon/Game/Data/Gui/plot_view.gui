@@ -28,7 +28,7 @@ Renderer.2 {
 }
 
 Renderer.3 {
-    backgroundcolor = #0f990a;
+    backgroundcolor = rgb(30, 105, 60);
     padding = (0, 0, 0, 0);
 }
 
