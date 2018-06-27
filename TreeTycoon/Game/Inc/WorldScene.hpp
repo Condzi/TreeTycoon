@@ -29,7 +29,7 @@ private:
 	void loadGui()
 	{
 		auto& gui = con::Global.GUI;
-		gui.loadWidgetsFromFile( constants::WORLD_GUI_PATH );
+		gui.loadWidgetsFromFile( constants::WORLD_VIEW_GUI_PATH );
 
 		gui.get( "button_exit" )->connect( "pressed", []() {
 			con::Global.ExitGame = true;
