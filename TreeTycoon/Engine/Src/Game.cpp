@@ -67,7 +67,7 @@ void GameClass::configureFromSettings()
 	auto winHeight = ConvertTo<uint32_t>( settings.getValue( "WINDOW", "HEIGHT" ).value() );
 	auto fps = ConvertTo<uint32_t>( settings.getValue( "WINDOW", "FPS" ).value() );
 
-	Global.GameWindow.create( { winWidth, winHeight }, "game" );
+	Global.GameWindow.create( { winWidth, winHeight }, "game", sf::Style::Close );
 	Global.GUI.setView( Global.GameWindow.getView() );
 	Global.GameWindow.setFramerateLimit( fps );
 }

@@ -57,7 +57,9 @@ void InputClass::_dispatchEvents()
 
 	sf::Event event;
 	while ( Global.GameWindow.pollEvent( event ) ) {
-		if ( event.type == EventType::KeyReleased )
+		if ( event.type == EventType::Closed )
+			Global.ExitGame = true;
+		else if ( event.type == EventType::KeyReleased )
 			keyboardKeys.at( keyToInt( event.key.code ) ) = KeyState::Up;
 		else if ( event.type == EventType::KeyPressed )
 			keyboardKeys.at( keyToInt( event.key.code ) ) = KeyState::Down;
