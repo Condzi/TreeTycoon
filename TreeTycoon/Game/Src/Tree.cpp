@@ -44,6 +44,11 @@ void Tree::initButton()
 {
 	button = tgui::Button::create();
 	con::Global.GUI.add( button );
+	auto* buttonRenderer = button->getRenderer();
+	buttonRenderer->setBackgroundColor( tgui::Color::Transparent );
+	buttonRenderer->setBackgroundColorHover( tgui::Color::calcColorOpacity( sf::Color::White, 0.1 ) );
+	buttonRenderer->setBackgroundColorDown( tgui::Color::calcColorOpacity( sf::Color::White, 0.5 ) );
+
 	button->setSize( constants::TREE_TEXTURE_WIDTH, constants::TREE_TEXTURE_HEIGHT );
 
 	button->connect( "pressed", [&]() {
