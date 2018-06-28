@@ -25,6 +25,7 @@ public:
 				continue;
 
 			const Vec2f spritePos{ tree->position.x * texSz.x, tree->position.y * texSz.y };
+			tree->button->setPosition( spritePos );
 			tempSprite.setPosition( spritePos );
 			tempSprite.setTexture( *tree->texture );
 			tempSprite.setTextureRect( tree->getTextureRect() );
@@ -34,6 +35,8 @@ public:
 
 		mapSprite.setTexture( mapTexture.getTexture() );
 		setMapPosition();
+		// buttons positions are set above, but have to shift because whole map sprite is shifted
+		updateTreesButtonsPositions();
 	}
 
 private:
@@ -44,5 +47,14 @@ private:
 	{
 		mapSprite.setOrigin( mapSprite.getGlobalBounds().width / 2, mapSprite.getGlobalBounds().height / 2 );
 		mapSprite.setPosition( con::Global.GameWindow.getSize().x / 2, con::Global.GameWindow.getSize().y / 2 );
+	}
+
+	void updateTreesButtonsPositions()
+	{
+		const auto offset = mapSprite.getPosition() - mapSprite.getOrigin();
+		for ( auto tree : GlobalGameData.CurrentPlot->getTreesArray() ) {
+			auto& button = tree->button;
+			button->setPosition( button->getPosition() + offset );
+		}
 	}
 };

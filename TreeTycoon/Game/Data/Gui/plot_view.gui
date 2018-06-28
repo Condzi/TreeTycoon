@@ -73,7 +73,8 @@ Panel."panel_left" {
     }
 
     Picture."picture_tree" {
-        Visible = false;
+		Enabled = false;
+		Visible = false;
         Position = (0, 400);
         Size = (320, 320);
     
@@ -84,7 +85,8 @@ Panel."panel_left" {
     }
 
     Picture."picture_treetype" {
-        Visible = false;
+        Enabled = false;
+		Visible = false;
         Position = (230, 630);
         Size = (64, 64);
     
