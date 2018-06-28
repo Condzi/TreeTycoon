@@ -11,11 +11,6 @@ class PlotRenderingSystem final :
 	public con::System
 {
 public:
-	PlotRenderingSystem()
-	{
-		mapSprite.setPosition( 340, 20 );
-	}
-
 	void onUpdate() override
 	{
 		auto& trees = GlobalGameData.CurrentPlot->getTreesArray();
@@ -38,9 +33,16 @@ public:
 		}
 
 		mapSprite.setTexture( mapTexture.getTexture() );
+		setMapPosition();
 	}
 
 private:
 	sf::RenderTexture mapTexture;
 	con::Sprite mapSprite;
+
+	void setMapPosition()
+	{
+		mapSprite.setOrigin( mapSprite.getGlobalBounds().width / 2, mapSprite.getGlobalBounds().height / 2 );
+		mapSprite.setPosition( con::Global.GameWindow.getSize().x / 2, con::Global.GameWindow.getSize().y / 2 );
+	}
 };
