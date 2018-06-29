@@ -10,7 +10,6 @@ Panel."panel" {
     Label."label_title" {
         AutoSize = true;
         Position = (291.3, 0);
-        Size = (441.4, 96);
         Text = "Tree Tycoon";
         TextSize = 72;
     
@@ -49,7 +48,6 @@ Panel."panel" {
     Button."button_exit" {
         AutoSize = true;
         Position = (437, 400);
-        Size = (150, 50);
         TextSize = 36;
         Text = "Exit";
     }
