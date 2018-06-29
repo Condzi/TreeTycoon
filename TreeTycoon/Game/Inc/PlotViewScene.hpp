@@ -26,7 +26,7 @@ public:
 				for ( size_t x = 0; x < 12; x++ ) {
 					plot->spawnTree( std::hash<std::string>{}( "Apple" ), { x,y } ).value()->stats.growingState = con::Random( 0, 2 );
 				}
-		} 
+		}
 	}
 
 private:
@@ -41,7 +41,8 @@ private:
 		} );
 
 		gui.get( "button_world" )->connect( "pressed", []() {
-			 con::Global.SceneStack.pop();
+			GlobalGameData.CurrentPlot = nullptr;
+			con::Global.SceneStack.pop();
 		} );
 	}
 };

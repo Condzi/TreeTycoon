@@ -9,11 +9,8 @@
 #include "Plot.hpp"
 
 Tree::Tree( const TreeInfo* const info_, const std::string& parentPlotName ) :
-	info( info_ ),
-	parentPlotHash( std::hash<std::string>{}( parentPlotName ) )
-{
-	initButton();
-}
+	Tree( info_, std::hash<std::string>{}( parentPlotName ) )
+{}
 
 Tree::Tree( const TreeInfo* const info_, size_t parentPlotHash_ ) :
 	info( info_ ),
@@ -36,18 +33,27 @@ RectI Tree::getTextureRect() const
 
 void Tree::onUpdate()
 {
-	if ( GlobalGameData.CurrentPlot->getInfo().nameHash != parentPlotHash )
-		button->setEnabled( false );
+	const auto currentPlotNameHash = GlobalGameData.CurrentPlot ? GlobalGameData.CurrentPlot->getInfo().nameHash : 0;
+	auto& gui = con::Global.GUI;
+
+	if ( currentPlotNameHash == parentPlotHash && button->getParent() == nullptr )
+		gui.add( button );
+	else if ( currentPlotNameHash != parentPlotHash && button->getParent() != nullptr )
+		gui.remove( button );
 }
 
 void Tree::initButton()
 {
 	button = tgui::Button::create();
-	con::Global.GUI.add( button );
 	auto* buttonRenderer = button->getRenderer();
 	buttonRenderer->setBackgroundColor( tgui::Color::Transparent );
-	buttonRenderer->setBackgroundColorHover( tgui::Color::calcColorOpacity( sf::Color::White, 0.1 ) );
-	buttonRenderer->setBackgroundColorDown( tgui::Color::calcColorOpacity( sf::Color::White, 0.5 ) );
+	buttonRenderer->setBackgroundColorHover( tgui::Color::Transparent );
+	buttonRenderer->setBackgroundColorDown( tgui::Color::Transparent );
+	buttonRenderer->setBorderColorHover( tgui::Color::calcColorOpacity( tgui::Color::White, 0.1 ) );
+	buttonRenderer->setBorderColorFocused( tgui::Color::calcColorOpacity( tgui::Color::White, 0.5 ) );
+	buttonRenderer->setBorderColor( tgui::Color::Transparent );
+	buttonRenderer->setBorderColorDown( tgui::Color::Transparent );
+
 
 	button->setSize( constants::TREE_TEXTURE_WIDTH, constants::TREE_TEXTURE_HEIGHT );
 
