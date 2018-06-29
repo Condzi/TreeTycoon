@@ -54,7 +54,6 @@ void Tree::initButton()
 	buttonRenderer->setBorderColor( tgui::Color::Transparent );
 	buttonRenderer->setBorderColorDown( tgui::Color::Transparent );
 
-
 	button->setSize( constants::TREE_TEXTURE_WIDTH, constants::TREE_TEXTURE_HEIGHT );
 
 	button->connect( "pressed", [&]() {
@@ -64,6 +63,17 @@ void Tree::initButton()
 		pic->setEnabled( true );
 		pic->setVisible( true );
 		pic->getRenderer()->setTexture( { *texture, getTextureRect() } );
+
+		auto treeName = gui.get<tgui::Label>( "label_treename" );
+		treeName->setEnabled( true );
+		treeName->setVisible( true );
+		treeName->setText( info->name );
+
+		auto treeFruits = gui.get<tgui::Label>( "label_treefruits" );
+		treeFruits->setEnabled( true );
+		treeFruits->setVisible( true );
+		treeFruits->setText( info->fruitType );
+
 	} );
 }
 

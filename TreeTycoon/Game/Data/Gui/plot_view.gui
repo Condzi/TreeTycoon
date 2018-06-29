@@ -100,7 +100,6 @@ Panel."panel_left" {
         Visible = false;
         AutoSize = true;
         Position = (0, 280);
-        Size = (182.8, 43);
         Text = "tree_name";
         TextSize = 32;
         renderer = &2;
@@ -110,7 +109,6 @@ Panel."panel_left" {
         Visible = false;
         AutoSize = true;
         Position = (0, 330);
-        Size = (176.8, 43);
         Text = "tree_fruits";
         TextSize = 32;
         renderer = &2;
