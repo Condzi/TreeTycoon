@@ -24,7 +24,7 @@ Renderer.2 {
     backgroundcolor = transparent;
     bordercolor = #3C3C3C;
     borders = (0, 0, 0, 0);
-    textcolor = #3C3C3C;
+    textcolor = #691E4B;
 }
 
 Renderer.3 {
@@ -116,7 +116,7 @@ Panel."panel_left" {
 }
 
 Panel."panel_right" {
-    Position = (1040, 0);
+    Position = (960, 0);
     Size = (0.25 * &.size, &.size);
     renderer = &3;
 }

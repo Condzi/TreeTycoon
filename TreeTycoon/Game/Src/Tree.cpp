@@ -73,7 +73,6 @@ void Tree::initButton()
 		treeFruits->setEnabled( true );
 		treeFruits->setVisible( true );
 		treeFruits->setText( info->fruitType );
-
 	} );
 }
 
