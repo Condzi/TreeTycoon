@@ -14,7 +14,8 @@ class Scene;
 
 class Entity :
 	public IUpdatable,
-	public ILogger
+	public ILogger,
+	public sf::NonCopyable
 {
 public:
 	RULE_OF_FIVE( Entity );

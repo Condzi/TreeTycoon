@@ -19,7 +19,7 @@ public:
 		mapTexture.create( mapSz.x * texSz.x, mapSz.y * texSz.y );
 		sf::Sprite tempSprite;
 
-		mapTexture.clear( sf::Color::Transparent );
+		mapTexture.clear( sf::Color( 30, 105, 60 ) );
 		for ( const auto tree : trees ) {
 			if ( !tree )
 				continue;
@@ -33,6 +33,7 @@ public:
 			mapTexture.display();
 		}
 
+		mapSprite.setDrawLayer( -1 );
 		mapSprite.setTexture( mapTexture.getTexture() );
 		setMapPosition();
 		// buttons positions are set above, but have to shift because whole map sprite is shifted
