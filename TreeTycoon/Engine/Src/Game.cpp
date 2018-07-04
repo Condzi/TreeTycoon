@@ -69,6 +69,7 @@ void GameClass::configureFromSettings()
 
 	Global.GameWindow.create( { winWidth, winHeight }, "game", sf::Style::Close );
 	Global.GUI.setView( Global.GameWindow.getView() );
+	Global.GUI.setDrawLayer( std::numeric_limits<int16_t>::max() );
 	Global.GameWindow.setFramerateLimit( fps );
 }
 }
