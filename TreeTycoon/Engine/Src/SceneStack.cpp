@@ -63,7 +63,7 @@ void SceneStackClass::requestAction( Action&& action )
 	else
 		log( LogPriority::Info, "request \"", getOperationAsString( action.operation ), "\"." );
 
-	pendingActions.emplace_back( std::move( action ) );
+	actionBuffer.emplace_back( std::move( action ) );
 }
 
 void SceneStackClass::applyPush( SceneID id )
@@ -104,6 +104,8 @@ void SceneStackClass::applyDisable()
 
 void SceneStackClass::applyActions()
 {
+	pendingActions = actionBuffer;
+	actionBuffer.clear();
 	// Action is that small it's not worth using reference
 	for ( auto action : pendingActions ) {
 		switch ( action.operation ) {

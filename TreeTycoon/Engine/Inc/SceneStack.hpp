@@ -76,6 +76,7 @@ private:
 	SceneFactory factory;
 	std::vector<std::unique_ptr<Scene>> scenes;
 	std::vector<Action> pendingActions;
+	std::vector<Action> actionBuffer;
 
 	std::string loggerName() const override
 	{
