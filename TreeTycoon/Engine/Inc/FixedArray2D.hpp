@@ -36,23 +36,45 @@ public:
 		return Helper{ this, x };
 	}
 
+	auto operator[]( size_t x ) const
+	{
+		struct Helper final
+		{
+			T& operator[]( size_t y )
+			{
+				return arr->at( { xCoord,y } );
+			}
+
+			FixedArray2D<T>* arr;
+			size_t xCoord;
+		};
+
+		return Helper{ this, x };
+	}
+
+	size_t sizeFlat() const
+	{
+		return data.size();
+	}
+
 	Vec2u size2D() const
 	{
 		return size;
-	}
-	Vec2u count() const
-	{
-		return data.size();
 	}
 	bool empty() const
 	{
 		return data.empty();
 	}
-	void reset( const Vec2u& newSize )
+	void reset( const Vec2u& newSize, const T& value = T{} )
 	{
 		data.clear();
-		data.resize( newSize.x * newSize.y );
+		data.resize( newSize.x * newSize.y, value );
 		size = newSize;
+	}
+
+	void fill( const T& value )
+	{
+		std::fill( data.begin(), data.end(), value );
 	}
 
 	T& at( const Vec2u& coord )
@@ -113,7 +135,7 @@ private:
 	Vec2u size;
 	std::vector<T> data;
 
-	size_t coordToIndex( const Vec2u& coord )
+	size_t coordToIndex( const Vec2u& coord ) const
 	{
 		return size.x * coord.y + coord.x;
 	}
