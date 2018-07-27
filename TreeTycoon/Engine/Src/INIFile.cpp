@@ -82,7 +82,16 @@ std::optional<std::string> INIFile::getValue( const std::string& section, const 
 
 void INIFile::setValue( const std::string& section, const std::string& name, const std::string& value )
 {
-	sections[section].emplace_back( NameValuePair{ name, value } );
+	// Try to find it, if fail then create new one.
+	auto& sectionVec = sections[section];
+	auto it = std::find_if( sectionVec.begin(), sectionVec.end(), [&]( NameValuePair& pair ) {
+		return pair.name == name;
+	} );
+
+	if ( it != sectionVec.end() )
+		it->value = value;
+	else
+		sections[section].emplace_back( NameValuePair{ name, value } );
 }
 
 void INIFile::parse( const std::vector<std::string>& data )
