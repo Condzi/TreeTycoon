@@ -9,7 +9,7 @@
 
 namespace con
 {
-void Scene::_enable()
+void Scene::Enable()
 {
 	switch ( status ) {
 	case Status::Enabled:
@@ -32,7 +32,7 @@ void Scene::_enable()
 	}
 }
 
-void Scene::_disable()
+void Scene::Disable()
 {
 	switch ( status ) {
 	case Status::Enabled:

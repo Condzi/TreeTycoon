@@ -91,7 +91,7 @@ void SceneStackClass::applyEnable()
 	if ( scenes.empty() )
 		return log( LogPriority::Error, "failed to Enable current scene: empty stack." );
 
-	scenes.back()->_enable();
+	scenes.back()->Enable();
 }
 
 void SceneStackClass::applyDisable()
@@ -99,7 +99,7 @@ void SceneStackClass::applyDisable()
 	if ( scenes.empty() )
 		return log( LogPriority::Error, "failed to Disable current scene: empty stack." );
 
-	scenes.back()->_disable();
+	scenes.back()->Disable();
 }
 
 void SceneStackClass::applyActions()

@@ -67,8 +67,15 @@ public:
 		return systems.addSystem<TSystem>( updatePriority, std::forward<TArgs>( args )... );
 	}
 
-	void _enable();
-	void _disable();
+	Status getStatus() const
+	{
+		return status;
+	}
+
+	// Immidietly enables scene.
+	void Enable();
+	// Immidietly disables scene.
+	void Disable();
 	void _update();
 
 private:
