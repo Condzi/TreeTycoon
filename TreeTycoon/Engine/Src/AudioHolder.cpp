@@ -31,6 +31,8 @@ void SoundHolder::play( const std::string& name )
 void SoundHolder::setVolume( uint8_t value )
 {
 	volume = value;
+	for ( auto& player : players )
+		player.setVolume( static_cast<float32_t>( value ) );
 }
 
 sf::SoundBuffer* SoundHolder::findSoundBuffer( const std::string& name )
@@ -60,7 +62,7 @@ sf::Sound* SoundHolder::findFreeSoundPlayer()
 void SoundHolder::assignSoundPlayer( sf::Sound& player, sf::SoundBuffer& buffer )
 {
 	player.stop();
-	player.setVolume( ConvertTo<float>( volume ) );
+	player.setVolume( ConvertTo<float32_t>( volume ) );
 	player.setBuffer( buffer );
 	player.play();
 }
@@ -83,6 +85,7 @@ void MusicHolder::play( const std::string& name )
 void MusicHolder::setVolume( uint8_t value )
 {
 	volume = value;
+	player.setVolume( ConvertTo<float>( volume ) );
 }
 
 bool MusicHolder::isPlaying()
